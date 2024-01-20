@@ -1,4 +1,6 @@
 <script setup>
+import {gsap} from 'gsap';
+
 const emit = defineEmits(['toggle-menu']);
 
 const menuOpen = ref(false);
@@ -6,6 +8,26 @@ const menuOpen = ref(false);
 function toggleMenu() {
   emit('toggle-menu');
 }
+
+onMounted(() => {
+  const logo = document.querySelector('.header-figure-logo');
+  const menuButton = document.querySelector('.header-button');
+
+  gsap.from(logo, {
+    duration: 1.5,
+    scale: 0,
+    x: '50vw',
+    y: '50vh',
+    ease: 'power3.out',
+    onComplete: () => {
+      gsap.to(menuButton, {
+        duration: 0.5,
+        opacity: 1,
+        ease: 'power2.inOut'
+      })
+    }
+  });
+})
 
 </script>
 <template>
@@ -54,6 +76,7 @@ function toggleMenu() {
     text-decoration: none;
     color: $white;
     font-size: 1rem;
+    opacity: 0;
     @media (min-width: 700px) {
       display: none;
     }
