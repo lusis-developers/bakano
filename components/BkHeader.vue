@@ -12,6 +12,7 @@ function toggleMenu() {
 onMounted(() => {
   const logo = document.querySelector('.header-figure-logo');
   const menuButton = document.querySelector('.header-button');
+  const menuButtons = document.querySelectorAll('.header-details-button');
 
   gsap.from(logo, {
     duration: 1.5,
@@ -24,7 +25,14 @@ onMounted(() => {
         duration: 0.5,
         opacity: 1,
         ease: 'power2.inOut'
-      })
+      });
+      menuButtons.forEach((button, index) => {
+        gsap.to(button, {
+          duration: 0.5,
+          opacity: 1,
+          ease: 'power2.out'
+        });
+      });
     }
   });
 })
@@ -96,6 +104,7 @@ onMounted(() => {
 				font-weight: 700;
 				color: $white;
         text-decoration: none;
+        opacity: 0;
 				&:hover {
 					border: none;
 					font-weight: 700;
