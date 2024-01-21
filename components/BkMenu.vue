@@ -44,7 +44,7 @@ function closeMenu() {
   padding: 24px;
   width: 100%;
   height: 100vh;
-  background-color: $purple;
+  background-color: $pink;
   color: white;
   position: absolute;
   top: 0;
