@@ -2,9 +2,13 @@
 const emit = defineEmits(['toggle-menu']);
 
 const menuOpen = ref(false);
+const headerTransitionEnded = ref(false);
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
+}
+function onHeaderTransitionEnd() {
+  headerTransitionEnded.value = true; 
 }
 </script>
 
@@ -12,11 +16,13 @@ function toggleMenu() {
   <div class="container">
 
     <div class="container-first-section">
-      <BkHeader @toggle-menu="toggleMenu"/>
+      <BkHeader 
+        @toggle-menu="toggleMenu"  
+        @header-transition-end="onHeaderTransitionEnd"/>
       <BkMenu :isVisible="menuOpen" @close-menu="toggleMenu"/>
     </div>
     <div class="container-second-section">
-      <Hero/>
+      <Hero v-if="headerTransitionEnded"/>
     </div>
   </div>
 </template>
@@ -29,6 +35,9 @@ function toggleMenu() {
   }
   &-second-section {
     width: 100%;
+    background-color: $black;
+    width: 100%;
+    height: 100vh;
   }
 }
 </style>
