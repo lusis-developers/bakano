@@ -7,7 +7,7 @@ onMounted(() => {
   const phrase = document.querySelector('.container-figure-phrase');
 
   gsap.from(logo, {
-    duration: 3,
+    duration: 2,
     y: '-100vh',
     ease: 'bounce.out',
     onComplete: () => {
