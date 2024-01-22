@@ -1,12 +1,18 @@
 <script setup>
-import gsap from 'gsap'
+import gsap from 'gsap';
+
+const bkWordFinished = ref(false);
+
+function  handleAnimationFinished () {
+  bkWordFinished.value = true;
+}
 </script>
 
 <template>
   <div class="container">
     <div class="container-words">
-      <BkWord />
-      <HeroBkLogo />
+      <BkWord @animationFinished="handleAnimationFinished" />
+      <HeroBkLogo v-if="bkWordFinished" />
     </div>
   </div>
 </template>
