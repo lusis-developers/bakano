@@ -1,7 +1,7 @@
 <script setup>
 import {gsap} from 'gsap';
 
-const emit = defineEmits(['toggle-menu']);
+const emit = defineEmits(['toggle-menu', 'header-transition-end']);
 
 const menuOpen = ref(false);
 
@@ -21,6 +21,7 @@ onMounted(() => {
     y: '50vh',
     ease: 'power3.out',
     onComplete: () => {
+      emit('header-transition-end');
       gsap.to(menuButton, {
         duration: 0.5,
         opacity: 1,
