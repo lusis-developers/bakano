@@ -14,31 +14,47 @@ onMounted(() => {
   const menuButton = document.querySelector('.header-button');
   const menuButtons = document.querySelectorAll('.header-details-button');
 
-  gsap.from(logo, {
-    duration: 1.5,
-    scale: 0,
-    x: '50vw',
-    y: '50vh',
-    ease: 'power3.out',
+  const timeline = gsap.timeline({
     onComplete: () => {
       emit('header-transition-end');
-      gsap.to(menuButton, {
-        duration: 0.5,
-        opacity: 1,
-        ease: 'power2.inOut'
-      });
-      menuButtons.forEach((button, index) => {
-        gsap.to(button, {
-          duration: 0.5,
-          opacity: 1,
-          ease: 'power2.out'
-        });
-      });
     }
+  })
+
+  timeline.fromTo(logo, {
+    scale: 0,
+    duration: 2,
+    ease: 'power3.inOut'
+  }, {
+    scale: 1,
+    duration: 2,
+    ease: 'power3.inOut'
+  });
+  timeline.fromTo(logo, {
+    x: '45vw',
+    y: '45vh',
+    duration: 1.5,
+    ease: 'power3.out'
+  }, {
+    x: '0',
+    y: '0',
+    duration: 2,
+    ease: 'power3.out'
+  });
+  timeline.to(menuButton, {
+    duration: 0.5,
+    opacity: 1,
+    ease: 'power2.inOut'
+  });
+  menuButtons.forEach((button, index) => {
+    timeline.to(button, {
+      duration: 0.5,
+      opacity: 1,
+      ease: 'power2.out'
+    });
   });
 })
-
 </script>
+
 <template>
   <header class="header">
     <RouterLink to="/" class="header-figure">
