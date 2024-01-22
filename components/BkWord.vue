@@ -1,6 +1,8 @@
 <script setup>
 import gsap from 'gsap'
 
+const emit = defineEmits(['animationFinished'])
+
 const words = [
   {
     text: "Sapo"
@@ -38,13 +40,15 @@ onMounted(() => {
   const words = document.querySelectorAll('.container-word');
 
   gsap.from(words, {
-    duration: 2,
+    duration: 1,
     scale: 0,
     ease: 'power3.out',
-    stagger: 0.5
+    stagger: 0.3,
+    onComplete: () => {
+      emit('animationFinished')
+    }
   })
 })
-
 </script>
 
 <template>
