@@ -11,7 +11,7 @@ function  handleAnimationFinished () {
 <template>
   <div class="container">
     <div class="container-words">
-      <HeroBkWords @animationFinished="handleAnimationFinished" />
+      <HeroBkWords />
     </div>
   </div>
 </template>
