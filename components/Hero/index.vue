@@ -11,8 +11,7 @@ function  handleAnimationFinished () {
 <template>
   <div class="container">
     <div class="container-words">
-      <BkWord @animationFinished="handleAnimationFinished" />
-      <HeroBkLogo v-if="bkWordFinished" />
+      <HeroBkWords @animationFinished="handleAnimationFinished" />
     </div>
   </div>
 </template>
@@ -20,9 +19,6 @@ function  handleAnimationFinished () {
 <style lang="scss" scoped>
 .container {
   background-color: $black;
-  display: flex;
-  &-words {
-    width: 100%;
-  }
+  width: 100%;
 }
 </style>
