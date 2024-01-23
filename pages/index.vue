@@ -29,15 +29,14 @@ function onHeaderTransitionEnd() {
 
 <style lang="scss" scoped>
 .container {
-  height: 100vh;
+  height: 80vh;
   &-first-section {
     background-color: $black;
   }
   &-second-section {
     width: 100%;
     background-color: $black;
-    width: 100%;
-    height: 100vh;
+    height: 90vh;
   }
 }
 </style>
