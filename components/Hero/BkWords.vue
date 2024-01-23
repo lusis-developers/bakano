@@ -1,5 +1,5 @@
 <script setup>
-import gsap from 'gsap'
+import { gsap } from 'gsap'
 
 const emit = defineEmits(['animationFinished'])
 
@@ -48,10 +48,7 @@ onMounted(() => {
     scale: 0,
     ease: 'power3.out',
     stagger: 0.3,
-    onComplete: () => {
-      emit('animationFinished')
-    }
-  })
+  });
 })
 </script>
 
@@ -71,6 +68,7 @@ onMounted(() => {
       {{ word.text  }}
     </p>
   </div>
+  <div class="locura"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -86,5 +84,9 @@ onMounted(() => {
     font-size: 2rem;
     font-family: $primary-font;
   }
+}
+.locura {
+  width: 100%;
+  height: 100vh;
 }
 </style>
