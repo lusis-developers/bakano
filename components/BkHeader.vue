@@ -31,7 +31,7 @@ onMounted(() => {
   });
   timeline.fromTo(logo, {
     x: '45vw',
-    y: '45vh',
+    y: '50vh',
     duration: 1.5,
     ease: 'power3.out'
   }, {
@@ -87,7 +87,7 @@ onMounted(() => {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  max-width: 1024px;
+  max-width: 2048px;
   margin: 0 auto;
   &-figure {
     &-logo {
