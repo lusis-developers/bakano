@@ -36,6 +36,10 @@ const words = [
   }
 ];
 
+const half = Math.ceil(words.length / 2);  
+const firstHalf = words.splice(0, half);
+const secondHalf = words.splice(-half);
+
 onMounted(() => {
   const words = document.querySelectorAll('.container-word');
 
@@ -54,8 +58,15 @@ onMounted(() => {
 <template>
   <div class="container">
     <p 
-      v-for="word, index) in words" 
+      v-for="word, index) in firstHalf" 
       :key="index"
+      class="container-word">
+      {{ word.text  }}
+    </p>
+    <HeroBkLogo/>
+    <p 
+      v-for="(word, index) in secondHalf" 
+      :key="'second-' + index"
       class="container-word">
       {{ word.text  }}
     </p>
@@ -64,7 +75,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .container {
-  padding: 24px;
+  padding: 96px 24px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
