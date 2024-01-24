@@ -2,22 +2,38 @@
 import gsap from 'gsap'
 import Typed from 'typed.js'
 
-onMounted(() => {
-  const logo = document.querySelector('.container-figure-image');
-  const phrase = document.querySelector('.container-figure-phrase');
+const props = defineProps({
+  startAnimation: {
+    type: Boolean,
+    required: false,
+    default: false,
+  }
+})
 
-  gsap.from(logo, {
-    duration: 2,
-    y: '-100vh',
-    ease: 'bounce.out',
-    onComplete: () => {
-      new Typed(phrase, {
-        strings: ['Agencia digital'],
-        typeSpeed: 50,
-        startDelay: 0,
-      })
-    }
-  })
+let logo = ref(null)
+let phrase = ref(null)
+
+onMounted(() => {
+  logo.value = document.querySelector('.container-figure-image')
+  phrase.value = document.querySelector('.container-figure-phrase')
+})
+
+watch(() => props.startAnimation, (newVal) => {
+  if (newVal) {
+    logo.value.style.visibility = 'visible'
+    gsap.from(logo.value, {
+      duration: 2,
+      y: '-100vh',
+      ease: 'bounce.out',
+      onComplete: () => {
+        new Typed(phrase.value, {
+          strings: ['Agencia digital'],
+          typeSpeed: 50,
+          startDelay: 0,
+        })
+      }
+    })
+  }
 })
 </script>
 
@@ -47,6 +63,7 @@ onMounted(() => {
     max-width: 800px;
     &-image {
       width: 100%;
+      visibility: hidden;
     }
     &-phrase {
       color: $white;

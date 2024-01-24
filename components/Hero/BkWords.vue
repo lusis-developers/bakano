@@ -1,7 +1,11 @@
 <script setup>
 import { gsap } from 'gsap'
 
-const emit = defineEmits(['animationFinished'])
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const startLogoAnimation = ref(false)
 
 const words = [
   {
@@ -48,6 +52,9 @@ onMounted(() => {
     scale: 0,
     ease: 'power3.out',
     stagger: 0.3,
+    onComplete: () => {
+      startLogoAnimation.value = true;
+    }
   });
 })
 </script>
@@ -60,7 +67,7 @@ onMounted(() => {
       class="container-word">
       {{ word.text  }}
     </p>
-    <HeroBkLogo/>
+    <HeroBkLogo :startAnimation="startLogoAnimation"/>
     <p 
       v-for="(word, index) in secondHalf" 
       :key="'second-' + index"
