@@ -1,6 +1,5 @@
 <script setup>
 import { gsap } from 'gsap'
-
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -39,23 +38,50 @@ const words = [
     text: "Camarón"
   }
 ];
-
 const half = Math.ceil(words.length / 2);  
 const firstHalf = words.splice(0, half);
 const secondHalf = words.splice(-half);
 
 onMounted(() => {
-  const words = document.querySelectorAll('.container-word');
+  const rightWords = document.querySelectorAll('.container-word');
+  const leftWords = document.querySelectorAll('.container-word2');
 
-  gsap.from(words, {
+  gsap.from(rightWords, {
     duration: 1,
     scale: 0,
     ease: 'power3.out',
     stagger: 0.3,
     onComplete: () => {
       startLogoAnimation.value = true;
-    }
+    }, 
   });
+  gsap.to(rightWords, {
+    x: '1000%', 
+    scrollTrigger: {
+      trigger: '.container',
+      start: 'top',
+      end: 'bottom',
+      scrub: true,
+    }
+  })
+  gsap.from(leftWords, {
+    duration: 1,
+    scale: 0,
+    ease: 'power3.out',
+    stagger: 0.3,
+    onComplete: () => {
+      startLogoAnimation.value = true;
+    }, 
+  });
+  gsap.to(leftWords, {
+    x: '-1000%', 
+    scrollTrigger: {
+      trigger: '.container',
+      start: 'top',
+      end: 'bottom',
+      scrub: true,
+    }
+  })
 })
 </script>
 
@@ -71,29 +97,25 @@ onMounted(() => {
     <p 
       v-for="(word, index) in secondHalf" 
       :key="'second-' + index"
-      class="container-word">
+      class="container-word2">
       {{ word.text  }}
     </p>
   </div>
-  <div class="locura"></div>
 </template>
 
 <style lang="scss" scoped>
 .container {
+  overflow-x: hidden;
   padding: 96px 24px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 24px;
-  &-word {
+  &-word, &-word2 {
     color: $white;
     transform-origin: center;
     font-size: 2rem;
     font-family: $primary-font;
   }
-}
-.locura {
-  width: 100%;
-  height: 100vh;
 }
 </style>
