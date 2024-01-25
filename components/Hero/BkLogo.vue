@@ -10,13 +10,8 @@ const props = defineProps({
   }
 })
 
-let logo = ref(null)
-let phrase = ref(null)
-
-onMounted(() => {
-  logo.value = document.querySelector('.container-figure-image')
-  phrase.value = document.querySelector('.container-figure-phrase')
-})
+const logo = ref(null);
+const phrase = ref(null);
 
 watch(() => props.startAnimation, (newVal) => {
   if (newVal) {
@@ -34,6 +29,11 @@ watch(() => props.startAnimation, (newVal) => {
       }
     })
   }
+})
+
+onMounted(() => {
+  logo.value = document.querySelector('.container-figure-image')
+  phrase.value = document.querySelector('.container-figure-phrase')
 })
 </script>
 
