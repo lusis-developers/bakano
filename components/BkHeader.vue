@@ -1,11 +1,22 @@
 <script setup>
 import {gsap} from 'gsap';
+import blanco from '../assets/images/bakan-isotipo-blanco.png'
+import negro from '../assets/images/bakano-isotipo-negro.png'
 
 const emit = defineEmits(['toggle-menu', 'header-transition-end']);
+
+const props = defineProps({
+  menuClosed: {
+    type: String,
+    required: false,
+    default: false,
+  }  
+});
 
 const menuOpen = ref(false);
 
 function toggleMenu() {
+  menuOpen.value = !menuOpen.value;
   emit('toggle-menu');
 }
 
@@ -59,8 +70,8 @@ onMounted(() => {
   <header class="header">
     <RouterLink to="/" class="header-figure">
       <img
-          class="header-figure-logo" 
-          src="@/assets/images/bakan-isotipo-blanco.png" alt="Bakano">
+        class="header-figure-logo" 
+        :src="props.menuClosed ? negro : blanco">
     </RouterLink>
     <button
 			class="header-button"
@@ -77,7 +88,6 @@ onMounted(() => {
 			</router-link>
 		</div>
   </header>
-  <BkMenu :menuOpen="menuOpen"/>
 </template>
 
 <style lang="scss" scoped>
@@ -90,9 +100,11 @@ onMounted(() => {
   max-width: 2048px;
   margin: 0 auto;
   &-figure {
+    z-index: 5;
     &-logo {
       width: 80px;
       height: 80px;
+      z-index: 5;
     }
   }
   &-button {

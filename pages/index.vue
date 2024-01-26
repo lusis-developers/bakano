@@ -3,9 +3,11 @@ const emit = defineEmits(['toggle-menu']);
 
 const menuOpen = ref(false);
 const headerTransitionEnded = ref(false);
+const menuClosed = ref(false);  
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
+  menuClosed.value = !menuClosed.value;
 }
 function onHeaderTransitionEnd() {
   headerTransitionEnded.value = true; 
@@ -17,6 +19,7 @@ function onHeaderTransitionEnd() {
 
     <div class="container-first-section">
       <BkHeader 
+        :menu-closed="menuClosed" 
         @toggle-menu="toggleMenu"  
         @header-transition-end="onHeaderTransitionEnd"/>
       <BkMenu :isVisible="menuOpen" @close-menu="toggleMenu"/>

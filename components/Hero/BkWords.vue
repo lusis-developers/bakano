@@ -123,20 +123,6 @@ onMounted(() => {
   justify-content: space-around;
   gap: 24px;
   &-word, &-word2 {
-    /**
-     * Componente para mostrar palabras destacadas en el héroe.
-     *
-     * Propiedades:
-     * - color: el color de la palabra.
-     * - transform-origin: el punto de origen de la transformación.
-     * - font-size: el tamaño de la fuente.
-     * - font-family: la familia de fuentes.
-     * - font-weight: el peso de la fuente.
-     *
-     * Transiciones:
-     * - Al pasar el cursor por encima, el color de la palabra cambia suavemente.
-     *   La transición se realiza de izquierda a derecha.
-     */
     color: $white;
     transform-origin: center;
     font-size: 2rem;
