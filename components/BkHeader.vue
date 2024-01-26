@@ -1,7 +1,7 @@
 <script setup>
 import {gsap} from 'gsap';
-import blanco from '../assets/images/bakan-isotipo-blanco.png'
-import negro from '../assets/images/bakano-isotipo-negro.png'
+import whiteLogo from '../assets/images/bakan-isotipo-blanco.png'
+import blackLogo from '../assets/images/bakano-isotipo-negro.png'
 
 const emit = defineEmits(['toggle-menu', 'header-transition-end']);
 
@@ -70,8 +70,8 @@ onMounted(() => {
   <header class="header">
     <RouterLink to="/" class="header-figure">
       <img
-        class="header-figure-logo" 
-        :src="props.menuClosed ? negro : blanco">
+        :src="props.menuClosed ? blackLogo : whiteLogo"
+        class="header-figure-logo">
     </RouterLink>
     <button
 			class="header-button"

@@ -111,7 +111,6 @@ onMounted(() => {
       {{ word.text  }}
     </p>
   </div>
-  <div class="locura"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -151,9 +150,4 @@ onMounted(() => {
     }
    }
 }
-.locura {
-  width: 100%;
-  height: 100vh;
-}
-
 </style>
