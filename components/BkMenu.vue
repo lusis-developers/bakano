@@ -19,9 +19,6 @@ function closeMenu() {
   <transition name="slide-down">
     <div v-if="props.isVisible" class="menu">
       <header class="menu-header">
-        <RouterLink  to="/" class="menu-header-logo">
-          <img class="logo" src="@/assets/images/bakano-isotipo-negro.png" alt="Bakano">
-        </RouterLink>
         <button @click="closeMenu" class="menu-header-closeButton">
           <i class="fa-solid fa-close" />
         </button>
@@ -55,7 +52,8 @@ function closeMenu() {
   &-header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
+    padding: 12px 0;
     &-logo {
       width: 80px;
       height: 80px;
@@ -68,17 +66,23 @@ function closeMenu() {
       font-size: 2rem;
       background: none;
       border: none;
-      color: $white;
+      color: $black;
     }
   }
   &-buttons {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     gap: 16px;
     &-button {
       font-size: 2rem;
       text-decoration: none;
-      color: $white;
+      color: $black;
+      text-transform: uppercase;
+      font-weight: bold;
     }
   }
 }
