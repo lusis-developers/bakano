@@ -24,6 +24,8 @@ onMounted(() => {
   const logo = document.querySelector('.header-figure-logo');
   const menuButton = document.querySelector('.header-button');
   const menuButtons = document.querySelectorAll('.header-details-button');
+  const logoPositionX = (window.innerWidth / 2) - (document.querySelector('.header-figure-logo').clientWidth / 2);
+  const logoPositionY = (window.innerHeight / 2) - (document.querySelector('.header-figure-logo').clientHeight / 2)
 
   const timeline = gsap.timeline({
     onComplete: () => {
@@ -41,8 +43,8 @@ onMounted(() => {
     ease: 'power3.inOut'
   });
   timeline.fromTo(logo, {
-    x: '45vw',
-    y: '50vh',
+    x: `${logoPositionX}px`,
+    y: `${logoPositionY}px`,
     duration: 1.5,
     ease: 'power3.out'
   }, {
