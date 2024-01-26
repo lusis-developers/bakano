@@ -115,6 +115,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .container {
+  margin: 0 auto;
+  max-width: 1440px;
   overflow-x: hidden;
   padding: 96px 24px;
   display: flex;
