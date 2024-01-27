@@ -87,6 +87,8 @@ function closeMenu() {
   }
 }
 
+
+// transition to close menu
 .slide-down-enter-active, .slide-down-leave-active {
   transition: all 0.3s ease;
 }
