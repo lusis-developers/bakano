@@ -1,5 +1,6 @@
 <script setup>
 import { gsap } from 'gsap';
+
 import whiteLogo from '../assets/images/bakan-isotipo-blanco.png'
 import blackLogo from '../assets/images/bakano-isotipo-negro.png'
 
