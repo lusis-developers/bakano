@@ -124,24 +124,24 @@ onMounted(() => {
   &-details{
     display: none;
     @media (min-width: 700px) {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				color: $black;
-        gap: 12px;
-			}
-			&-button {
-				border: none;
-				font-family: $primary-font;
-				font-weight: 700;
-				color: $white;
-        text-decoration: none;
-        opacity: 0;
-				&:hover {
-					border: none;
-					font-weight: 700;
-				}
-			}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $black;
+      gap: 12px;
+		}
+    &-button {
+      border: none;
+      font-family: $primary-font;
+      font-weight: 700;
+      color: $white;
+      text-decoration: none;
+      opacity: 0;
+      &:hover {
+        border: none;
+        font-weight: 700;
+      }
+    }
   }
 }
 </style>
