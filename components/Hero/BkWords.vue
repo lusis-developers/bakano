@@ -37,11 +37,10 @@ const words = [
     text: "Panas"
   }
 ];
-const colors = ['#1AFFFB', '#F46DFE', '#B3FE6D', '#FFB04F', '#3F9BFF'];
-
 const half = Math.ceil(words.length / 2);  
 const firstHalf = words.splice(0, half);
 const secondHalf = words.splice(-half);
+const colors = ['#1AFFFB', '#F46DFE', '#B3FE6D', '#FFB04F', '#3F9BFF'];
 
 function getColor (index)  {
   return colors[index];
