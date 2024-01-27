@@ -1,9 +1,9 @@
 <script setup>
-import {gsap} from 'gsap';
+import { gsap } from 'gsap';
 import whiteLogo from '../assets/images/bakan-isotipo-blanco.png'
 import blackLogo from '../assets/images/bakano-isotipo-negro.png'
 
-const emit = defineEmits(['toggle-menu', 'header-transition-end']);
+const emits = defineEmits(['toggle-menu', 'header-transition-end']);
 
 const props = defineProps({
   menuClosed: {
@@ -14,10 +14,11 @@ const props = defineProps({
 });
 
 const menuOpen = ref(false);
+const logo = computed(() => props.menuClosed ? blackLogo : whiteLogo)
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
-  emit('toggle-menu');
+  emits('toggle-menu');
 }
 
 onMounted(() => {
@@ -29,7 +30,7 @@ onMounted(() => {
 
   const timeline = gsap.timeline({
     onComplete: () => {
-      emit('header-transition-end');
+      emits('header-transition-end');
     }
   })
 
@@ -72,7 +73,7 @@ onMounted(() => {
   <header class="header">
     <RouterLink to="/" class="header-figure">
       <img
-        :src="props.menuClosed ? blackLogo : whiteLogo"
+        :src="logo"
         class="header-figure-logo">
     </RouterLink>
     <button
