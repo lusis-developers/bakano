@@ -8,7 +8,7 @@ const emits = defineEmits(['toggle-menu', 'header-transition-end']);
 
 const props = defineProps({
   menuClosed: {
-    type: String,
+    type: Boolean,
     required: false,
     default: false,
   }  
