@@ -113,6 +113,9 @@ async function sendEmail() {
     @media screen and (min-width: 768px) {
       font-size: $font-size-normal;
     }
+    @media screen and (min-width: 1600px) {
+      font-size: $font-size-large;
+    }
   }
 }
 

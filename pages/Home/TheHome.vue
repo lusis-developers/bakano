@@ -86,6 +86,9 @@ function closeMessageFormSubmited() {
     @media screen and (min-width: 768px) {
       font-size: $font-size-normal;
     }
+    @media screen and (min-width: 1600px) {
+      font-size: $font-size-large;
+    }
   }
 }
 
@@ -108,7 +111,7 @@ function closeMessageFormSubmited() {
 }
 
 .register-wrapper {
-  @media screen and (min-width: 1000px){
+  @media screen and (min-width: 1300px){
     display: flex;
     height: max-content;
     justify-content: center;
@@ -124,6 +127,12 @@ function closeMessageFormSubmited() {
   border: none;
   color: $black;
   background-color: $pink;
+  @media screen and (min-width: 768px) {
+    font-size: $font-size-normal;
+  }
+  @media screen and (min-width: 1600px) {
+    font-size: $font-size-large;
+  }
 }
 
 :deep(.crush-text-field .input-container) {
@@ -133,6 +142,12 @@ function closeMessageFormSubmited() {
 
 :deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $font-size-normal;
+  }
+  @media screen and (min-width: 1600px) {
+    font-size: $font-size-large;
+  }
 }
 
 :deep(.crush-text-field .input-container.active) {
