@@ -144,30 +144,9 @@ async function sendEmail() {
   background-image: url('@/assets/wave.svg');
   background-size: auto 70%;
   background-repeat: no-repeat;
-
-  @media screen and (min-height: 840px) and (max-width: 740px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  @media screen and (min-width: 768px) {
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media screen and (max-width: 1900px) and (min-height: 840px) {
-    background-size: auto 70%;
-    gap: 10%;
-  }
-
-  &-main {
-    @media screen and (min-height: 840px) and (max-width: 740px) {
-      position: absolute;
-      top: 0;
-    }
+  display: grid;
+  @media screen and (min-width: 1000px) {
+    background-size: auto 56%;
   }
 }
 
@@ -184,9 +163,7 @@ async function sendEmail() {
     font-weight: $font-weight-bold;
     color: #fff;
     text-align: center;
-
     @media screen and (min-width: 768px) {
-      margin-top: 1rem;
       font-size: $font-size-extra-large;
     }
   }
@@ -198,7 +175,6 @@ async function sendEmail() {
     text-align: center;
     color: #fff;
     margin-bottom: .8rem;
-
     @media screen and (min-width: 768px) {
       font-size: $font-size-normal;
     }
@@ -207,7 +183,7 @@ async function sendEmail() {
 
 .figure {
   margin: auto;
-  margin-bottom: .8rem;
+  margin-bottom: 1rem;
   max-width: 20rem;
   display: flex;
   justify-content: center;
@@ -218,20 +194,15 @@ async function sendEmail() {
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 40%;
-    margin-bottom: 0;
+    max-height: 100%;
+    max-width: 45%;
   }
 }
 
 .register-wrapper {
-  padding: 0 1rem;
-
   &-card {
-    @media screen and (min-width: 768px) {
-      max-width: 55%;
-      padding: 2rem;
-      margin: auto;
-    }
+    max-width: 80%;
+    margin: auto;
 
     &-paragraph {
       font-family: $secondary-font;
@@ -239,24 +210,21 @@ async function sendEmail() {
       font-size: $font-size-small;
       font-weight: $font-weight-bold;
       color: $black;
-
       @media screen and (min-width: 768px) {
         font-size: $font-size-normal;
-      }
-
-      @media screen and (min-width: 768px) and (max-height: 1000px) {
-        color: $white;
       }
     }
   }
 
-  @media screen and (min-width: 768px) and (max-height: 1000px) {
+  @media screen and (min-width: 1000px){
     display: flex;
+    height: max-content;
     justify-content: center;
     align-items: center;
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
     padding: 3rem 4rem;
+    gap: 10%;
   }
 }
 
@@ -270,57 +238,20 @@ async function sendEmail() {
   border: none;
   color: $black;
   background-color: $pink;
-
-  @media screen and (min-width: 768px) and (max-height: 1000px) {
-    background-color: $white;
-  }
 }
 
 :deep(.crush-text-field .input-container) {
   border-radius: 20px;
   padding: 0.7rem;
-
-  @media screen and (min-width: 768px) and (max-height: 1000px) {
-    border: 1.6px solid $white;
-  }
 }
 
-:deep(.crush-text-field .input-container.error-container) {
-  @media screen and (min-width: 768px) {
-    border-color: $black;
-  }
-}
-
-:deep(.crush-text-field .validation-error) {
-  @media screen and (min-width: 768px) {
-    color: $black;
-  }
-}
 
 :deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;
-
-  @media screen and (min-width: 768px) {
-    color: $white;
-    width: 90%;
-  }
 }
 
 :deep(.crush-text-field .input-container.active) {
   border-color: grey;
-
-  @media screen and (min-width: 768px) {
-    border-color: $white;
-  }
-}
-
-:deep(.crush-primary) {
-  background-color: grey;
-  z-index: 0;
-}
-
-:deep(.crush-primary:hover) {
-  background-color: darken(red, 100%);
 }
 
 .slide-in-down-enter-active {

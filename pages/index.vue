@@ -7,6 +7,3 @@ import TheHome from "@/pages/Home/TheHome.vue"
     <TheHome />
   </div>
 </template>
-
-<style lang="scss" scoped>
-</style>

@@ -20,13 +20,13 @@ const props = defineProps({
     <NuxtLink to="/">
       <figure class="header-figure">
         <img 
-        :src="IsotipoSrc" 
-        :alt="brandName" 
-        class="header-figure-isotipo" />
+          :src="IsotipoSrc" 
+          :alt="brandName" 
+          class="header-figure-isotipo" />
         <img 
-        :src="LogotipoSrc" 
-        :alt="brandName" 
-        class="header-figure-logotipo" />
+          :src="LogotipoSrc" 
+          :alt="brandName" 
+          class="header-figure-logotipo" />
       </figure>
     </NuxtLink>
   </header>
@@ -56,7 +56,6 @@ const props = defineProps({
       width: 130px;
     }
   }
-
 }
 </style>
 
