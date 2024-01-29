@@ -79,53 +79,61 @@ async function sendEmail() {
         :IsotipoSrc="BakanoIsotipoNegro" 
         :LogotipoSrc="BakanoLogotipoNegro" 
         brandName="Bakano" />
-
       <div class="main">
-        <h1 class="main-tittle">Hagamos que hablen de tu negocio</h1>
-        <h2 class="main-subtittle">Posiciónate en las Redes Sociales</h2>
+        <h1 class="main-tittle">
+          Hagamos que hablen de tu negocio
+        </h1>
+        <h2 class="main-subtittle">
+          Posiciónate en las Redes Sociales
+        </h2>
       </div>
     </div>
 
     <div class="register-wrapper">
       <figure class="figure">
-        <img src="@/assets/images/imagen-principal.jpg" alt="image" class="figure-img">
+        <img 
+          src="@/assets/images/imagen-principal.jpg" 
+          alt="image" 
+          class="figure-img" />
       </figure>
       <form class="register-wrapper-card">
-        <p class="register-wrapper-card-paragraph">¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
-          BAKANES para redes sociales de acuerdo con TU NEGOCIO</p>
+        <p class="register-wrapper-card-paragraph">
+          ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
+          BAKANES para redes sociales de acuerdo con TU NEGOCIO
+        </p>
 
         <CrushTextField 
-        v-model="form.name" 
-        :hideLabel=true 
-        :required=true 
-        :valid-rules="rules.validateName"
-        :key="inputKey" 
-        label="Nombre de tu negocio:" 
-        placeholder="Nombre de tu negocio" />
+          v-model="form.name" 
+          :hideLabel=true 
+          :required=true 
+          :valid-rules="rules.validateName"
+          :key="inputKey" 
+          label="Nombre de tu negocio:" 
+          placeholder="Nombre de tu negocio" />
 
         <CrushTextField 
-        v-model="form.phone" 
-        :hideLabel=true 
-        :required=true 
-        :valid-rules="rules.validateNumber"
-        :key="inputKey" 
-        label="Número de teléfono:" 
-        placeholder="Número de teléfono" />
+          v-model="form.phone" 
+          :hideLabel=true 
+          :required=true 
+          :valid-rules="rules.validateNumber"
+          :key="inputKey" 
+          label="Número de teléfono:" 
+          placeholder="Número de teléfono" />
 
         <div class="wrapper-button">
           <CrushButton 
-          :small=true 
-          text="¡Arranquemos!" 
-          variant="alert" 
-          @click.prevent="sendEmail" />
+            :small=true 
+            text="¡Arranquemos!" 
+            variant="alert" 
+            @click.prevent="sendEmail" />
         </div>
       </form>
     </div>
 
     <Transition name="slide-in-down" appear>
       <ViewFormSubmited 
-      v-if="showMessageFormSubmited" 
-      @close-menu="closeMessageFormSubmited" />
+        v-if="showMessageFormSubmited" 
+        @close-menu="closeMessageFormSubmited" />
     </Transition>
   </div>
 </template>
