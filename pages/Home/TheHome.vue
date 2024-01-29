@@ -9,12 +9,6 @@ import BakanoLogotipoNegro from "@/assets/images/bakano-logotipo-negro.png";
 
 const config = useRuntimeConfig();
 
-const showMessageFormSubmited = ref(false);
-const form = reactive({
-  name: '',
-  phone: '',
-})
-const inputKey = ref(0)
 const rules = {
   validateName: [
     {
@@ -29,6 +23,22 @@ const rules = {
     }
   ]
 }
+
+const showMessageFormSubmited = ref(false);
+const inputKey = ref(0)
+const form = reactive({
+  name: '',
+  phone: '',
+})
+
+const formIsValid = computed(() => {
+  return (
+    form.name !== '' &&
+    form.phone !== '' &&
+    rules.validateName.every(rule => rule.validate(form.name)) &&
+    rules.validateNumber.every(rule => rule.validate(form.phone))
+  )
+})
 
 function closeMessageFormSubmited() {
   showMessageFormSubmited.value = !showMessageFormSubmited.value;
@@ -60,24 +70,15 @@ async function sendEmail() {
     }
   }
 }
-
-const formIsValid = computed(() => {
-  return (
-    form.name !== '' &&
-    form.phone !== '' &&
-    rules.validateName.every(rule => rule.validate(form.name)) &&
-    rules.validateNumber.every(rule => rule.validate(form.phone))
-  )
-})
 </script>
 
 <template>
   <div class="wrapper">
     <div class="wrapper-main">
-      <PrincipalHeader 
-      :IsotipoSrc="BakanoIsotipoNegro" 
-      :LogotipoSrc="BakanoLogotipoNegro" 
-      brandName="Bakano" />
+      <Header 
+        :IsotipoSrc="BakanoIsotipoNegro" 
+        :LogotipoSrc="BakanoLogotipoNegro" 
+        brandName="Bakano" />
 
       <div class="main">
         <h1 class="main-tittle">Hagamos que hablen de tu negocio</h1>
@@ -186,6 +187,7 @@ const formIsValid = computed(() => {
     font-family: $secondary-font;
     font-size: $font-size-small;
     font-weight: $font-weight-normal;
+    text-align: center;
     color: #fff;
     margin-bottom: .8rem;
 
