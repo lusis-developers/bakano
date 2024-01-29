@@ -10,10 +10,16 @@ onMounted(() => {
 
 <template>
   <div class="form-submited">
-    <img src="@/assets/images/bakano-isotipo-negro.png" class="form-submited-logo">
+    <img 
+      src="@/assets/images/bakano-isotipo-negro.png" 
+      class="form-submited-logo">
     <div>
-      <h1 class="form-submited-tittle">¡Gracias por tu interés!</h1>
-      <p class="form-submited-subtittle">En breve nos pondremos en contacto contigo</p>
+      <h1 class="form-submited-tittle">
+        ¡Gracias por tu interés!
+      </h1>
+      <p class="form-submited-subtittle">
+        En breve nos pondremos en contacto contigo
+      </p>
     </div>
   </div>
 </template>
