@@ -26,8 +26,7 @@ function closeMessageFormSubmited() {
           Posiciónate en las Redes Sociales
         </h2>
       </div>
-    </div>
-
+    </div> 
     <div class="register-wrapper">
       <figure class="figure">
         <img 
@@ -37,7 +36,6 @@ function closeMessageFormSubmited() {
       </figure>
       <Form @close-message-form-submited="closeMessageFormSubmited"/>
     </div>
-
     <Transition name="slide-in-down" appear>
       <ViewFormSubmited 
         v-if="showMessageFormSubmited" 
@@ -57,14 +55,12 @@ function closeMessageFormSubmited() {
     background-size: auto 56%;
   }
 }
-
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 0 1rem;
-
   &-tittle {
     font-family: $primary-font;
     font-size: $font-size-large;
@@ -75,7 +71,6 @@ function closeMessageFormSubmited() {
       font-size: $font-size-extra-large;
     }
   }
-
   &-subtittle {
     font-family: $secondary-font;
     font-size: $font-size-small;
@@ -91,7 +86,6 @@ function closeMessageFormSubmited() {
     }
   }
 }
-
 .figure {
   margin: auto;
   margin-bottom: 1rem;
@@ -99,17 +93,17 @@ function closeMessageFormSubmited() {
   display: flex;
   justify-content: center;
   align-items: center;
-
   &-img {
     border-radius: 1.25rem;
+    @media screen and (max-width: 350px) {
+      max-width: 85%;
+    }
   }
-
   @media screen and (min-width: 768px) {
     max-height: 100%;
     max-width: 45%;
   }
 }
-
 .register-wrapper {
   @media screen and (min-width: 1200px){
     display: flex;
@@ -122,7 +116,6 @@ function closeMessageFormSubmited() {
     gap: 10%;
   }
 }
-
 :deep(.crush-button) {
   border: none;
   color: $black;
@@ -134,13 +127,11 @@ function closeMessageFormSubmited() {
     font-size: $font-size-large;
   }
 }
-
 :deep(.crush-text-field .input-container) {
   border-radius: 20px;
   padding: 0.7rem;
   border: 1.5px solid #8b888e;
 }
-
 :deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;
   @media screen and (min-width: 768px) {
@@ -150,31 +141,24 @@ function closeMessageFormSubmited() {
     font-size: $font-size-large;
   }
 }
-
 :deep(.crush-text-field .input-container.active) {
   border-color: grey;
 }
-
 .slide-in-down-enter-active {
   transition: all 0.3s ease;
 }
-
 .slide-in-down-enter-from {
   transform: translateY(-100%);
 }
-
 .slide-in-down-enter-to {
   transform: translateY(0);
 }
-
 .slide-in-down-leave-active {
   transition: all 0.3s ease;
 }
-
 .slide-in-down-leave-from {
   transform: translateY(0);
 }
-
 .slide-in-down-leave-to {
   transform: translateY(-100%);
 }

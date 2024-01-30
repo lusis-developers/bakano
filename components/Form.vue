@@ -10,7 +10,7 @@ const config = useRuntimeConfig();
 const rules = {
   validateName: [
     {
-      validate: (value: string) => value.length >= 6,
+      validate: (value: string) => value.length >= 1,
       message: 'Por favor, coloca tu nombre completo'
     }
   ],
@@ -70,7 +70,6 @@ async function sendEmail() {
       ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
       BAKANES para redes sociales de acuerdo con TU NEGOCIO
     </p>
-
     <CrushTextField 
       v-model="form.name" 
       :hideLabel=true 
@@ -79,7 +78,6 @@ async function sendEmail() {
       :key="inputKey"
       label="Nombre de tu negocio:" 
       placeholder="Nombre de tu negocio" />
-
     <CrushTextField 
       v-model="form.phone" 
       :hideLabel=true 
@@ -88,7 +86,6 @@ async function sendEmail() {
       :key="inputKey" 
       label="Número de teléfono:" 
       placeholder="Número de teléfono" />
-
     <div class="wrapper-button">
       <CrushButton 
         :small=true 
@@ -103,7 +100,6 @@ async function sendEmail() {
 .register-wrapper-card {
   max-width: 80%;
   margin: auto;
-
   &-paragraph {
     font-family: $secondary-font;
     margin-bottom: .9rem;
@@ -118,7 +114,6 @@ async function sendEmail() {
     }
   }
 }
-
 .wrapper-button {
   display: flex;
   justify-content: center;
