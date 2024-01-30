@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import BakanoIsotipoNegro from "@/assets/images/bakano-isotipo-negro.png"
+import BakanoLogotipoNegro from "@/assets/images/bakano-logotipo-negro.png";
+
 useHead({
   title: 'BAKANO | Agencia de Marketing Digital',
 })
-
-import BakanoIsotipoNegro from "@/assets/images/bakano-isotipo-negro.png"
-import BakanoLogotipoNegro from "@/assets/images/bakano-logotipo-negro.png";
 
 const showMessageFormSubmited = ref(false);
 
@@ -120,10 +120,8 @@ function closeMessageFormSubmited() {
     gap: 10%;
   }
 }
-:deep(.crush-button) {
-  border: none;
+:deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;
-  background-color: $pink;
   @media screen and (min-width: 768px) {
     font-size: $font-size-normal;
   }
@@ -136,8 +134,25 @@ function closeMessageFormSubmited() {
   padding: 0.7rem;
   border: 1.5px solid #8b888e;
 }
-:deep(.crush-text-field .input-container .crush-text-field-input) {
+:deep(.crush-text-field .input-container.active) {
+  border-color: grey;
+}
+:deep(.crush-text-field) {
+  @media screen and (max-width: 400px) {
+    margin-bottom: .5rem;
+  }
+}
+:deep(.crush-button) {
+  border: none;
   color: $black;
+  background-color: $pink;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.5s ease-in;
+
+  @media screen and (max-width: 400px) {
+    margin-top: 0;    
+  }
   @media screen and (min-width: 768px) {
     font-size: $font-size-normal;
   }
@@ -145,8 +160,10 @@ function closeMessageFormSubmited() {
     font-size: $font-size-large;
   }
 }
-:deep(.crush-text-field .input-container.active) {
-  border-color: grey;
+:deep(.crush-button.disabled) {
+  background-color: hsla(344, 79%, 53%, .4);
+  border: none;
+  color: $black;
 }
 .slide-in-down-enter-active {
   transition: all 0.3s ease;

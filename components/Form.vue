@@ -14,6 +14,12 @@ const rules = {
       message: 'Por favor, coloca tu nombre completo'
     }
   ],
+  validateEmail: [
+  {
+    validate: (value: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
+    message: 'Por favor, coloca un email válido'
+  }
+],
   validateNumber: [
     {
       validate: (value: string) => /^\d+$/.test(value) && value.length > 6,
@@ -25,19 +31,23 @@ const rules = {
 const inputKey = ref(0)
 const form = reactive({
   name: '',
+  email: '',
   phone: '',
 })
 const formIsValid = computed(() => {
   return (
     form.name !== '' &&
+    form.email !== '' &&
     form.phone !== '' &&
     rules.validateName.every(rule => rule.validate(form.name)) &&
+    rules.validateEmail.every(rule => rule.validate(form.email)) &&
     rules.validateNumber.every(rule => rule.validate(form.phone))
   )
 })
 
 function resetInputs() {
   form.name = '';
+  form.email = '';
   form.phone = '';
   inputKey.value++
 }
@@ -45,6 +55,7 @@ function resetInputs() {
 async function sendEmail() {
   const mail = {
     from_name: form.name,
+    email: form.email,
     phoneNumber: form.phone,
   }
   if (formIsValid.value) {
@@ -70,25 +81,31 @@ async function sendEmail() {
       ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
       BAKANES para redes sociales de acuerdo con TU NEGOCIO
     </p>
-    <CrushTextField 
+      <CrushTextField 
       v-model="form.name" 
       :hideLabel=true 
       :required=true 
       :valid-rules="rules.validateName" 
       :key="inputKey"
-      label="Nombre de tu negocio:" 
       placeholder="Nombre de tu negocio" />
+      <CrushTextField 
+      v-model="form.email" 
+      :hideLabel=true 
+      :required=true 
+      :valid-rules="rules.validateEmail" 
+      :key="inputKey"
+      placeholder="Email" />
     <CrushTextField 
       v-model="form.phone" 
       :hideLabel=true 
       :required=true 
       :valid-rules="rules.validateNumber"
       :key="inputKey" 
-      label="Número de teléfono:" 
       placeholder="Número de teléfono" />
     <div class="wrapper-button">
       <CrushButton 
         :small=true 
+        :disabled="!formIsValid"
         text="¡Arranquemos!" 
         variant="alert" 
         @click.prevent="sendEmail" />
