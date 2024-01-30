@@ -87,6 +87,7 @@ async function sendEmail() {
       :required=true 
       :valid-rules="rules.validateName" 
       :key="inputKey"
+      label="Nombre de tu negocio"
       placeholder="Nombre de tu negocio" />
       <CrushTextField 
       v-model="form.email" 
@@ -94,6 +95,7 @@ async function sendEmail() {
       :required=true 
       :valid-rules="rules.validateEmail" 
       :key="inputKey"
+      label="Email"
       placeholder="Email" />
     <CrushTextField 
       v-model="form.phone" 
@@ -101,6 +103,7 @@ async function sendEmail() {
       :required=true 
       :valid-rules="rules.validateNumber"
       :key="inputKey" 
+      label="Número de teléfono"
       placeholder="Número de teléfono" />
     <div class="wrapper-button">
       <CrushButton 
