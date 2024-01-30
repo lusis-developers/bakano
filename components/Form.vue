@@ -123,10 +123,10 @@ async function sendEmail() {
     font-size: $font-size-small;
     font-weight: $font-weight-bold;
     color: $black;
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       font-size: $font-size-normal;
     }
-    @media screen and (min-width: 1600px) {
+    @media (min-width: 1600px) {
       font-size: $font-size-large;
     }
   }

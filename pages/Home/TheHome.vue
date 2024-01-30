@@ -55,7 +55,7 @@ function closeMessageFormSubmited() {
   background-size: auto 70%;
   background-repeat: no-repeat;
   display: grid;
-  @media screen and (min-width: 1000px) {
+  @media (min-width: 1000px) {
     background-size: auto 56%;
   }
 }
@@ -71,7 +71,7 @@ function closeMessageFormSubmited() {
     font-weight: $font-weight-bold;
     color: #fff;
     text-align: center;
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       font-size: $font-size-extra-large;
     }
   }
@@ -82,10 +82,10 @@ function closeMessageFormSubmited() {
     text-align: center;
     color: #fff;
     margin-bottom: .8rem;
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       font-size: $font-size-normal;
     }
-    @media screen and (min-width: 1600px) {
+    @media (min-width: 1600px) {
       font-size: $font-size-large;
     }
   }
@@ -99,17 +99,17 @@ function closeMessageFormSubmited() {
   align-items: center;
   &-img {
     border-radius: 1.25rem;
-    @media screen and (max-width: 350px) {
+    @media (max-width: 350px) {
       max-width: 85%;
     }
   }
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     max-height: 100%;
     max-width: 45%;
   }
 }
 .register-wrapper {
-  @media screen and (min-width: 1200px){
+  @media (min-width: 1200px){
     display: flex;
     height: max-content;
     justify-content: center;
@@ -122,10 +122,10 @@ function closeMessageFormSubmited() {
 }
 :deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: $font-size-normal;
   }
-  @media screen and (min-width: 1600px) {
+  @media (min-width: 1600px) {
     font-size: $font-size-large;
   }
 }
@@ -138,7 +138,7 @@ function closeMessageFormSubmited() {
   border-color: grey;
 }
 :deep(.crush-text-field) {
-  @media screen and (max-width: 400px) {
+  @media (max-width: 400px) {
     margin-bottom: .5rem;
   }
 }
@@ -150,13 +150,10 @@ function closeMessageFormSubmited() {
   margin-top: 1rem;
   transition: background-color 0.5s ease-in;
 
-  @media screen and (max-width: 400px) {
-    margin-top: 0;    
-  }
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: $font-size-normal;
   }
-  @media screen and (min-width: 1600px) {
+  @media (min-width: 1600px) {
     font-size: $font-size-large;
   }
 }

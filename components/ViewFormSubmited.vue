@@ -42,10 +42,10 @@ onMounted(() => {
   justify-content: center;
   gap: 10%;
 
-  @media screen and (min-width: 768px) and (max-width: 1200px) {
+  @media (min-width: 768px) and (max-width: 1200px) {
     width: 60vw;
   }
-  @media screen and (min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 35vw;
   }
 
@@ -53,7 +53,7 @@ onMounted(() => {
     max-width: 100%;
     height: 85%;
     object-fit: contain;
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       width: 12%;
     }
   }
@@ -64,7 +64,7 @@ onMounted(() => {
     margin-bottom: .1rem;
     text-align: center;
 
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       font-size: $font-size-large;
     }      
   }
