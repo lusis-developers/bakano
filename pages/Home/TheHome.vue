@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+useHead({
+  title: 'Bakano',
+})
+
 import BakanoIsotipoNegro from "@/assets/images/bakano-isotipo-negro.png"
 import BakanoLogotipoNegro from "@/assets/images/bakano-logotipo-negro.png";
 
