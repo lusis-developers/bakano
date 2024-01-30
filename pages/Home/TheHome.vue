@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 useHead({
-  title: 'Bakano',
+  title: 'BAKANO | Agencia de Marketing Digital',
 })
 
 import BakanoIsotipoNegro from "@/assets/images/bakano-isotipo-negro.png"
