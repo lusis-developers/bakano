@@ -111,7 +111,7 @@ function closeMessageFormSubmited() {
 }
 
 .register-wrapper {
-  @media screen and (min-width: 1300px){
+  @media screen and (min-width: 1200px){
     display: flex;
     height: max-content;
     justify-content: center;
@@ -138,6 +138,7 @@ function closeMessageFormSubmited() {
 :deep(.crush-text-field .input-container) {
   border-radius: 20px;
   padding: 0.7rem;
+  border: 1.5px solid #8b888e;
 }
 
 :deep(.crush-text-field .input-container .crush-text-field-input) {
