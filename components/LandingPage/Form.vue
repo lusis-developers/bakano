@@ -2,7 +2,8 @@
 import CrushTextField from '@nabux-crush/crush-text-field';
 import CrushButton from '@nabux-crush/crush-button';
 import emailjs from '@emailjs/browser';
-import { emailRegex, phoneRegex } from '~/utils/regex';
+
+import { validateName, validateEmail, validatePhone } from '~/utils/LandingForm.regex';
 
 const emits = defineEmits(['closeMessageFormSubmited'])
 
@@ -11,19 +12,19 @@ const config = useRuntimeConfig();
 const rules = {
   validateName: [
     {
-      validate: (value: string) => value.length >= 1,
+      validate: (value: string) => validateName(value),
       message: 'Por favor, coloca tu nombre completo'
     }
   ],
   validateEmail: [
   {
-    validate: (value: string) => emailRegex().test(value),
+    validate: (value: string) => validateEmail(value),
     message: 'Por favor, coloca un email válido'
   }
 ],
   validateNumber: [
     {
-      validate: (value: string) => phoneRegex().test(value) && value.length > 6,
+      validate: (value: string) => validatePhone(value),
       message: 'Por favor, ingresa tu número completo'
     }
   ]
@@ -82,28 +83,28 @@ async function sendEmail() {
       ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
       BAKANES para redes sociales de acuerdo con TU NEGOCIO
     </p>
-      <CrushTextField 
+    <CrushTextField 
+      v-model="form.name" 
       :hideLabel=true 
       :required=true 
-      :valid-rules="rules.validateName" 
+      :validRules="rules.validateName" 
       :key="inputKey"
-      v-model="form.name" 
       label="Nombre de tu negocio"
       placeholder="Nombre de tu negocio" />
-      <CrushTextField 
+    <CrushTextField 
+      v-model="form.email" 
       :hideLabel=true 
       :required=true 
-      :valid-rules="rules.validateEmail" 
+      :validRules="rules.validateEmail" 
       :key="inputKey"
-      v-model="form.email" 
       label="Email"
       placeholder="Email" />
     <CrushTextField 
+      v-model="form.phone" 
       :hideLabel=true 
       :required=true 
-      :valid-rules="rules.validateNumber"
+      :validRules="rules.validateNumber"
       :key="inputKey" 
-      v-model="form.phone" 
       label="Número de teléfono"
       placeholder="Número de teléfono" />
     <div class="wrapper-button">

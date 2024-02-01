@@ -41,14 +41,14 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   gap: 10%;
-  @media (min-width: $tablet-upper-breakpoint) and (max-width: $desktop-upper-breakpoint) {
-    width: 60vw;
+  @media (min-width: $tablet-upper-breakpoint) {
+    width: 52vw;
   }
   @media (min-width: $desktop-upper-breakpoint) {
-    width: 35vw;
+    width: 32vw;
   }
   &-logo {
-    max-width: 100%;
+    max-width: 30%;
     height: 85%;
     object-fit: contain;
     @media (min-width: $tablet-upper-breakpoint) {

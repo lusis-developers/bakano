@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import BakanoIsotipoNegro from '@/assets/images/bakano-isotipo-negro.png';
 import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
-
 </script>
 
 <template>

@@ -28,7 +28,7 @@ function closeMessageFormSubmited() {
     <div class="register-wrapper">
       <figure class="figure">
         <img 
-          src="@/assets/images/imagen-principal.jpg" 
+          src="~/assets/images/landing-image.jpg" 
           alt="image" 
           class="figure-img" />
       </figure>
