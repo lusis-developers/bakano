@@ -28,8 +28,8 @@ onMounted(() => {
 .form-submited {
   background-color: $white;
   color: $black;
-  padding: .2rem 1rem;
-  border-radius: 1.5rem;
+  padding: 4px 16px;
+  border-radius: 24px;
   position: absolute;
   top: 10px;
   left: 0;
@@ -41,39 +41,33 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   gap: 10%;
-
-  @media (min-width: 768px) and (max-width: 1200px) {
+  @media (min-width: $tablet-upper-breakpoint) and (max-width: $desktop-upper-breakpoint) {
     width: 60vw;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop-upper-breakpoint) {
     width: 35vw;
   }
-
   &-logo {
     max-width: 100%;
     height: 85%;
     object-fit: contain;
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-upper-breakpoint) {
       width: 12%;
     }
   }
-
   &-tittle {
     font-family: $primary-font;
     font-size: $font-size-normal;
-    margin-bottom: .1rem;
+    margin-bottom: 2px;
     text-align: center;
-
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-upper-breakpoint) {
       font-size: $font-size-large;
     }      
   }
-
   &-subtittle {
     font-family: $secondary-font;
     font-size: $font-size-small;
     text-align: center;
   }
-
 }
 </style>

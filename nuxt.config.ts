@@ -19,6 +19,7 @@ export default defineNuxtConfig({
         scss: {
           additionalData: `
             @import '@/style/main.scss';
+            @import '@nabux-crush/crush-styles/nabuxLayoutVariables';
           `
         }
       }

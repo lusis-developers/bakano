@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import BakanoIsotipoNegro from "@/assets/images/bakano-isotipo-negro.png"
-import BakanoLogotipoNegro from "@/assets/images/bakano-logotipo-negro.png";
-
 useHead({
   title: 'BAKANO | Agencia de Marketing Digital',
 })
@@ -18,10 +15,7 @@ function closeMessageFormSubmited() {
 <template>
   <div class="wrapper">
     <div class="wrapper-main">
-      <Header 
-        :IsotipoSrc="BakanoIsotipoNegro" 
-        :LogotipoSrc="BakanoLogotipoNegro" 
-        brandName="Bakano" />
+      <LandingPageHeader/>
       <div class="main">
         <h1 class="main-tittle">
           Hagamos que hablen de tu negocio
@@ -38,10 +32,10 @@ function closeMessageFormSubmited() {
           alt="image" 
           class="figure-img" />
       </figure>
-      <Form @close-message-form-submited="closeMessageFormSubmited"/>
+      <LandingPageForm @close-message-form-submited="closeMessageFormSubmited"/>
     </div>
     <Transition name="slide-in-down" appear>
-      <ViewFormSubmited 
+      <LandingPageModalFormSubmited
         v-if="showMessageFormSubmited" 
         @close-menu="closeMessageFormSubmited" />
     </Transition>
@@ -55,7 +49,7 @@ function closeMessageFormSubmited() {
   background-size: auto 70%;
   background-repeat: no-repeat;
   display: grid;
-  @media (min-width: 1000px) {
+  @media (min-width: $desktop-lower-breakpoint) {
     background-size: auto 56%;
   }
 }
@@ -64,14 +58,14 @@ function closeMessageFormSubmited() {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 16px;
   &-tittle {
     font-family: $primary-font;
     font-size: $font-size-large;
     font-weight: $font-weight-bold;
     color: #fff;
     text-align: center;
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-upper-breakpoint) {
       font-size: $font-size-extra-large;
     }
   }
@@ -81,80 +75,77 @@ function closeMessageFormSubmited() {
     font-weight: $font-weight-normal;
     text-align: center;
     color: #fff;
-    margin-bottom: .8rem;
-    @media (min-width: 768px) {
+    margin-bottom: 12px;
+    @media (min-width: $tablet-upper-breakpoint) {
       font-size: $font-size-normal;
     }
-    @media (min-width: 1600px) {
+    @media (min-width: $desktop-upper-breakpoint) {
       font-size: $font-size-large;
     }
   }
 }
 .figure {
   margin: auto;
-  margin-bottom: 1rem;
-  max-width: 20rem;
+  margin-bottom: 16px;
+  max-width: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
   &-img {
-    border-radius: 1.25rem;
-    @media (max-width: 350px) {
+    border-radius: 20px;
+    min-width: 0;
+    @media (max-width: $mobile-lower-breakpoint) {
       max-width: 85%;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-upper-breakpoint) {
     max-height: 100%;
     max-width: 45%;
   }
 }
 .register-wrapper {
-  @media (min-width: 1200px){
+  min-width: 0;
+  @media (min-width: $desktop-lower-breakpoint){
     display: flex;
     height: max-content;
     justify-content: center;
     align-items: center;
     width: 90%;
     margin: 0 auto;
-    padding: 3rem 4rem;
     gap: 10%;
+  }
+  @media (min-width: $desktop-upper-breakpoint) {
+    padding: 48px 64px;    
   }
 }
 :deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-upper-breakpoint) {
     font-size: $font-size-normal;
-  }
-  @media (min-width: 1600px) {
-    font-size: $font-size-large;
   }
 }
 :deep(.crush-text-field .input-container) {
   border-radius: 20px;
-  padding: 0.7rem;
+  padding: 12px;
   border: 1.5px solid #8b888e;
 }
 :deep(.crush-text-field .input-container.active) {
   border-color: grey;
 }
 :deep(.crush-text-field) {
-  @media (max-width: 400px) {
-    margin-bottom: .5rem;
+  @media (max-width: $mobile-upper-breakpoint) {
+    margin-bottom: 8px;
   }
 }
 :deep(.crush-button) {
   border: none;
   color: $black;
   background-color: $pink;
-  padding: .5rem 1rem;
-  margin-top: 1rem;
+  padding: 8px 16px;
+  margin-top: 16px;
   transition: background-color 0.5s ease-in;
-
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-upper-breakpoint) {
     font-size: $font-size-normal;
-  }
-  @media (min-width: 1600px) {
-    font-size: $font-size-large;
   }
 }
 :deep(.crush-button.disabled) {

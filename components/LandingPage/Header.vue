@@ -1,18 +1,7 @@
 <script setup lang="ts">
-const props = defineProps({
-  IsotipoSrc: {
-    type: String,
-    required: true
-  },
-  LogotipoSrc: {
-    type: String,
-    required: true
-  },
-  brandName: {
-    type: String,
-    required: true
-  },
-});
+import BakanoIsotipoNegro from '@/assets/images/bakano-isotipo-negro.png';
+import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
+
 </script>
 
 <template>
@@ -20,12 +9,12 @@ const props = defineProps({
     <NuxtLink to="/">
       <figure class="header-figure">
         <img 
-          :src="IsotipoSrc" 
-          :alt="brandName" 
+          :src="BakanoIsotipoNegro" 
+          alt="Bakano" 
           class="header-figure-isotipo" />
         <img 
-          :src="LogotipoSrc" 
-          :alt="brandName" 
+          :src="BakanoLogotipoNegro" 
+          alt="Bakano"
           class="header-figure-logotipo" />
       </figure>
     </NuxtLink>
@@ -39,19 +28,16 @@ const props = defineProps({
   align-items: center;
   padding: 12px 16px;
   max-height: 10vh;
-
   &-figure {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-
     &-isotipo {
       width: 45px;
       height: 45px;
     }
-
     &-logotipo {
       width: 130px;
     }
