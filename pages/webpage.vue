@@ -5,10 +5,7 @@ const headerTransitionEnded = ref(false);
 const menuOpen = ref(false);
 
 function toggleMenu() {
-  console.log('toggleMenu: ', menuOpen.value);
   menuOpen.value = !menuOpen.value;
-  console.log('toggleMenu: ', menuOpen.value);
-
 }
 function onHeaderTransitionEnd() {
   headerTransitionEnded.value = true;
