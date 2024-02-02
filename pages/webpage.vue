@@ -2,12 +2,13 @@
 const emit = defineEmits(['toggle-menu']);
 
 const headerTransitionEnded = ref(false);
-const menuClosed = ref(false);
 const menuOpen = ref(false);
 
 function toggleMenu() {
+  console.log('toggleMenu: ', menuOpen.value);
   menuOpen.value = !menuOpen.value;
-  menuClosed.value = !menuClosed.value;
+  console.log('toggleMenu: ', menuOpen.value);
+
 }
 function onHeaderTransitionEnd() {
   headerTransitionEnded.value = true;
@@ -18,7 +19,7 @@ function onHeaderTransitionEnd() {
   <div class="container">
     <div class="container-first-section">
       <BkHeader 
-        :menu-closed="menuClosed" 
+        :colorLogo="menuOpen" 
         @toggle-menu="toggleMenu"  
         @header-transition-end="onHeaderTransitionEnd"/>
       <BkMenu :isVisible="menuOpen" @close-menu="toggleMenu"/>

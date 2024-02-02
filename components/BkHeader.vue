@@ -7,7 +7,7 @@ import blackLogo from '../assets/images/bakano-isotipo-negro.png'
 const emits = defineEmits(['toggle-menu', 'header-transition-end']);
 
 const props = defineProps({
-  menuClosed: {
+  colorLogo: {
     type: Boolean,
     required: false,
     default: false,
@@ -15,7 +15,7 @@ const props = defineProps({
 });
 
 const menuOpen = ref(false);
-const logo = computed(() => props.menuClosed ? blackLogo : whiteLogo)
+const logo = computed(() => props.colorLogo ? blackLogo : whiteLogo)
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;

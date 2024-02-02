@@ -43,7 +43,7 @@ function closeMenu() {
   height: 100vh;
   background-color: $pink;
   color: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 2;
   display: flex;
@@ -54,14 +54,7 @@ function closeMenu() {
     display: flex;
     justify-content: right;
     padding: 12px 0;
-    &-logo {
-      width: 80px;
-      height: 80px;
-      .logo {
-        width: 100%;
-        height: 100%;
-      }
-    }
+    position: sticky;
     &-closeButton {
       font-size: 2rem;
       background: none;
