@@ -21,6 +21,8 @@
     "@nabux-crush/crush-button": "^1.0.33",
     "@nabux-crush/crush-styles": "^0.0.21",
     "@nabux-crush/crush-text-field": "^0.5.1",
-    "gsap": "^3.12.4"
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "gsap": "^3.12.5",
+    "typed.js": "^2.1.0"
   }
 }
