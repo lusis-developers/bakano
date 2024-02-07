@@ -1,5 +1,9 @@
 <script setup>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const emit = defineEmits(['toggle-menu']);
+
+gsap.registerPlugin(ScrollTrigger);
 
 const headerTransitionEnded = ref(false);
 const menuOpen = ref(false);
@@ -10,6 +14,34 @@ function toggleMenu() {
 function onHeaderTransitionEnd() {
   headerTransitionEnded.value = true;
 }
+onMounted(() => {
+  const services = document.querySelector('.services');
+  const bkClients = document.querySelector('.bk-clients');
+
+  gsap.to(services, {
+    scrollTrigger: {
+      trigger: services,
+      start: 'bottom bottom',
+      end: '+=500',
+      scrub: true,
+      pin: true,
+      anticipatePin: 1
+    },
+    x: '-100%',
+    ease: 'none'
+  });
+
+  gsap.to(bkClients, {
+    scrollTrigger: {
+      trigger: bkClients,
+      start: 'bottom bottom',
+      scrub: true,
+      anticipatePin: 1
+    },
+    x: '-100%',
+    ease: 'none'
+  });
+});
 </script>
 
 <template>
@@ -24,12 +56,17 @@ function onHeaderTransitionEnd() {
     <div class="container-second-section">
       <Hero v-if="headerTransitionEnded"/>
     </div>
+    <div class="container-third-section">
+      <div class="services"></div>
+      <BkClients class="bk-clients"/>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  height: 80vh;
+  display: flex;
+  flex-direction: column;
 
   &-first-section {
     background-color: $black;
@@ -38,7 +75,15 @@ function onHeaderTransitionEnd() {
   &-second-section {
     width: 100%;
     background-color: $black;
-    height: 90vh;
+    height: 100vh;
   }
+
+  &-third-section {
+    .services {
+      height: 100vh;
+      background-color: red;
+    }
+  }
+
 }
 </style>
