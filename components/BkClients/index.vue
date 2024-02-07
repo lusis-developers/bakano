@@ -1,19 +1,68 @@
+<script setup>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { clients } from '@/utils/Clients'
+
+gsap.registerPlugin(ScrollTrigger);
+
+let containerClients = ref(null);
+
+onMounted(() => {
+  gsap.from(containerClients.value.children, {
+    scrollTrigger: {
+      trigger: containerClients.value,
+      start: () => "center bottom", 
+      end: () => "+=" + containerClients.value.clientHeight,
+      scrub: true,
+      markers: true,
+    },
+    duration: 1,
+    y: '100vh',
+    x: '-100vw',
+    stagger: 0.5,
+    ease: 'power1.out',
+  });
+});
+</script>
+
 <template>
-  <div>
-    <p>
-      BkClients
-    </p>
+  <div class="container">
+    <h3 class="container-title">
+      Más que panas
+    </h3>
+    <div class="container-clients" ref="containerClients">
+      <BkClientsBkClient 
+        v-for="(client, index) in clients"
+        :key="index" 
+        :name="client.name" 
+        :src="client.src"
+        :logo="client.logo"
+        :backgroundColor="client.backgroundColor"
+        :clientUrl="client.clientUrl"/>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  div {
-    height: 100vh;
+  .container {
+    padding: 24px;
+    background-color: aqua;
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    p {
+    flex-direction: column;
+    gap: 24px;
+    &-title {
       color: black;
+      font-family: $primary-font;
+      font-size: 3rem;
+    }
+    &-clients {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
     }
   }
 </style>
