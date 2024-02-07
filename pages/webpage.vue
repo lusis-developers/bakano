@@ -28,7 +28,8 @@ onMounted(() => {
       anticipatePin: 1
     },
     x: '-100%',
-    ease: 'none'
+    ease: 'none',
+    backgroundColor: 'blue'
   });
 
   gsap.to(bkClients, {
@@ -39,7 +40,8 @@ onMounted(() => {
       anticipatePin: 1
     },
     x: '-100%',
-    ease: 'none'
+    ease: 'none',
+    backgroundColor: 'green'
   });
 });
 </script>
@@ -67,21 +69,18 @@ onMounted(() => {
 .container {
   display: flex;
   flex-direction: column;
-
   &-first-section {
     background-color: $black;
   }
-
   &-second-section {
     width: 100%;
     background-color: $black;
     height: 100vh;
   }
-
   &-third-section {
     .services {
       height: 100vh;
-      background-color: red;
+      background-color: $white;
     }
   }
 
