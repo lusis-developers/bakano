@@ -9,10 +9,12 @@ gsap.registerPlugin(ScrollTrigger);
 let containerClients = ref(null);
 
 onMounted(() => {
+  const isMobile = window.innerWidth <= 768;
+
   gsap.from(containerClients.value.children, {
     scrollTrigger: {
       trigger: containerClients.value,
-      start: () => "center bottom", 
+      start: () => isMobile ? "top top" : "center bottom", 
       end: () => "+=" + containerClients.value.clientHeight,
       scrub: true,
       markers: true,
@@ -47,14 +49,14 @@ onMounted(() => {
 <style lang="scss" scoped>
   .container {
     padding: 24px;
-    background-color: aqua;
+    background-color: $black;
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 24px;
     &-title {
-      color: black;
+      color: $white;
       font-family: $primary-font;
       font-size: 3rem;
     }
@@ -63,6 +65,11 @@ onMounted(() => {
       flex-wrap: wrap;
       justify-content: center;
       gap: 24px;
+    }
+    .filosofia {
+      height: 100vh;
+      width: 100%;
+      background-color: $white;
     }
   }
 </style>
