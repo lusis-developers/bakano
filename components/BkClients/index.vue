@@ -76,6 +76,7 @@ onMounted(() => {
       flex-wrap: wrap;
       justify-content: center;
       gap: 24px;
+      max-width: $desktop-upper-breakpoint;
     }
     .filosofia {
       height: 100vh;
