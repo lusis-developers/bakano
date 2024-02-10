@@ -6,8 +6,12 @@ import CrushButton from '@nabux-crush/crush-button';
 
 const showMessageFormSubmited = ref(false);
 
+function closeMessageFormSubmited() {
+  showMessageFormSubmited.value = !showMessageFormSubmited.value;
+}
+
 onMounted(() => {
-  const colors = ['red', 'orange', 'indigo','blue'];
+  const colors = ['red', 'orange', 'indigo'];
   const words = ['experiencias', 'conocimiento', 'clientes'];
   const coloredWords = words.map((word, index) => {
     const color = colors[index % colors.length];
@@ -23,10 +27,6 @@ onMounted(() => {
     contentType: 'html',
   });
 });
-
-function closeMessageFormSubmited() {
-  showMessageFormSubmited.value = !showMessageFormSubmited.value;
-}
 </script>
 
 <template>
@@ -46,8 +46,10 @@ function closeMessageFormSubmited() {
             :small=true 
             text="Solicita información" 
             variant="alert">
-              <NuxtLink to="/" class="main-button-link">
-                Solicita información
+              <NuxtLink 
+                to="#form" 
+                class="main-button-link">
+                  Solicita información
               </NuxtLink>
           </CrushButton>
         </div>
@@ -81,8 +83,7 @@ function closeMessageFormSubmited() {
       :contentSection="contentSections[4]"
       :showForm="false">
       <template #Form>
-        <LandingPageForm @close-message-form-submitted="closeMessageFormSubmited">
-        </LandingPageForm>
+        <LandingPageForm @close-message-form-submitted="closeMessageFormSubmited" />
       </template>
     </LandingPageSection>
     <LandingPageFooter />
@@ -189,5 +190,4 @@ function closeMessageFormSubmited() {
     width: 40%;
   }
 }
-
 </style>

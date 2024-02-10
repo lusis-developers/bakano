@@ -14,7 +14,7 @@ async function sendEmailForm() {
 </script>
 
 <template>
-  <form class="register-wrapper-card">
+  <form class="register-wrapper-card" id="form">
     <p class="register-wrapper-card-paragraph">
       <slot name="form-paragraph"></slot>
     </p>

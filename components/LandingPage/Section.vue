@@ -34,42 +34,42 @@ const props = defineProps({
     :class="contentSection?.[0]?.sectionClass?.class"
     class="section">
       <div 
-        class="section-content" 
-        :class="contentSection?.[0]?.sectionClass?.classContent">
+        :class="contentSection?.[0]?.sectionClass?.classContent"
+        class="section-content">
           <h2 
-            class="section-tittle" 
-            :class="contentSection?.[0]?.sectionClass?.classTitle">
+            :class="contentSection?.[0]?.sectionClass?.classTitle"  
+            class="section-tittle">
               {{ contentSection?.[0]?.title }}
           </h2>
           <p 
-            class="section-paragraph" 
-            :class="contentSection?.[0]?.sectionClass?.classParagraph">
+            :class="contentSection?.[0]?.sectionClass?.classParagraph"
+            class="section-paragraph"> 
               {{ contentSection?.[0]?.content }}
           </p>
       </div>
       <div 
-        class="section-grid" 
+        v-if="gridSection"  
         :class="gridClasses?.[0]?.classGrid" 
-        v-if="gridSection">
+        class="section-grid">
           <div 
-            class="section-item" 
             :class="gridClasses?.[0]?.classItem" 
+            class="section-item" 
             v-for="(item, index) in gridSection" 
             :key="index">
               <img 
+                v-if="item.image"
                 :src="item.image" 
-                alt="grid-img" 
-                class="img" 
                 :class="gridClasses?.[0]?.classImage" 
-                v-if="item.image" />
+                alt="grid-img" 
+                class="img" />
               <h3 
-                class="section-item-tittle" 
-                :class="gridClasses?.[0]?.classTitle">
+                :class="gridClasses?.[0]?.classTitle"
+                class="section-item-tittle">
                   {{ item.title }}
               </h3>
               <p 
-                class="section-item-paragraph" 
-                :class="gridClasses?.[0]?.classParagraph">
+                :class="gridClasses?.[0]?.classParagraph"
+                class="section-item-paragraph">
                   {{ item.content }}
               </p>
           </div>
@@ -79,12 +79,18 @@ const props = defineProps({
         :images="(images as Array<string>)" />
           <slot name="Form"></slot>
       <div 
-        class="button" 
-        v-if="showButton">
+        v-if="showButton"
+        class="button">
           <CrushButton  
             :small=true 
             text="Solicita información" 
-            variant="alert" />
+            variant="alert">
+            <NuxtLink 
+                to="#form" 
+                class="button-link">
+                  Solicita información
+            </NuxtLink>
+          </CrushButton>
       </div>
   </section>
 </template>
@@ -104,7 +110,7 @@ const props = defineProps({
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 24px;
+    gap: 80px;
     @media (min-width: $tablet-upper-breakpoint) {
       justify-content: space-around;
     }
@@ -174,9 +180,12 @@ const props = defineProps({
 .section1{
   background-color: hsla(0, 10%, 92%, .35);
 }
-.section2-grid-item-tittle {
-  font-size: $font-size-extra-large;
-  color: #ed143d;
+.section2-grid{
+  gap: 24px;
+    &-item-tittle {
+      font-size: $font-size-extra-large;
+      color: #ed143d; 
+    }
 }
 .section3{
   background-color: hsla(0, 86%, 95%, 0.35);
@@ -186,6 +195,12 @@ const props = defineProps({
       margin: 0 auto;      
       gap: 80px 48px;
     }
+  }
+}
+.section4-grid{
+  @media (min-width: $tablet-upper-breakpoint) {
+    max-width: 80vw;
+    margin: 0 auto;
   }
 }
 .section5{
@@ -215,6 +230,10 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   margin-top: 30px;
+  &-link {
+    text-decoration: none;
+    color: $black;
+  }
 }
 :deep(.crush-text-field .input-container .crush-text-field-input) {
   color: $black;

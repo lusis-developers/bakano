@@ -47,18 +47,20 @@ onUnmounted(() => {
         class="image" />   
     </div>
     <button 
+      v-if="props.showButtons"
       class="carousel-control left" 
-      @click="prevImage" 
-      v-if="props.showButtons">
-        <img src="~/assets/left-arrow.svg" alt="left-arrow">
+      @click="prevImage">
+        <img 
+          src="~/assets/left-arrow.svg" 
+          alt="left-arrow" />
     </button>
     <button 
+      v-if="props.showButtons"
       class="carousel-control right" 
-      @click="nextImage" 
-      v-if="props.showButtons">
+      @click="nextImage">
         <img 
           src="~/assets/right-arrow.svg" 
-          alt="right-arrow">
+          alt="right-arrow" />
     </button>
     <div class="carousel-indicators">
       <span

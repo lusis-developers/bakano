@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import CrushFooter from '@nabux-crush/crush-footer';
 import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
+import instagramSvg from '~/assets/social-icons/instagram.svg';
+import facebookSvg from '~/assets/social-icons/facebook.svg';
+import linkedingSvg from '~/assets/social-icons/linkeding.svg';
+import tiktokSvg from '~/assets/social-icons/tiktok.svg';
+
+const socialIcons = [
+  { name: 'instagram', url: 'https://www.instagram.com/bakanoagency/', src: instagramSvg },
+  { name: 'facebook', url: 'https://www.facebook.com/bakanoagency', src: facebookSvg },
+  { name: 'linkeding', url: 'https://www.linkedin.com/company/bakano-agency/', src: linkedingSvg },
+  { name: 'tiktok', url: 'https://www.tiktok.com/@bakano.agency?_t=8jfKHtOoJxW&_r=1', src: tiktokSvg },
+]
 </script>
 
 <template>
@@ -8,17 +19,15 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
     <CrushFooter 
       :logoSrc="BakanoLogotipoNegro">
       <template #social-icons>
-        <NuxtLink to="https://www.instagram.com/bakanoagency/" target="_blank">
-          <img src="~/assets/social-icons/instagram.svg" alt="instagram-icon" class="social-img">
-        </NuxtLink>
-        <NuxtLink to="https://www.facebook.com/bakanoagency" target="_blank">
-          <img src="~/assets/social-icons/facebook.svg" alt="facebook-icon" class="social-img">
-        </NuxtLink>
-        <NuxtLink to="https://www.linkedin.com/company/bakano-agency/" target="_blank">
-          <img src="~/assets/social-icons/linkeding.svg" alt="linkeding-icon" class="social-img">
-        </NuxtLink>
-        <NuxtLink to="https://www.tiktok.com/@bakano.agency?_t=8jfKHtOoJxW&_r=1" target="_blank">
-          <img src="~/assets/social-icons/tiktok.svg" alt="tiktok-icon" class="social-img">
+        <NuxtLink 
+          v-for="icon in socialIcons" 
+          :key="icon.name" 
+          :to="icon.url" 
+          target="_blank">
+            <img 
+              :src="icon.src" 
+              :alt="`${icon.name}-icon`" 
+              class="social-img">
         </NuxtLink>
       </template>
     </CrushFooter>
