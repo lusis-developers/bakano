@@ -46,19 +46,26 @@ onUnmounted(() => {
         :class="{ active: currentImageIndex === index }"
         class="image" />   
     </div>
-    <button class="carousel-control left" @click="prevImage" v-if="props.showButtons">
-      <img src="~/assets/left-arrow.svg" alt="left-arrow">
+    <button 
+      class="carousel-control left" 
+      @click="prevImage" 
+      v-if="props.showButtons">
+        <img src="~/assets/left-arrow.svg" alt="left-arrow">
     </button>
-    <button class="carousel-control right" @click="nextImage" v-if="props.showButtons">
-      <img src="~/assets/right-arrow.svg" alt="right-arrow">
+    <button 
+      class="carousel-control right" 
+      @click="nextImage" 
+      v-if="props.showButtons">
+        <img 
+          src="~/assets/right-arrow.svg" 
+          alt="right-arrow">
     </button>
     <div class="carousel-indicators">
       <span
         v-for="(image, index) in props.images"
         :key="index"
         :class="{ active: currentImageIndex === index }"
-        @click="setImage(index)"
-      ></span>
+        @click="setImage(index)" />
     </div>
   </div>
 </template>
@@ -67,7 +74,11 @@ onUnmounted(() => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 400px;
+  @media (min-width: $tablet-lower-breakpoint) {
+    width: 80vw;
+    margin: 0 auto;    
+  }
   .carousel-slide {
     width: 100%;
     height: 100%;
@@ -80,13 +91,11 @@ onUnmounted(() => {
       background-size: cover;
       transition: opacity 1s ease-in-out;
       opacity: 0;
-
       &.active {
         opacity: 1;
       }
     }
   }
-
   .carousel-control {
     position: absolute;
     top: 50%;
@@ -95,23 +104,19 @@ onUnmounted(() => {
     border: none;
     cursor: pointer;
     background-color: transparent;
-
     &.left {
       left: 0;
     }
-
     &.right {
       right: 0;
     }
   }
-
   .carousel-indicators {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-
     span {
       display: block;
       width: 10px;
@@ -120,7 +125,6 @@ onUnmounted(() => {
       background-color: #000;
       border-radius: 50%;
       cursor: pointer;
-
       &.active {
         background-color: $pink;
       }

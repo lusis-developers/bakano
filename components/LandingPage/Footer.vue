@@ -29,8 +29,10 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
 .social-img{
   max-width: 30px;
 }
-
 :deep(.footer){
   max-width: none;
+}
+:deep(.footer-image){
+  overflow: hidden;
 }
 </style>

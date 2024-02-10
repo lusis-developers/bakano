@@ -1,14 +1,11 @@
 import { ref } from 'vue';
 import chatbotAutomate from '@/assets/chatbot-automate.svg';
-import chatbotManage from '@/assets/chatbot-manage.svg';
 import chatbotBot from '@/assets/chatbot-bot.svg';
 
 export const images = ref([
   chatbotAutomate,
-  chatbotManage,
   chatbotBot,
 ]);
-
 
 export const contentSections = {
   0: [
@@ -73,52 +70,87 @@ export const contentSections = {
 };
 
 export const contentGridSection = {
-  0: [
-    {
-    title: '35%',
-    content: 'Automatización de ventas en WhatsApp Business',
-    },
-    {
-    title: '53%',
-    content: 'Tasa de respuesta frente a otros canales como e-mail o SMS',
-    },
-    {
-    title: '67%',
-    content: 'Automatización de consultas recibidas a través de WhatsApp',
-    }
-  ],
-  1: [
-    {
-      title: 'Automatiza tu atención al cliente',
-      content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
-      image: chatbotAutomate,
-    },
-    {
-      title: 'Gestiona tus conversaciones',
-      content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
-      image: chatbotManage,
-    },
-    {
-      title: 'Crea un chatbot para WhatsApp',
-      content: 'Con nuestro chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
-      image: chatbotBot,
-    },
-    {
-      title: 'Transferencias rápidas y sencillas a agentes',
-      content: 'Con nuestro chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
-      image: chatbotBot
-    }
-  ],
-  2: [
-    {
-      title: 'chatbots guiados',
-      content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
-      image: chatbotAutomate,
-    },
-    {
-      title: 'Chatbots con IA para WhatsApp',
-      content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
-      image: chatbotManage,
-    }
-  ]
+  0: {
+    0: [
+      {
+        classGrid: 'section2-grid',
+        classItem: 'section2-grid-item',
+        classImage: 'section2-grid-img',
+        classTitle: 'section2-grid-item-tittle',
+        classParagraph: 'section2-grid-item-paragraph'
+      }
+    ],
+    1: [
+      {
+        title: '35%',
+        content: 'Automatización de ventas en WhatsApp Business',
+        },
+        {
+        title: '53%',
+        content: 'Tasa de respuesta frente a otros canales como e-mail o SMS',
+        },
+        {
+        title: '67%',
+        content: 'Automatización de consultas recibidas a través de WhatsApp',
+        }
+    ]
+  },
+  1: {
+    0: [
+      {
+        classGrid: 'section3-grid',
+        classItem: 'section3-grid-item',
+        classImage: 'section3-grid-img',
+        classTitle: 'section3-grid-item-tittle',
+        classParagraph: 'section3-grid-item-paragraph'
+
+      }
+    ],
+    1: [
+      {
+        title: 'Automatiza tu atención al cliente',
+        content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
+        image: chatbotAutomate,
+      },
+      {
+        title: 'Gestiona tus conversaciones',
+        content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
+        image: chatbotAutomate,
+      },
+      {
+        title: 'Crea un chatbot para WhatsApp',
+        content: 'Con nuestro chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
+        image: chatbotBot,
+      },
+      {
+        title: 'Transferencias rápidas y sencillas a agentes',
+        content: 'Con nuestro chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
+        image: chatbotBot
+      }
+    ]
+  },
+  2:{
+    0: [
+      {
+        classGrid: 'section4-grid',
+        classItem: 'section4-grid-item',
+        classImage: 'section4-grid-img',
+        classTitle: 'section4-grid-item-tittle',
+        classParagraph: 'section4-grid-item-paragraph'
+
+      }
+    ],
+    1: [
+      {
+        title: 'Chatbots guiados',
+        content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
+        image: chatbotAutomate,
+      },
+      {
+        title: 'Chatbots con IA para WhatsApp',
+        content: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.',
+        image: chatbotAutomate,
+      }
+    ]
+  },
 };

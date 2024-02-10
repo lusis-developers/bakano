@@ -158,22 +158,5 @@ function closeMessageFormSubmited() {
   border: none;
   color: $black;
 }
-.slide-in-down-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-in-down-enter-from {
-  transform: translateY(-100%);
-}
-.slide-in-down-enter-to {
-  transform: translateY(0);
-}
-.slide-in-down-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-in-down-leave-from {
-  transform: translateY(0);
-}
-.slide-in-down-leave-to {
-  transform: translateY(-100%);
-}
+
 </style>

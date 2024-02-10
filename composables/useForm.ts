@@ -1,4 +1,4 @@
-import { ref, reactive, computed, defineEmits } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import emailjs from '@emailjs/browser';
 
 import { validateName, validateEmail, validatePhone } from '~/utils/LandingForm.regex';

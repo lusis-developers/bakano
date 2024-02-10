@@ -30,7 +30,7 @@ onMounted(() => {
   color: $black;
   padding: 4px 16px;
   border-radius: 24px;
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 0;
   right: 0;
@@ -69,5 +69,24 @@ onMounted(() => {
     font-size: $font-size-small;
     text-align: center;
   }
+}
+
+.slide-in-down-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-in-down-enter-from {
+  transform: translateY(-100%);
+}
+.slide-in-down-enter-to {
+  transform: translateY(0);
+}
+.slide-in-down-leave-active {
+  transition: all 0.3s ease;
+}
+.slide-in-down-leave-from {
+  transform: translateY(0);
+}
+.slide-in-down-leave-to {
+  transform: translateY(-100%);
 }
 </style>
