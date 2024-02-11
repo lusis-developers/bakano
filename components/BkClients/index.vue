@@ -22,7 +22,6 @@ onMounted(() => {
     },
     duration: 1,
     y: '100vh',
-    x: '-100vw',
     stagger: 0.5,
     ease: 'power1.out',
   });
