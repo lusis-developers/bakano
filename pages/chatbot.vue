@@ -47,7 +47,6 @@ onMounted(() => {
           alt="chatbot-image">
       </div>
     </div>
-
     <LandingPageBkCarouselSection />
     <LandingPageBkSection
       :principalContent="contentSections[0].principalContent"
