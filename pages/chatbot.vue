@@ -63,7 +63,7 @@ onMounted(() => {
       :flexContent="contentSections[2].flexContent" />
     <LandingPageBkContactForm />
     <LandingPageBkFooter />
-</div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

@@ -35,8 +35,8 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
     height: 100%;
     gap: 16px;
     &-isotipo {
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
     }
     &-logotipo {
       width: 130px;
