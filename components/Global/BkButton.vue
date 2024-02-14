@@ -22,7 +22,7 @@ import CrushButton from '@nabux-crush/crush-button';
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 32px;
+    margin: 32px 0;
   }
   .button-link {
     text-decoration: none;
@@ -37,6 +37,9 @@ import CrushButton from '@nabux-crush/crush-button';
   transition: background-color 0.5s ease-in;
   @media (min-width: $tablet-upper-breakpoint) {
     font-size: $font-size-normal;
+  }
+  &:hover {
+    background-color: darken($pink, 1%);
   }
 }
 </style>

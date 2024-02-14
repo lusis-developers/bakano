@@ -34,7 +34,7 @@ onMounted(() => {
           Ofrece soluciones de mensajería instantánea con un chatbot para WhatsApp. Automatiza y
           centraliza la comunicación con tus clientes. 📱💬
         </p>
-      <LandingPageButton />
+      <GlobalBkButton />
       </div>
       <div class="main-figure">
         <img 
@@ -47,16 +47,16 @@ onMounted(() => {
     <LandingPageCarouselSection />
     <LandingPageSection2
       :principalContent="contentSections2[0].principalContent"
-      :flexClasses="contentSections2[0].flexClasses"
-      :flexContent="contentSections2[0].flexContent" />
-    <LandingPageButton />
+      :numeralSection="'1'"
+      :flexContent="contentSections2[0].flexContent" 
+      :showButton="true" />
     <LandingPageSection2
       :principalContent="contentSections2[1].principalContent"
-      :flexClasses="contentSections2[1].flexClasses"
+      :numeralSection="'2'"
       :flexContent="contentSections2[1].flexContent" />
     <LandingPageSection2 
       :principalContent="contentSections2[2].principalContent"
-      :flexClasses="contentSections2[2].flexClasses"
+      :numeralSection="'3'"
       :flexContent="contentSections2[2].flexContent" />
     <LandingPageContactForm />
     <LandingPageFooter />

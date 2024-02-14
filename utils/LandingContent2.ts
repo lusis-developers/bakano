@@ -8,15 +8,6 @@ export const images = ref([
 
 export const contentSections2 = [
   {
-    flexClasses: [
-      {
-        classContainer: 'flex1-container',
-        classItem: 'flex1-item',
-        classImage: 'image1',
-        classTitle: 'flex1-item-title',
-        classParagraph: 'flex1-item-paragraph'
-      }
-    ],
     principalContent: [
       {
         title: 'Mejora tus resultados con chatbots en WhatsApp Business API',
@@ -38,15 +29,6 @@ export const contentSections2 = [
     ]
   },
   {
-    flexClasses: [
-      {
-        classContainer: 'flex2-container',
-        classItem: 'flex2-item',
-        classImage: 'image2',
-        classTitle: 'flex2-item-title',
-        classParagraph: 'flex2-item-paragraph'
-      }
-    ],
     principalContent: [
       {
         title: '¿Por qué necesitas un chatbot para WhatsApp?',
@@ -77,15 +59,6 @@ export const contentSections2 = [
     ]
   },
   {
-    flexClasses: [
-      {
-        classContainer: 'flex3-container',
-        classItem: 'flex3-item',
-        classImage: 'image3',
-        classTitle: 'flex3-item-title',
-        classParagraph: 'flex3-item-paragraph'
-      }
-    ],
     principalContent: [
       {
         title: 'Elige la estrategia que más se adapte a ti',

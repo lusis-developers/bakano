@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const showMessageFormSubmited = ref(true);
+const showMessageFormSubmited = ref(false);
 
 function closeMessageFormSubmited() {
   showMessageFormSubmited.value = !showMessageFormSubmited.value;
@@ -16,9 +16,9 @@ function closeMessageFormSubmited() {
         Automatiza y optimiza la comunicación con tus clientes las 24 horas del día. Desde responder preguntas frecuentes hasta guiar a los clientes en sus compras, nuestro chatbot impulsado por inteligencia artificial hace el trabajo pesado por ti. Aprovecha esta oportunidad para aumentar tus ventas y fortalecer tu marca hoy mismo. 📱💬
       </p>
     </div>
-    <LandingPageForm />
+    <LandingPageForm @close-message-form-submitted="closeMessageFormSubmited"/>
     <Transition name="slide-in-down" appear>
-      <LandingPageModalFormSubmited
+      <GlobalBkModalFormSubmited
         v-if="showMessageFormSubmited" 
         @close-menu="closeMessageFormSubmited" />
     </Transition>

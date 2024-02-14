@@ -6,7 +6,13 @@ import { useRegistrationForm } from '~/composables/useForm';
 
 const emits = defineEmits(['closeMessageFormSubmitted']);
 
-const { form, rules, inputKey, formIsValid, sendEmail } = useRegistrationForm();
+const { 
+  form, 
+  rules, 
+  inputKey, 
+  formIsValid, 
+  sendEmail 
+} = useRegistrationForm();
 
 async function sendEmailForm() {
  await sendEmail();
