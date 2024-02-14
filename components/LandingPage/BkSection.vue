@@ -66,11 +66,10 @@ class="section">
 }
 .section{
   padding: 24px;
-  margin-bottom: 32px;
+  margin: 32px 0;
   @media (min-width: $tablet-upper-breakpoint) {
     padding: 100px 0;
-    margin: 0 auto;
-    margin-bottom: 72px;
+    margin: 72px auto
   }
   &-2{
     background-color: hsla(0, 86%, 95%, 0.35);

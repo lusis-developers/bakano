@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
 useHead({
   title: 'BAKANO | Agencia de Marketing Digital',
 })

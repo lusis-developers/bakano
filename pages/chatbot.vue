@@ -3,6 +3,10 @@ import Typed from 'typed.js';
 
 import { contentSections } from '../utils/LandingContent';
 
+useHead({
+  title: 'BAKANO | Chatbot para WhatsApp',
+});
+
 onMounted(() => {
   const colors = ['red', 'orange', 'indigo'];
   const words = ['experiencias', 'conocimiento', 'clientes'];
