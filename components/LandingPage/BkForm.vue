@@ -5,6 +5,13 @@ import CrushButton from '@nabux-crush/crush-button';
 import { useRegistrationForm } from '~/composables/useForm';
 
 const emits = defineEmits(['closeMessageFormSubmitted']);
+const props = defineProps({
+  hideLabel: {
+    type: Boolean,
+    required: false,
+    default: false,
+  }
+});
 
 const { 
   form, 
@@ -30,22 +37,25 @@ async function sendEmailForm() {
       :required=true 
       :validRules="rules.validateName" 
       :key="inputKey"
+      :hideLabel="props.hideLabel"
       label="Nombre de tu negocio"
-      placeholder="Bakano" />
+      :placeholder="props.hideLabel ? 'Nombre de tu negocio' : 'Bakano'" />
     <CrushTextField 
       v-model="form.email" 
       :required=true 
       :validRules="rules.validateEmail" 
       :key="inputKey"
+      :hideLabel="props.hideLabel"
       label="Email"
-      placeholder="bakano@gmail.com" />
+      :placeholder="props.hideLabel ? 'Email' : 'bakano@gmail.com'" />
     <CrushTextField 
       v-model="form.phone" 
       :required=true 
       :validRules="rules.validateNumber"
       :key="inputKey" 
+      :hideLabel="props.hideLabel"
       label="Número de teléfono"
-      placeholder="0991238512" />
+      :placeholder="props.hideLabel ? 'Número de teléfono' : '0991238512'" />
     <div class="wrapper-button">
       <CrushButton 
         :small=true 

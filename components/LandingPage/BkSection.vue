@@ -38,7 +38,6 @@ class="section">
   class="flex-content">
     <div 
     v-for="(item, index) in flexContent"
-    :class="'flex-item-' + numeralSection"
     :key="index"
     class="flex-items">
       <img 
@@ -52,7 +51,6 @@ class="section">
         {{ item.title }}
       </h3>
       <p
-        :class="'flex-item-paragraph-' + numeralSection"
         class="flex-item-paragraph">
         {{ item.paragraph }}
       </p>
@@ -149,4 +147,3 @@ class="section">
   }
 }
 </style>
-

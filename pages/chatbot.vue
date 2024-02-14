@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import Typed from 'typed.js';
 
-import { contentSections, contentGridSection, images } from '../utils/LandingContent';
-
-const showMessageFormSubmited = ref(false);
-
-function closeMessageFormSubmited() {
-  showMessageFormSubmited.value = !showMessageFormSubmited.value;
-}
+import { contentSections } from '../utils/LandingContent';
 
 onMounted(() => {
   const colors = ['red', 'orange', 'indigo'];
@@ -40,7 +34,7 @@ onMounted(() => {
           Ofrece soluciones de mensajería instantánea con un chatbot para WhatsApp. Automatiza y
           centraliza la comunicación con tus clientes. 📱💬
         </p>
-      <LandingPageButton />
+      <GlobalBkButton />
       </div>
       <div class="main-figure">
         <img 
@@ -50,36 +44,22 @@ onMounted(() => {
       </div>
     </div>
 
-    <LandingPageSection 
-      :contentSection="contentSections[0]" 
-      :images="images"
-      :showCarousel="true" />
-    <LandingPageSection
-      :contentSection="contentSections[1]"
-      :showButton="true"
-      :gridSection="contentGridSection[0][1]"
-      :gridClasses="contentGridSection[0][0]" />
-    <LandingPageSection
-      :contentSection="contentSections[2]"
-      :gridSection="contentGridSection[1][1]"
-      :gridClasses="contentGridSection[1][0]" />
-    <LandingPageSection 
-      :contentSection="contentSections[3]"
-      :gridSection="contentGridSection[2][1]" 
-      :gridClasses="contentGridSection[2][0]"/>
-    <LandingPageSection 
-      :contentSection="contentSections[4]"
-      :showForm="false">
-      <template #Form>
-        <LandingPageForm @close-message-form-submitted="closeMessageFormSubmited" />
-      </template>
-    </LandingPageSection>
-    <LandingPageFooter />
-    <Transition name="slide-in-down" appear>
-      <LandingPageModalFormSubmited
-        v-if="showMessageFormSubmited" 
-        @close-menu="closeMessageFormSubmited" />
-    </Transition>
+    <LandingPageBkCarouselSection />
+    <LandingPageBkSection
+      :principalContent="contentSections[0].principalContent"
+      :numeralSection="'1'"
+      :flexContent="contentSections[0].flexContent" 
+      :showButton="true" />
+    <LandingPageBkSection
+      :principalContent="contentSections[1].principalContent"
+      :numeralSection="'2'"
+      :flexContent="contentSections[1].flexContent" />
+    <LandingPageBkSection 
+      :principalContent="contentSections[2].principalContent"
+      :numeralSection="'3'"
+      :flexContent="contentSections[2].flexContent" />
+    <LandingPageBkContactForm />
+    <LandingPageBkFooter />
 </div>
 </template>
 
@@ -128,33 +108,6 @@ onMounted(() => {
     font-size: $font-size-normal;
     margin-bottom: 24px;
     text-align: center;
-  }
-}
-:deep(.crush-text-field .input-container .crush-text-field-input) {
-  color: $black;
-  @media (min-width: $tablet-upper-breakpoint) {
-    font-size: $font-size-normal;
-  }
-}
-:deep(.crush-text-field .input-container) {
-  padding: 12px;
-  border: 1.5px solid #8b888e;
-}
-:deep(.crush-text-field .input-container.active) {
-  border-color: grey;
-}
-:deep(.crush-text-field) {
-  @media (max-width: $mobile-upper-breakpoint) {
-    margin-bottom: 8px;
-  }
-}
-:deep(.register-wrapper-card) {
-  max-width: 100%;
-  @media (min-width: $tablet-upper-breakpoint) {
-    width: 80%;
-  }
-  @media (min-width: $desktop-lower-breakpoint) {
-    width: 40%;
   }
 }
 </style>

@@ -48,17 +48,13 @@ onUnmounted(() => {
       v-if="props.showButtons"
       class="carousel-control left" 
       @click="prevImage">
-        <img 
-          src="~/assets/left-arrow.svg" 
-          alt="left-arrow" />
+        <i class="fa-solid fa-caret-left"></i>
     </button>
     <button 
       v-if="props.showButtons"
       class="carousel-control right" 
       @click="nextImage">
-        <img 
-          src="~/assets/right-arrow.svg" 
-          alt="right-arrow" />
+        <i class="fa-solid fa-caret-right"></i>
     </button>
     <div class="carousel-indicators">
       <span
@@ -130,5 +126,9 @@ onUnmounted(() => {
       }
     }
   }
+}
+.fa-solid{
+  color: $black;
+  font-size: 40px;
 }
 </style>

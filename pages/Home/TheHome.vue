@@ -32,15 +32,17 @@ function closeMessageFormSubmited() {
           alt="image" 
           class="figure-img" />
       </figure>
-      <LandingPageForm @close-message-form-submitted="closeMessageFormSubmited">
-        <template #form-paragraph>
-          ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
-          BAKANES para redes sociales de acuerdo con TU NEGOCIO
-        </template>
-      </LandingPageForm>
+      <LandingPageBkForm 
+        :hideLabel="true"
+        @close-message-form-submitted="closeMessageFormSubmited">
+          <template #form-paragraph>
+            ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
+            BAKANES para redes sociales de acuerdo con TU NEGOCIO
+          </template>
+      </LandingPageBkForm>
     </div>
     <Transition name="slide-in-down" appear>
-      <LandingPageModalFormSubmited
+      <GlobalBkModalFormSubmited
         v-if="showMessageFormSubmited" 
         @close-menu="closeMessageFormSubmited" />
     </Transition>

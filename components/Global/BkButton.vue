@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import CrushButton from '@nabux-crush/crush-button';
+
+const scrollToForm = (event: MouseEvent) => {
+  event.preventDefault();
+  const formElement = document.getElementById('form');
+  if (formElement) {
+    formElement.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 
 <template>
@@ -7,7 +15,8 @@ import CrushButton from '@nabux-crush/crush-button';
     <CrushButton 
       :small=true 
       text="Solicita información" 
-      variant="alert">
+      variant="alert"
+      @click="scrollToForm">
         <a 
           href="#form" 
           class="button-link">
