@@ -42,7 +42,7 @@ onMounted(() => {
       </div>
       <div class="main-figure">
         <img 
-          src="~/assets/chatbot-bot.svg" 
+          src="~/assets/LandingPage/chatbot-bot.svg" 
           class="main-img" 
           alt="chatbot-image">
       </div>

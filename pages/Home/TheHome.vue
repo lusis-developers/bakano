@@ -50,7 +50,7 @@ function closeMessageFormSubmited() {
 <style lang="scss" scoped>
 .wrapper {
   height: 100vh;
-  background-image: url('@/assets/wave.svg');
+  background-image: url('@/assets/LandingPage/wave.svg');
   background-size: auto 70%;
   background-repeat: no-repeat;
   display: grid;

@@ -1,5 +1,5 @@
-import chatbotAutomate from '@/assets/chatbot-automate.svg';
-import chatbotBot from '@/assets/chatbot-bot.svg';
+import chatbotAutomate from '@/assets/LandingPage/chatbot-automate.svg';
+import chatbotBot from '@/assets/LandingPage/chatbot-bot.svg';
 
 export const images = ref([
   chatbotAutomate,
