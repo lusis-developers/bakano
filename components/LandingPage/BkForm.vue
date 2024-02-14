@@ -38,24 +38,24 @@ async function sendEmailForm() {
       :validRules="rules.validateName" 
       :key="inputKey"
       :hideLabel="props.hideLabel"
-      label="Nombre de tu negocio"
-      :placeholder="props.hideLabel ? 'Nombre de tu negocio' : 'Bakano'" />
+      :placeholder="props.hideLabel ? 'Nombre de tu negocio' : 'Bakano'" 
+      label="Nombre de tu negocio" />
     <CrushTextField 
       v-model="form.email" 
       :required=true 
       :validRules="rules.validateEmail" 
       :key="inputKey"
       :hideLabel="props.hideLabel"
-      label="Email"
-      :placeholder="props.hideLabel ? 'Email' : 'bakano@gmail.com'" />
+      :placeholder="props.hideLabel ? 'Email' : 'bakano@gmail.com'" 
+      label="Email" />
     <CrushTextField 
       v-model="form.phone" 
       :required=true 
       :validRules="rules.validateNumber"
       :key="inputKey" 
       :hideLabel="props.hideLabel"
-      label="Número de teléfono"
-      :placeholder="props.hideLabel ? 'Número de teléfono' : '0991238512'" />
+      :placeholder="props.hideLabel ? 'Número de teléfono' : '0991238512'" 
+      label="Número de teléfono" />
     <div class="wrapper-button">
       <CrushButton 
         :small=true 

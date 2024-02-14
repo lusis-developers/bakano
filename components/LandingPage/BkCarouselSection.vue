@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { images } from '../../utils/LandingContent';
+import { images } from '@/utils/LandingContent';
 </script>
 
 <template>

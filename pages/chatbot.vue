@@ -50,16 +50,16 @@ onMounted(() => {
     <LandingPageBkCarouselSection />
     <LandingPageBkSection
       :principalContent="contentSections[0].principalContent"
-      :numeralSection="'1'"
+      :sectionIdentifier="'1'"
       :flexContent="contentSections[0].flexContent" 
       :showButton="true" />
     <LandingPageBkSection
       :principalContent="contentSections[1].principalContent"
-      :numeralSection="'2'"
+      :sectionIdentifier="'2'"
       :flexContent="contentSections[1].flexContent" />
     <LandingPageBkSection 
       :principalContent="contentSections[2].principalContent"
-      :numeralSection="'3'"
+      :sectionIdentifier="'3'"
       :flexContent="contentSections[2].flexContent" />
     <LandingPageBkContactForm />
     <LandingPageBkFooter />

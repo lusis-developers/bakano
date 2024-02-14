@@ -4,7 +4,7 @@ const props = defineProps({
     type: Object,
     required: true
   },
-  numeralSection: {
+  sectionIdentifier: {
     type: String,
     required: true
   },
@@ -20,44 +20,43 @@ const props = defineProps({
 </script>
 
 <template>
-<section
-:class="'section-' + numeralSection"
-class="section"> 
-  <div class="content">
-    <h1 class="content-title">
-      {{ principalContent[0].title }}
-    </h1>
-    <p 
-    v-if="principalContent[0].paragraph"
-    class="content-paragraph">
-      {{ principalContent[0].paragraph }}
-    </p>
-  </div>
-  <div 
-  :class="'flex-content-' + numeralSection"
-  class="flex-content">
-    <div 
-    v-for="(item, index) in flexContent"
-    :key="index"
-    class="flex-items">
-      <img 
-        v-if="item.image"
-        :src="item.image"
-        alt="grid-img"
-        class="img" />
-      <h3
-        :class="'flex-item-tittle-' + numeralSection"
-        class="flex-item-tittle">
-        {{ item.title }}
-      </h3>
-      <p
-        class="flex-item-paragraph">
-        {{ item.paragraph }}
-      </p>
-    </div>
-  </div>
-  <GlobalBkButton v-if="showButton" />
-</section>
+  <section
+    :class="'section-' + sectionIdentifier"
+    class="section"> 
+      <div class="content">
+        <h1 class="content-title">
+          {{ principalContent[0].title }}
+        </h1>
+        <p 
+        v-if="principalContent[0].paragraph"
+        class="content-paragraph">
+          {{ principalContent[0].paragraph }}
+        </p>
+      </div>
+      <div 
+        :class="'flex-content-' + sectionIdentifier"
+        class="flex-content">
+          <div 
+            v-for="(item, index) in flexContent"
+            :key="index"
+            class="flex-items">
+              <img 
+                v-if="item.image"
+                :src="item.image"
+                alt="grid-img"
+                class="img" />
+              <h3
+                :class="'flex-item-tittle-' + sectionIdentifier"
+                class="flex-item-tittle">
+                  {{ item.title }}
+              </h3>
+              <p class="flex-item-paragraph">
+                {{ item.paragraph }}
+              </p>
+          </div>
+      </div>
+      <GlobalBkButton v-if="showButton" />
+  </section>
 </template>
 
 <style lang="scss" scoped>
