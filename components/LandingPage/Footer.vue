@@ -1,16 +1,28 @@
 <script setup lang="ts">
 import CrushFooter from '@nabux-crush/crush-footer';
 import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
-import instagramSvg from '~/assets/social-icons/instagram.svg';
-import facebookSvg from '~/assets/social-icons/facebook.svg';
-import linkedingSvg from '~/assets/social-icons/linkeding.svg';
-import tiktokSvg from '~/assets/social-icons/tiktok.svg';
 
 const socialIcons = [
-  { name: 'instagram', url: 'https://www.instagram.com/bakanoagency/', src: instagramSvg },
-  { name: 'facebook', url: 'https://www.facebook.com/bakanoagency', src: facebookSvg },
-  { name: 'linkeding', url: 'https://www.linkedin.com/company/bakano-agency/', src: linkedingSvg },
-  { name: 'tiktok', url: 'https://www.tiktok.com/@bakano.agency?_t=8jfKHtOoJxW&_r=1', src: tiktokSvg },
+  { 
+    name: 'instagram', 
+    url: 'https://www.instagram.com/bakanoagency/', 
+    class: 'fa-brands fa-instagram'
+  },
+  { 
+    name: 'facebook', 
+    url: 'https://www.facebook.com/bakanoagency', 
+    class: 'fa-brands fa-facebook-f' 
+  },
+  { 
+    name: 'linkeding',
+    url: 'https://www.linkedin.com/company/bakano-agency/',
+    class: 'fa-brands fa-linkedin-in' 
+  },
+  { 
+    name: 'tiktok',
+    url: 'https://www.tiktok.com/@bakano.agency?_t=8jfKHtOoJxW&_r=1', 
+    class: 'fa-brands fa-tiktok social-img-tiktok' 
+  },
 ]
 </script>
 
@@ -24,22 +36,30 @@ const socialIcons = [
           :key="icon.name" 
           :to="icon.url" 
           target="_blank">
-            <img 
-              :src="icon.src" 
-              :alt="`${icon.name}-icon`" 
-              class="social-img">
+          <i 
+            :class="icon.class"
+            class="social-img">
+          </i>
         </NuxtLink>
       </template>
     </CrushFooter>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .social-img{
-  max-width: 30px;
+  font-size: 32px;
+  color: $black;
 }
 :deep(.footer){
   max-width: none;
+}
+:deep(.footer-social){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
 }
 :deep(.footer-image){
   overflow: hidden;

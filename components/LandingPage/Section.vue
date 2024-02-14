@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CrushButton from '@nabux-crush/crush-button';
-
 const props = defineProps({
   showCarousel: { 
     type: Boolean, 
@@ -77,21 +75,8 @@ const props = defineProps({
       <LandingPageCarousel 
         v-if="showCarousel" 
         :images="(images as Array<string>)" />
-          <slot name="Form"></slot>
-      <div 
-        v-if="showButton"
-        class="button">
-          <CrushButton  
-            :small=true 
-            text="Solicita información" 
-            variant="alert">
-            <NuxtLink 
-                to="#form" 
-                class="button-link">
-                  Solicita información
-            </NuxtLink>
-          </CrushButton>
-      </div>
+      <slot name="Form"></slot>
+      <LandingPageButton v-if="showButton"/>
   </section>
 </template>
 
@@ -224,15 +209,6 @@ const props = defineProps({
     @media (min-width: $desktop-upper-breakpoint) {
      max-width: 100%;
     }
-  }
-}
-.button {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  &-link {
-    text-decoration: none;
-    color: $black;
   }
 }
 :deep(.crush-text-field .input-container .crush-text-field-input) {
