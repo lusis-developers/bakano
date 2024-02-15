@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { images } from '@/utils/LandingContent';
+import chatbotAutomate from '@/assets/LandingPage/chatbot-automate.svg';
+import chatbotBot from '@/assets/LandingPage/chatbot-bot.svg';
+
+const images = ref([
+  chatbotAutomate,
+  chatbotBot,
+]);
 </script>
 
 <template>
@@ -19,7 +25,7 @@ import { images } from '@/utils/LandingContent';
 <style lang="scss" scoped>
 .carousel {
   padding: 24px;
-  background-color: hsla(0, 10%, 92%, 0.35);
+  background-color: rgba(237, 233, 233, 0.35);
   margin-bottom: 32px;
   @media (min-width: $tablet-upper-breakpoint) {
     padding: 100px 0;

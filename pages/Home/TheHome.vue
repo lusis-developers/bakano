@@ -154,9 +154,8 @@ function closeMessageFormSubmited() {
   }
 }
 :deep(.crush-button.disabled) {
-  background-color: hsla(344, 79%, 53%, .4);
+  background-color: rgba(230, 40, 91, 0.4);
   border: none;
   color: $black;
 }
-
 </style>

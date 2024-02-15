@@ -1,18 +1,26 @@
 <script setup lang="ts">
 const props = defineProps({
-  principalContent: {
-    type: Object,
-    required: true
-  },
-  sectionIdentifier: {
+  principalTitle: {
     type: String,
     required: true
   },
+  principalParagraph: {
+    type: String,
+    required: false
+  },
   flexContent: {
-    type: Object,
+    type: Array<{ 
+      image?: string,
+      title: string,
+      paragraph: string
+    }>,
     required: true
   },
-  showButton: {
+  sectionIdentifier:{
+    type: String,
+    required: true
+  },
+  showButton:{
     type: Boolean,
     default: false
   }
@@ -20,38 +28,39 @@ const props = defineProps({
 </script>
 
 <template>
-  <section
-    :class="'section-' + sectionIdentifier"
+  <section 
+    :class="'section-' + sectionIdentifier" 
     class="section"> 
       <div class="content">
         <h1 class="content-title">
-          {{ principalContent[0].title }}
+          {{ principalTitle }}
         </h1>
         <p 
-        v-if="principalContent[0].paragraph"
-        class="content-paragraph">
-          {{ principalContent[0].paragraph }}
+          v-if="principalParagraph" 
+          class="content-paragraph">
+            {{ principalParagraph }}
         </p>
       </div>
       <div 
-        :class="'flex-content-' + sectionIdentifier"
+        :class="'flex-content-' + sectionIdentifier" 
         class="flex-content">
           <div 
-            v-for="(item, index) in flexContent"
-            :key="index"
+            v-for="(item, index) in flexContent" 
+            :key="index" 
             class="flex-items">
               <img 
-                v-if="item.image"
-                :src="item.image"
-                alt="grid-img"
+                v-if="item.image" 
+                :src="item.image" 
+                alt="grid-img" 
                 class="img" />
-              <h3
-                :class="'flex-item-tittle-' + sectionIdentifier"
+              <h3 
+                :class="'flex-item-tittle-' + sectionIdentifier" 
                 class="flex-item-tittle">
                   {{ item.title }}
               </h3>
-              <p class="flex-item-paragraph">
-                {{ item.paragraph }}
+              <p 
+                class="flex-item-paragraph">
+                  {{ item.paragraph }}
               </p>
           </div>
       </div>
@@ -60,35 +69,35 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-.img{
+.img {
   max-width: 72%;
 }
-.section{
+.section {
   padding: 24px;
   margin: 32px 0;
   @media (min-width: $tablet-upper-breakpoint) {
     padding: 100px 0;
-    margin: 72px auto
+    margin: 72px auto;
   }
-  &-2{
-    background-color: hsla(0, 86%, 95%, 0.35);
+  &-2 {
+    background-color: rgba(253, 231, 231, 0.35);
   }
 }
-.content{
+.content {
   text-align: center;
-  &-title{
+  &-title {
     font-family: $primary-font;
     margin-bottom: 64px;
-    @media (min-width: $tablet-upper-breakpoint){
+    @media (min-width: $tablet-upper-breakpoint) {
       font-size: $font-size-extra-large;
       max-width: 80%;
       margin: 0 auto 56px;
     }
   }
-  &-paragraph{
+  &-paragraph {
     font-family: $secondary-font;
     margin: 48px 0;
-    @media (min-width: $tablet-upper-breakpoint){
+    @media (min-width: $tablet-upper-breakpoint) {
       max-width: 80%;
       margin: 40px auto 72px;
     }
@@ -97,7 +106,7 @@ const props = defineProps({
     }
   }
 }
-.flex-content{
+.flex-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -110,13 +119,13 @@ const props = defineProps({
     gap: 24px;
     margin: 0 auto;
   }
-  &-2{
+  &-2 {
     max-width: 80vw;
     margin: 0 auto;
     gap: 140px 56px;
   }
 }
-.flex-items{
+.flex-items {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -131,15 +140,15 @@ const props = defineProps({
     flex: 1 0 calc(33% - 16px);
   }
 }
-.flex-item{
-  &-tittle{
+.flex-item {
+  &-tittle {
     font-family: $primary-font;
-    &-1{
+    &-1 {
       font-size: $font-size-extra-large;
-      color: #ed143d;      
+      color: #ed143d;
     }
   }
-  &-paragraph{
+  &-paragraph {
     font-family: $secondary-font;
     max-width: 72%;
   }

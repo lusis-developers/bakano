@@ -40,7 +40,7 @@ const scrollToForm = (event: MouseEvent) => {
   :deep(.crush-button) {
   border: none;
   color: $black;
-  background-color: hsla(344, 79%, 53%, .4);
+  background-color: rgba(230, 40, 91, 0.4);
   padding: 8px 16px;
   margin-top: 16px;
   transition: background-color 0.5s ease-in;
