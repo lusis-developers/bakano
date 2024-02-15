@@ -2,10 +2,10 @@
 const props = defineProps({
   images: {
     type: Array,
-    required: true,
     validator: (value: string[]) => {
       return value.every((image) => typeof image === 'string');
-    }
+    },
+    required: true,
   },
   showButtons: {
     type: Boolean,

@@ -14,6 +14,16 @@ const props = defineProps({
       title: string,
       paragraph: string
     }>,
+    validator: (value: Array<{ 
+      image?: string,
+      title: string,
+      paragraph: string
+    }>) => {
+      return value.every((item) => 
+        typeof item.title === 'string' && 
+        typeof item.paragraph === 'string' && 
+        (item.image ? typeof item.image === 'string' : true));
+    },
     required: true
   },
   sectionIdentifier:{
