@@ -15,7 +15,11 @@ const images = ref([
         Mucho mas que un software para crear chatbots
       </h2>
       <p class="carousel-content-paragraph">
-        Un chatbot para WhatsApp es un programa de inteligencia artificial que simula una conversación con personas a través de la aplicación de mensajería instantánea. Los chatbots para WhatsApp permiten a las empresas automatizar y centralizar la comunicación con sus clientes, ofreciendo respuestas rápidas y precisas a sus consultas.
+        Un chatbot para WhatsApp es un programa de inteligencia artificial 
+        que simula una conversación con personas a través de la aplicación 
+        de mensajería instantánea. Los chatbots para WhatsApp permiten a las 
+        empresas automatizar y centralizar la comunicación con sus clientes, 
+        ofreciendo respuestas rápidas y precisas a sus consultas.
       </p>
     </div>
     <GlobalBkCarousel :images="images"/>
