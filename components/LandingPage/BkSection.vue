@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const props = defineProps({
-  principalTitle: {
+  title: {
     type: String,
     required: true
   },
-  principalParagraph: {
+  paragraph: {
     type: String,
     required: false
   },
-  flexContent: {
+  content: {
     type: Array<{ 
       image?: string,
       title: string,
@@ -43,19 +43,19 @@ const props = defineProps({
     class="section"> 
       <div class="content">
         <h1 class="content-title">
-          {{ principalTitle }}
+          {{ title }}
         </h1>
         <p 
-          v-if="principalParagraph" 
+          v-if="paragraph" 
           class="content-paragraph">
-            {{ principalParagraph }}
+            {{ paragraph }}
         </p>
       </div>
       <div 
         :class="'flex-content-' + sectionIdentifier" 
         class="flex-content">
           <div 
-            v-for="(item, index) in flexContent" 
+            v-for="(item, index) in content" 
             :key="index" 
             class="flex-items">
               <img 

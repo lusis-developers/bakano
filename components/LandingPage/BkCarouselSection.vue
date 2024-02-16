@@ -36,7 +36,7 @@ const images = ref([
     &-title {
       font-family: $primary-font;
       margin-bottom: 24px;
-      @media screen and (min-width: $tablet-upper-breakpoint){
+      @media (min-width: $tablet-upper-breakpoint){
         max-width: 80%;
         margin: 0 auto 48px;
         font-size: $font-size-extra-large;
@@ -45,12 +45,12 @@ const images = ref([
     &-paragraph {
       font-family: $secondary-font;
       margin: 48px 0;
-      @media screen and (min-width: $tablet-upper-breakpoint){
+      @media (min-width: $tablet-upper-breakpoint){
         max-width: 80%;
         margin: 40px auto 72px;
       }
-      @media screen and (min-width: $desktop-upper-breakpoint) {
-        max-width: 62%;
+      @media (min-width: $desktop-upper-breakpoint) {
+        max-width: 60%;
       }
     }
   }

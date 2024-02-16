@@ -2,8 +2,8 @@ import chatbotAutomate from '@/assets/LandingPage/chatbot-automate.svg';
 import chatbotBot from '@/assets/LandingPage/chatbot-bot.svg';
 
 export const contentSection1 = {
-  principalTitle: 'Mejora tus resultados con chatbots en WhatsApp Business API',
-  flexContent: [
+  title: 'Mejora tus resultados con chatbots en WhatsApp Business API',
+  content: [
     { 
       title: '35%', 
       paragraph: 'Automatización de ventas en WhatsApp Business', 
@@ -21,9 +21,9 @@ export const contentSection1 = {
 
 
 export const contentSection2 = {
-  principalTitle: '¿Por qué necesitas un chatbot para WhatsApp?',
-  principalParagraph: 'Un chatbot para WhatsApp es una herramienta de comunicación que te permite automatizar y centralizar la atención al cliente, ofreciendo respuestas rápidas y precisas a sus consultas. Con un chatbot para WhatsApp podrás:',
-  flexContent: [
+  title: '¿Por qué necesitas un chatbot para WhatsApp?',
+  paragraph: 'Un chatbot para WhatsApp es una herramienta de comunicación que te permite automatizar y centralizar la atención al cliente, ofreciendo respuestas rápidas y precisas a sus consultas. Con un chatbot para WhatsApp podrás:',
+  content: [
     { 
       title: 'Automatiza tu atención al cliente', 
       paragraph: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 
@@ -48,9 +48,9 @@ export const contentSection2 = {
 }
 
 export const contentSection3 = {
-  principalTitle: 'Elige la estrategia que más se adapte a ti',
-  principalParagraph: 'Personaliza la experiencia de tus clientes con nuestros chatbots para WhatsApp. ¿Prefieres un enfoque guiado para un control preciso y acciones simples? ¿Inteligencia Artificial para respuestas más dinámicas? ¿O una combinación de ambas? ¡Tú decides! Adaptamos tu chatbot a las necesidades únicas de tu negocio.',
-  flexContent: [
+  title: 'Elige la estrategia que más se adapte a ti',
+  paragraph: 'Personaliza la experiencia de tus clientes con nuestros chatbots para WhatsApp. ¿Prefieres un enfoque guiado para un control preciso y acciones simples? ¿Inteligencia Artificial para respuestas más dinámicas? ¿O una combinación de ambas? ¡Tú decides! Adaptamos tu chatbot a las necesidades únicas de tu negocio.',
+  content: [
     { 
       title: 'Chatbots guiados', 
       paragraph: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 

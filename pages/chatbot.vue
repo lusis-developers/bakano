@@ -49,20 +49,20 @@ onMounted(() => {
     </div>
     <LandingPageBkCarouselSection />
     <LandingPageBkSection
-      :principalTitle="contentSection1.principalTitle"
+      :title="contentSection1.title"
       :sectionIdentifier="'1'"
-      :flexContent="contentSection1.flexContent" 
+      :content="contentSection1.content" 
       :showButton="true" />
     <LandingPageBkSection
-      :principalTitle="contentSection2.principalTitle"
-      :principalParagraph="contentSection2.principalParagraph"
+      :title="contentSection2.title"
+      :paragraph="contentSection2.paragraph"
       :sectionIdentifier="'2'"
-      :flexContent="contentSection2.flexContent" />
+      :content="contentSection2.content" />
     <LandingPageBkSection
-      :principalTitle="contentSection3.principalTitle"
-      :principalParagraph="contentSection3.principalParagraph"
+      :title="contentSection3.title"
+      :paragraph="contentSection3.paragraph"
       :sectionIdentifier="'3'"
-      :flexContent="contentSection3.flexContent" />
+      :content="contentSection3.content" />
     <LandingPageBkContactForm />
     <LandingPageBkFooter />
   </div>
@@ -104,7 +104,7 @@ onMounted(() => {
     font-size: $font-size-large;
     text-align: center;
     margin-bottom: 24px;
-    @media screen and (min-width: $tablet-upper-breakpoint) {
+    @media (min-width: $tablet-upper-breakpoint) {
       font-size: $font-size-extra-large;      
     }
   }
