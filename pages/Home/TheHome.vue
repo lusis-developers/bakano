@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
 useHead({
   title: 'BAKANO | Agencia de Marketing Digital',
 })
@@ -32,10 +30,17 @@ function closeMessageFormSubmited() {
           alt="image" 
           class="figure-img" />
       </figure>
-      <LandingPageForm @close-message-form-submited="closeMessageFormSubmited"/>
+      <LandingPageBkForm 
+        :hideLabel="true"
+        @close-message-form-submitted="closeMessageFormSubmited">
+          <template #form-paragraph>
+            ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
+            BAKANES para redes sociales de acuerdo con TU NEGOCIO
+          </template>
+      </LandingPageBkForm>
     </div>
     <Transition name="slide-in-down" appear>
-      <LandingPageModalFormSubmited
+      <GlobalBkModalFormSubmited
         v-if="showMessageFormSubmited" 
         @close-menu="closeMessageFormSubmited" />
     </Transition>
@@ -45,7 +50,7 @@ function closeMessageFormSubmited() {
 <style lang="scss" scoped>
 .wrapper {
   height: 100vh;
-  background-image: url('@/assets/wave.svg');
+  background-image: url('@/assets/LandingPage/wave.svg');
   background-size: auto 70%;
   background-repeat: no-repeat;
   display: grid;
@@ -149,26 +154,8 @@ function closeMessageFormSubmited() {
   }
 }
 :deep(.crush-button.disabled) {
-  background-color: hsla(344, 79%, 53%, .4);
+  background-color: rgba(230, 40, 91, 0.4);
   border: none;
   color: $black;
-}
-.slide-in-down-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-in-down-enter-from {
-  transform: translateY(-100%);
-}
-.slide-in-down-enter-to {
-  transform: translateY(0);
-}
-.slide-in-down-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-in-down-leave-from {
-  transform: translateY(0);
-}
-.slide-in-down-leave-to {
-  transform: translateY(-100%);
 }
 </style>
