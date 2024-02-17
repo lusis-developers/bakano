@@ -13,14 +13,19 @@ function closeMessageFormSubmited() {
         ¡Transforma tu negocio con un poderoso chatbot para WhatsApp!
       </h2>
       <p class="contact-content-paragraph">
-        Automatiza y optimiza la comunicación con tus clientes las 24 horas del día. Desde responder preguntas frecuentes hasta guiar a los clientes en sus compras, nuestro chatbot impulsado por inteligencia artificial hace el trabajo pesado por ti. Aprovecha esta oportunidad para aumentar tus ventas y fortalecer tu marca hoy mismo. 📱💬
+        Automatiza y optimiza la comunicación con tus clientes las 24 horas del día. 
+        Desde responder preguntas frecuentes hasta guiar a los clientes en sus compras, 
+        nuestro chatbot impulsado por inteligencia artificial hace el trabajo pesado por ti. 
+        Aprovecha esta oportunidad para aumentar tus ventas y fortalecer tu marca hoy mismo. 📱💬
       </p>
     </div>
     <LandingPageBkForm @close-message-form-submitted="closeMessageFormSubmited"/>
-    <Transition name="slide-in-down" appear>
-      <GlobalBkModalFormSubmited
-        v-if="showMessageFormSubmited" 
-        @close-menu="closeMessageFormSubmited" />
+    <Transition 
+      name="slide-in-down" 
+      appear>
+        <GlobalBkModalFormSubmited
+          v-if="showMessageFormSubmited" 
+          @close-menu="closeMessageFormSubmited" />
     </Transition>
   </section>
 </template>

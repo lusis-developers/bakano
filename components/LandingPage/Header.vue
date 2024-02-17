@@ -5,7 +5,7 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
 
 <template>
   <header class="header">
-    <NuxtLink>
+    <div>
       <figure class="header-figure">
         <img 
           :src="BakanoIsotipoNegro" 
@@ -16,7 +16,7 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
           alt="Bakano"
           class="header-figure-logotipo" />
       </figure>
-    </NuxtLink>
+    </div>
   </header>
 </template>
 

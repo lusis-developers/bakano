@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Typed from 'typed.js';
 
-import { contentSection1, contentSection2, contentSection3 } from '../utils/LandingContent';
+import { section1, section2, section3 } from '../utils/LandingContent';
 
 useHead({
   title: 'BAKANO | Chatbot para WhatsApp',
@@ -49,20 +49,20 @@ onMounted(() => {
     </div>
     <LandingPageBkCarouselSection />
     <LandingPageBkSection
-      :title="contentSection1.title"
+      :title="section1.title"
       :sectionIdentifier="'1'"
-      :content="contentSection1.content" 
+      :content="section1.content" 
       :showButton="true" />
     <LandingPageBkSection
-      :title="contentSection2.title"
-      :paragraph="contentSection2.paragraph"
+      :title="section2.title"
+      :paragraph="section2.paragraph"
       :sectionIdentifier="'2'"
-      :content="contentSection2.content" />
+      :content="section2.content" />
     <LandingPageBkSection
-      :title="contentSection3.title"
-      :paragraph="contentSection3.paragraph"
+      :title="section3.title"
+      :paragraph="section3.paragraph"
       :sectionIdentifier="'3'"
-      :content="contentSection3.content" />
+      :content="section3.content" />
     <LandingPageBkContactForm />
     <LandingPageBkFooter />
   </div>
