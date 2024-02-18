@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 let image1 = ref(null);
 let image2 = ref(null);
+let animationCompleted = ref(false);
 
 onMounted(() => {
   gsap.from(image1.value, {
@@ -17,7 +18,7 @@ onMounted(() => {
     },
     x: '-100%',
     y: '100%',
-    duration: 2,
+    duration: 2,onComplete: () => { animationCompleted.value = true; } 
   });
 })
 </script>
@@ -25,13 +26,24 @@ onMounted(() => {
 <template>
   <div class="container">
     <h3 class="container-title">Nuestra filosofía</h3>
-    <figure class="container-image">
-      <img 
-        ref="image1"
-        class="container-image-eloy"
-        src="~/assets/images/eloyalfaro-bn.png"
-        alt="Eloy Alfaro">
-    </figure>
+    <div class="container-principal">
+      <figure class="container-principal-image">
+        <img 
+          ref="image1"
+          class="container-principal-image-eloy"
+          src="~/assets/images/eloyalfaro-bn.png"
+          alt="Eloy Alfaro">
+        <img
+          ref="image2"
+          class="container-principal-image-glasses"
+          src="~/assets/images/gafas.jpg"
+          alt="gafas super cool" />
+      </figure>
+      <div class="container-principal-message">
+        <BkPhilosophyBkModel :isAnimationCompleted="animationCompleted"/>
+      </div>
+    </div>
+    <div class="supercontainer"></div>
   </div>  
 </template>
 
@@ -49,24 +61,52 @@ onMounted(() => {
     text-align: center;
     font-size: 3rem;
     color: $black;
+    padding: 56px;
   }
-  &-image {
-    height: inherit;
-    width: 100%;
+  &-principal {
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: start;
-    align-items: start;
-    max-width: $desktop-lower-breakpoint;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+    max-width: $desktop-upper-breakpoint;
     margin: 0 auto;
-    &-eloy {
+    &-image {
+      max-width: $desktop-lower-breakpoint;
+      height: inherit;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      position: relative;
       width: 100%;
-      object-fit: cover;
       @media (min-width: $tablet-lower-breakpoint) {
-        width: 512px;
-        height: 512px;
-      }      
+        width: 35%;
+      }
+      &-eloy {
+        width: 100%;
+        object-fit: cover;
+        position: relative;
+        @media (min-width: $tablet-lower-breakpoint) {
+          width: 512px;
+          height: 512px;
+        }
+      }
+      &-glasses {
+        width: 20%;
+        object-fit: cover;
+        position: absolute;
+        top: 16%;
+      }
     }
+    &-message {
+      width: 100%;
+      @media (min-width: $tablet-lower-breakpoint) {
+        width: 60%;
+      }
+    }
+  }
+  .supercontainer {
+    height: 100vh;
   }
 }
 </style>
