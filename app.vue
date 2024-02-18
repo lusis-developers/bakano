@@ -8,4 +8,7 @@
   margin: 0;
   padding: 0;
 }
+.pin-spacer {
+  background-color: $black; 
+}
 </style>
