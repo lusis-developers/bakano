@@ -8,6 +8,23 @@ let image1 = ref(null);
 let image2 = ref(null);
 let animationCompleted = ref(false);
 
+function moveGlasses() {
+  gsap.to(image2.value, {
+    scrollTrigger: {
+      trigger: image2.value,
+      start: 'top center',
+      end: 'bottom center',
+      scrub: true,
+      markers: true,
+    },
+    y: '0%',
+    x: '0%',
+    opacity: 1,
+    duration: 2,
+    delay: 2,
+  })
+}
+
 onMounted(() => {
   gsap.from(image1.value, {
     scrollTrigger: {
@@ -42,7 +59,9 @@ onMounted(() => {
           alt="gafas super cool" />
       </figure>
       <div class="container-principal-message">
-        <BkPhilosophyBkModel :isAnimationCompleted="animationCompleted"/>
+        <BkPhilosophyBkModel 
+          :isAnimationCompleted="animationCompleted"
+          @moveGlasses="moveGlasses"/>
       </div>
     </div>
     <div class="supercontainer"></div>
@@ -99,6 +118,7 @@ onMounted(() => {
         object-fit: cover;
         position: absolute;
         top: 16%;
+        opacity: 0;
       }
     }
     &-message {
