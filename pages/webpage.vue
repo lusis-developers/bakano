@@ -15,22 +15,7 @@ function onHeaderTransitionEnd() {
   headerTransitionEnded.value = true;
 }
 onMounted(() => {
-  const services = document.querySelector('.services');
   const bkClients = document.querySelector('.bk-clients');
-
-  gsap.to(services, {
-    scrollTrigger: {
-      trigger: services,
-      start: 'bottom bottom',
-      end: '+=500',
-      scrub: true,
-      pin: true,
-      anticipatePin: 1
-    },
-    x: '-100%',
-    ease: 'none',
-    backgroundColor: 'blue'
-  });
 
   gsap.to(bkClients, {
     scrollTrigger: {
@@ -59,7 +44,7 @@ onMounted(() => {
       <Hero v-if="headerTransitionEnded"/>
     </div>
     <div class="container-third-section">
-      <div class="services"></div>
+      <BkServices class="bk-services"/>
       <BkClients class="bk-clients"/>
     </div>
   </div>
@@ -76,12 +61,6 @@ onMounted(() => {
     width: 100%;
     background-color: $black;
     height: 100vh;
-  }
-  &-third-section {
-    .services {
-      height: 100vh;
-      background-color: $white;
-    }
   }
 
 }
