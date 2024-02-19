@@ -1,6 +1,7 @@
 <script setup>
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const emit = defineEmits(['toggle-menu']);
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,6 +63,8 @@ onMounted(() => {
     background-color: $black;
     height: 100vh;
   }
-
+  &-third-section {
+    background-color: $white;
+  }
 }
 </style>

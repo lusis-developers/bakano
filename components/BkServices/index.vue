@@ -1,60 +1,99 @@
 <script setup>
-import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
+
+import { serviceImages } from '../../utils/servicesItems';
+import boca from '../../assets/images/boca-megafono.png';
+import oreja from '../../assets/images/oreja.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 let mouth = ref(null);
 let ear = ref(null);
+let itemsContainer = ref(null);
 
-onMounted(() => {
+function animateImages() {
+  const words = itemsContainer.value.children;
+  
+  const tl = gsap.timeline({
+    defaults: {
+      duration: 1,
+      ease: 'power1.inOut'
+    },
+    scrollTrigger: {
+      trigger: itemsContainer.value,
+      start: 'top center',
+      end: 'bottom center',
+      scrub: true
+    }
+  });
+
+  gsap.utils.toArray(words).forEach((word, index) => {
+    tl.fromTo(word, 
+      { autoAlpha: 0, y: 50 },
+      { autoAlpha: 1, y: 0 },
+      `+=0.5` // Delay entre palabras
+    )
+    .to(word, 
+      { autoAlpha: 0, y: -50 },
+      `+=0.5` // Mantiene la palabra visible antes de desaparecer
+    );
+  });
+}
+
+function animateMouth() {
   gsap.from(mouth.value, {
     scrollTrigger: {
       trigger: mouth.value,
-      start: "top 80%",
-      end: "+=1000",
-      markers: true,
+      start: "top 90%",
+      end: "top",
       scrub: true,
     },
-    x: 1000,
     ease: "power2.in",
-    rotate: 180,
+    scale: 0,
   });
   
   gsap.to(mouth.value, {
     scrollTrigger: {
       trigger: mouth.value,
-      start: "top 80%",
+      start: "top 100%",
       end: "+=3750",
-      markers: true,
       scrub: true,
     },
     y: 3000,
-    ease: "power2.inOut",
+    ease: "power1.inOut",
   });
+}
 
+
+function animateEar() {
   gsap.from(ear.value, {
     scrollTrigger: {
       trigger: ear.value,
-      start: "top 80%",
-      end: "+=1000",
+      start: "top 90%",
+      end: "top",
       scrub: true
     },
-    x: -1000,
     ease: "power2.in",
-    rotate: 180,
+    scale: 0,
   });
 
   gsap.to(ear.value, {
     scrollTrigger: {
       trigger: ear.value,
-      start: "top 80%",
+      start: "top 100%",
       end: "+=4550",
       scrub: true
     },
     y: 3400,
-    ease: "power2.inOut",
+    ease: "power1.inOut",
   });
+}
+
+onMounted(() => {
+  animateMouth();
+  animateEar();
+  animateImages();
 });
 
 </script>
@@ -68,14 +107,23 @@ onMounted(() => {
       <div class="mouth-container">
         <img
           ref="mouth"
-          src="../assets/images/boca-megafono.png"
+          :src="boca"
           class="mouth">
       </div>
       <div class="ear-container">
         <img
           ref="ear"
-          src="../assets/images/oreja.png"
+          :src="oreja"
           class="ear">
+      </div>
+      <div
+        ref="itemsContainer"
+        class="items-container">
+        <img
+          v-for="(service, index) in serviceImages"
+          :key="index"
+          :src="service"
+          :class="index">
       </div>
     </div>
   </div>
@@ -119,6 +167,13 @@ onMounted(() => {
         width: 240px;
         height: 160px;
       }
+    }
+    .items-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
   } 
 }
