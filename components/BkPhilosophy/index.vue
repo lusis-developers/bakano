@@ -12,13 +12,15 @@ onMounted(() => {
   gsap.from(image1.value, {
     scrollTrigger: {
       trigger: image1.value,
-      start: 'top bottom',
-      end: '+=500',
+      start: 'top center',
+      end: '+=20%',
       scrub: true,
+      markers: true,
     },
     x: '-100%',
     y: '100%',
-    duration: 2,onComplete: () => { animationCompleted.value = true; } 
+    duration: 2,
+    onComplete: () => { animationCompleted.value = true; } 
   });
 })
 </script>
@@ -70,6 +72,7 @@ onMounted(() => {
     width: 100%;
     max-width: $desktop-upper-breakpoint;
     margin: 0 auto;
+    padding-top: 160px;
     &-image {
       max-width: $desktop-lower-breakpoint;
       height: inherit;
@@ -92,7 +95,7 @@ onMounted(() => {
         }
       }
       &-glasses {
-        width: 20%;
+        width: 50%;
         object-fit: cover;
         position: absolute;
         top: 16%;
