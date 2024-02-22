@@ -40,8 +40,6 @@ onMounted(() => {
       anticipatePin: 1
     },
     x: '-100%',
-    ease: 'none',
-    backgroundColor: 'green'
   });
 });
 </script>
@@ -62,6 +60,9 @@ onMounted(() => {
       <div class="services"></div>
       <BkClients class="bk-clients"/>
     </div>
+    <div class="container-fourth-section">
+      <BkPhilosophy/> 
+    </div>
   </div>
 </template>
 
@@ -78,6 +79,7 @@ onMounted(() => {
     height: 100vh;
   }
   &-third-section {
+    background-color: $white;
     .services {
       height: 100vh;
       background-color: $white;
