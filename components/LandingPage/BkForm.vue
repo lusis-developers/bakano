@@ -10,6 +10,10 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false,
+  },
+  foo: {
+    type: Boolean,
+    default: false,
   }
 });
 
@@ -40,6 +44,9 @@ async function sendEmailForm() {
       :hideLabel="props.hideLabel"
       :placeholder="props.hideLabel ? 'Nombre de tu negocio' : 'Bakano'" 
       label="Nombre de tu negocio" />
+    <CrushTextField 
+      v-if="props.foo"
+      />
     <CrushTextField 
       v-model="form.email" 
       :required=true 

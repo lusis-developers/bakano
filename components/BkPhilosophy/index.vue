@@ -128,8 +128,5 @@ onMounted(() => {
       }
     }
   }
-  .supercontainer {
-    height: 100vh;
-  }
 }
 </style>
