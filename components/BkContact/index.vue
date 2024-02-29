@@ -9,9 +9,8 @@ const showMessageFormSubmited = ref(false);
 function closeMessageFormSubmited():void {
   showMessageFormSubmited.value = !showMessageFormSubmited.value;
 }
-
-onMounted(() => {
-const tl = gsap.timeline({ repeat: -1, yoyo: true });
+function animateLogo():void {
+  const tl = gsap.timeline({ repeat: -1, yoyo: true });
   tl.to(".logo", { 
     scale: 1.2, 
     duration: 0.6, 
@@ -22,7 +21,9 @@ const tl = gsap.timeline({ repeat: -1, yoyo: true });
     duration: 0.6, 
     ease: "power1.inOut" 
   });
-});
+}
+
+onMounted(animateLogo);
 </script>
 
 <template>
@@ -38,9 +39,7 @@ const tl = gsap.timeline({ repeat: -1, yoyo: true });
         class="contact-figure-logo logo"/>
       </figure>
       <div class="contact-form">
-        <LandingPageBkForm 
-          :hideLabel="true"
-          @close-message-form-submitted="closeMessageFormSubmited"/>
+        <LandingPageBkForm @close-message-form-submitted="closeMessageFormSubmited"/>
       </div>
   </div>
   <BkContactModalCheck v-if="showMessageFormSubmited" />
@@ -55,19 +54,19 @@ const tl = gsap.timeline({ repeat: -1, yoyo: true });
   display: flex;
   flex-direction: column;
   justify-content: center;
+  &-title {
+  text-align: center;
+  font-family: $primary-font;
+  font-size: $font-size-extra-large;
+  color: $white;
+  margin: 32px 0;
+  }
   &-form{
     margin: 0 auto;
     @media (min-width: $tablet-upper-breakpoint){
       width: 72%;
     }
   }
-}
-.contact-title {
-  text-align: center;
-  font-family: $primary-font;
-  font-size: $font-size-extra-large;
-  color: $white;
-  margin: 24px 0;
 }
 .contact-figure {
   display: flex;
@@ -94,9 +93,10 @@ const tl = gsap.timeline({ repeat: -1, yoyo: true });
 :deep(.crush-text-field .input-container.active) {
   border-color: grey;
 }
-:deep(.crush-text-field) {
-  @media (max-width: $mobile-upper-breakpoint) {
-    margin-bottom: 8px;
-  }
+:deep(.crush-button.disabled){
+  background-color: rgb(255 196 212);
+}
+:deep(.crush-text-field .crush-text-field-label-text) {
+  color: $white;
 }
 </style>

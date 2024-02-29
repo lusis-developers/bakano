@@ -18,7 +18,7 @@ onMounted(() => {
       start: () => isMobile ? "top top" : "center bottom", 
       end: () => "+=" + containerClients.value.clientHeight,
       scrub: true,
-      markers: true,
+      // markers: true,
     },
     duration: 1,
     y: '100vh',

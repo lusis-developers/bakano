@@ -2,6 +2,10 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+useHead({
+  title: 'BAKANO | Agencia de Marketing Digital',
+})
+
 const emit = defineEmits(['toggle-menu']);
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +33,6 @@ onMounted(() => {
       scrub: 1,
       pin: true,
       anticipatePin: 1,
-      // snap: 1
     },
     x: '-100%',
     ease: 'none',
@@ -42,7 +45,6 @@ onMounted(() => {
       start: 'bottom bottom',
       scrub: 1,
       anticipatePin: 1,
-      snap: 1 
     },
     x: '-100%',
   });
@@ -54,8 +56,6 @@ onMounted(() => {
       end: 'center center',
       scrub: 1,
       id: 'contact',
-      // anticipatePin: 1,
-      markers: true,
     },
     x: '-100%',
   }); 
@@ -79,7 +79,7 @@ onMounted(() => {
       <BkClients class="bk-clients"/>
     </div>
     <div class="container-fourth-section sections">
-      <BkPhilosophy/> 
+      <BkPhilosophy /> 
     </div>
     <div class="container-fifth-section sections">
       <BkContact class="bk-contact"/>
@@ -105,6 +105,11 @@ onMounted(() => {
       height: 100vh;
       background-color: $white;
     }
+  }
+  &-fourth-section {
+    overflow: hidden;
+    background-color: $white;
+    height: 200vh;
   }
   &-fifth-section {
     width: 100%;

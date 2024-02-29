@@ -75,6 +75,7 @@ onMounted(() => {
     <RouterLink to="/" class="header-figure">
       <img
         :src="logo"
+        alt="Bakano logotipo"
         class="header-figure-logo">
     </RouterLink>
     <button
