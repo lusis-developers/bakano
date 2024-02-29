@@ -26,8 +26,6 @@ onMounted(() => {
       anticipatePin: 1
     },
     x: '-100%',
-    ease: 'none',
-    backgroundColor: 'green'
   });
 });
 </script>
@@ -47,6 +45,9 @@ onMounted(() => {
     <div class="container-third-section">
       <BkServices class="bk-services"/>
       <BkClients class="bk-clients"/>
+    </div>
+    <div class="container-fourth-section">
+      <BkPhilosophy/> 
     </div>
   </div>
 </template>
