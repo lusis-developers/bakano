@@ -4,6 +4,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 useHead({
   title: 'BAKANO | Agencia de Marketing Digital',
+  htmlAttrs: {
+    lang: 'es'
+  },
+  meta: [
+    {
+      name: 'description',
+      content: 'Agencia de Marketing Digital en Guayaquil, Ecuador. Estrategias de Marketing Digital, Diseño Web, Publicidad en Redes Sociales, SEO, SEM'
+    }
+  ]
 })
 
 const emit = defineEmits(['toggle-menu']);
@@ -36,7 +45,6 @@ onMounted(() => {
     },
     x: '-100%',
     ease: 'none',
-    backgroundColor: 'blue'
   });
 
   gsap.to(bkClients, {
@@ -69,13 +77,15 @@ onMounted(() => {
         :colorLogo="menuOpen" 
         @toggle-menu="toggleMenu"  
         @header-transition-end="onHeaderTransitionEnd"/>
-      <BkMenu :isVisible="menuOpen" @close-menu="toggleMenu"/>
+      <BkMenu 
+        :isVisible="menuOpen" 
+        @close-menu="toggleMenu"/>
     </div>
     <div class="container-second-section sections">
       <Hero v-if="headerTransitionEnded"/>
     </div>
     <div class="container-third-section sections">
-      <div class="services"></div>
+      <BkServices class="services"/>
       <BkClients class="bk-clients"/>
     </div>
     <div class="container-fourth-section sections">
@@ -102,8 +112,14 @@ onMounted(() => {
   &-third-section {
     background-color: $white;
     .services {
-      height: 100vh;
+      height: 120vh;
       background-color: $white;
+      @media (max-width: $mobile-upper-breakpoint){
+        height: 140vh;        
+      }
+      @media (min-width: $desktop-lower-breakpoint){        
+        height: 140vh;
+      }
     }
   }
   &-fourth-section {

@@ -34,9 +34,9 @@ onMounted(animateLogo);
       </h2>
       <figure class="contact-figure">
         <img 
-        src="@/assets/images/bakano-logotipo-blanco.png" 
-        alt="Logotipo Bakano" 
-        class="contact-figure-logo logo"/>
+          src="@/assets/images/bakano-logotipo-blanco.png" 
+          alt="Logotipo Bakano" 
+          class="contact-figure-logo logo"/>
       </figure>
       <div class="contact-form">
         <LandingPageBkForm @close-message-form-submitted="closeMessageFormSubmited"/>

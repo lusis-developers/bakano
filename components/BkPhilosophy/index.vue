@@ -98,7 +98,7 @@ onMounted(onMountedAnimationHandler);
   justify-content: space-between;
   gap: 64px;
   align-items: center;
-  padding: 0 10%;
+  padding: 10%;
   &__image{
     width: 72%;
     @media (min-width: $tablet-upper-breakpoint) {
@@ -137,7 +137,7 @@ onMounted(onMountedAnimationHandler);
   justify-content: space-between;
   align-items: center;
   @media (max-width: $tablet-upper-breakpoint) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     gap: 32px;
   }
