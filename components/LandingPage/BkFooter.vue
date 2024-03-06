@@ -35,7 +35,9 @@ const socialIcons = [
           v-for="icon in socialIcons" 
           :key="icon.name" 
           :to="icon.url" 
-          target="_blank">
+          target="_blank"
+          external
+          :aria-label="'Red social de bakano:' + icon.name">
           <i 
             :class="icon.class"
             class="social-img">

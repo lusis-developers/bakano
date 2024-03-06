@@ -82,6 +82,7 @@ onMounted(() => {
     </RouterLink>
     <button
 			class="header-button"
+      aria-label="Menú"
 			@click="toggleMenu">
 			  <i class="fa-solid fa-bars" />
 		</button>
