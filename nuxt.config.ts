@@ -13,6 +13,11 @@ export default defineNuxtConfig({
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url)),
   },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    }
+  },
   vite: {
     css: {
       preprocessorOptions: {
