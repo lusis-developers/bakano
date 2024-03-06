@@ -30,7 +30,6 @@ function onHeaderTransitionEnd() {
 }
 
 onMounted(() => {
-  const services = document.querySelector('.services');
   const bkClients = document.querySelector('.bk-clients');
   const BkContact = document.querySelector('.bk-contact');
 
