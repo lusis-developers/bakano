@@ -2,6 +2,7 @@
 import { fileURLToPath } from 'url';
 
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
