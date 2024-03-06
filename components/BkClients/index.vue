@@ -58,7 +58,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
   .container {
-    padding: 24px;
+    padding: 32px;
     background-color: $black;
     width: 100%;
     display: flex;

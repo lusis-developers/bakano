@@ -2,15 +2,19 @@ import type { Navigation } from "@/typings/LayoutTypes";
 
 export const menuItems: Navigation[] = [
   {
-    name: 'Clientes',
-    link: '/'
+    name: 'Chatbot',
+    link: '/chatbot',
   },
   {
-    name: 'Proyectos',
-    link: '/'
+    name: 'Clientes',
+    link: '#clientes',
+  },
+  {
+    name: 'Filosofia',
+    link: '#filosofia',
   },
   {
     name: 'Contacto',
-    link: '/'
+    link: '#contacto',
   },
 ];

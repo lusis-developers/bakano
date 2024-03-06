@@ -40,7 +40,6 @@ onMounted(() => {
       if (child.titleRef && child.paragraphRef) {
         animateTitles(child.titleRef);
         animateParagraphs(child.paragraphRef);
-        console.log(child.titleRef, child.paragraphRef);
       }
     });
   }

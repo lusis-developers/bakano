@@ -21,7 +21,6 @@ const paragraphRef = ref<HTMLElement | null>(null);
 
 function titleHoverHandler(event: MouseEvent): void {
   if (isDesktop) {
-    console.log('hover')
     const target = event.target as HTMLElement
     const titles = document.querySelectorAll('.services__model__title')
     titles.forEach((title) => {

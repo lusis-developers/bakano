@@ -1,5 +1,4 @@
-<script setup>
-
+<script setup lang="ts">
 const emit = defineEmits(['close-menu']);
 
 const props = defineProps({
@@ -17,21 +16,26 @@ function closeMenu() {
 
 <template>
   <transition name="slide-down">
-    <div v-if="props.isVisible" class="menu">
-      <header class="menu-header">
-        <button @click="closeMenu" class="menu-header-closeButton">
-          <i class="fa-solid fa-close" />
-        </button>
-      </header> 
-      <div class="menu-buttons">
-        <RouterLink 
-          v-for="(button, index) in menuItems"
-          :key="index" 
-          :to="button.link" 
-          class="menu-buttons-button">
-          {{ button.name }}
-        </RouterLink>
-      </div>
+    <div 
+      v-if="props.isVisible" 
+      class="menu">
+        <header class="menu-header">
+          <button
+            class="menu-header-closeButton"
+            @click="closeMenu">
+              <i class="fa-solid fa-close" />
+          </button>
+        </header> 
+        <div class="menu-buttons">
+          <NuxtLink 
+            v-for="(button, index) in menuItems"
+            :key="index"
+            :to="button.link"
+            :target="button.name === 'Chatbot' ? '_blank' : '_self'"
+            class="menu-buttons-button links">
+              {{ button.name }}
+          </NuxtLink>
+        </div>
     </div>
   </transition>
 </template>
@@ -79,9 +83,6 @@ function closeMenu() {
     }
   }
 }
-
-
-// transition to close menu
 .slide-down-enter-active, .slide-down-leave-active {
   transition: all 0.3s ease;
 }

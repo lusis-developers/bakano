@@ -72,25 +72,28 @@ onMounted(() => {
 
 <template>
   <header class="header">
-    <RouterLink to="/" class="header-figure">
-      <img
-        :src="logo"
-        alt="Bakano logotipo"
-        class="header-figure-logo">
+    <RouterLink 
+      to="/" 
+      class="header-figure">
+        <img
+          :src="logo"
+          alt="Bakano logotipo"
+          class="header-figure-logo">
     </RouterLink>
     <button
 			class="header-button"
 			@click="toggleMenu">
-			<i class="fa-solid fa-bars" />
+			  <i class="fa-solid fa-bars" />
 		</button>
     <div class="header-details">
-			<router-link 
+			<RouterLink
         v-for="(button, index) in menuItems"
         :key="index" 
-        :to="button.link" 
+        :to="button.link"
+        :target="button.name === 'Chatbot' ? '_blank' : '_self'"
         class="header-details-button">
-        {{ button.name }} 
-			</router-link>
+          {{ button.name }} 
+			</RouterLink>
 		</div>
   </header>
 </template>

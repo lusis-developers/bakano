@@ -85,15 +85,16 @@ onMounted(() => {
       <Hero v-if="headerTransitionEnded"/>
     </div>
     <div class="container-third-section sections">
-      <BkServices class="services"/>
-      <BkClients class="bk-clients"/>
+      <BkServices class="services" id="servicios"/>
+      <BkClients class="bk-clients" id="clientes"/>
     </div>
     <div class="container-fourth-section sections">
-      <BkPhilosophy /> 
+      <BkPhilosophy id="filosofia"/> 
     </div>
     <div class="container-fifth-section sections">
-      <BkContact class="bk-contact"/>
+      <BkContact class="bk-contact" id="contacto"/>
     </div>
+    <LandingPageBkFooter class="bk-footer"/>
   </div>
 </template>
 
@@ -132,5 +133,11 @@ onMounted(() => {
     background-color: $white;
     height: 100vh;
   }
+}
+.bk-footer{
+  background-color: rgb(255, 196, 212);
+}
+:deep(.footer){
+  margin: 20px 0;
 }
 </style>
