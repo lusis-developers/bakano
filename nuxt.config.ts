@@ -3,6 +3,13 @@ import { fileURLToPath } from 'url';
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  app: {
+    head: {
+      "link": [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+      ]
+    }
+  },
   runtimeConfig: {
     public: {
       serviceId: process.env.SERVICE_ID,

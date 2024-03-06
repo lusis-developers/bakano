@@ -69,13 +69,13 @@ defineExpose({
 
 <template>
   <div class="services__model">
-    <h3 
+    <h2 
       ref="titleRef"
       class="services__model__title" 
       @mouseover="titleHoverHandler" 
       @mouseleave="titleMouseLeaveHandler">
         {{ title }}
-    </h3>
+    </h2>
     <div 
       ref="paragraphRef" 
       class="services__model__paragraph">

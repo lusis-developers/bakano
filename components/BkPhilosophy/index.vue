@@ -54,9 +54,9 @@ onMounted(onMountedAnimationHandler);
       <div  
         v-show="!toggleParagraph"
         class="philosophy__container philosophy__container1">
-          <h2 class="philosophy__title">
+          <h1 class="philosophy__title">
             Nuestra Filosofía
-          </h2>
+          </h1>
           <p class="philosophy__paragraph">
             Nuestro objetivo es democratizar el dinero y hacerlo accesible a
             todo el mundo desde unos valores que impregnan todas y cada una
@@ -67,6 +67,7 @@ onMounted(onMountedAnimationHandler);
       <img
         v-show="!toggleParagraph" 
         class="philosophy__image philosophy__image--alfaro" 
+        loading="lazy"
         src="~/assets/images/eloyalfaro-bn.png" 
         alt="Eloy Alfaro" />
     </div>
@@ -74,14 +75,15 @@ onMounted(onMountedAnimationHandler);
       <img
         v-show="toggleParagraph"
         class="philosophy__image philosophy__image--glasses"
+        loading="lazy"
         src="~/assets/images/eloyalfaro-congafas2.png"
         alt="Gafas cool" />
       <div 
         v-show="toggleParagraph"
         class="philosophy__container philosophy__container-secondary">
-          <h3 class="philosophy__title philosophy__title-secondary">
+          <h2 class="philosophy__title philosophy__title-secondary">
             Ó hablando mas claro
-          </h3>
+          </h2>
           <p class="philosophy__paragraph philosophy__paragraph-2">
             Queremos que todos hagamos dinero juntos
           </p>

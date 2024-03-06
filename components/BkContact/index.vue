@@ -29,12 +29,13 @@ onMounted(animateLogo);
 <template>
   <section class="contact">
     <div v-if="!showMessageFormSubmited">
-      <h2 class="contact-title">
+      <h1 class="contact-title">
         Hagamos algo
-      </h2>
+      </h1>
       <figure class="contact-figure">
         <img 
           src="@/assets/images/bakano-logotipo-blanco.png" 
+          loading="lazy"
           alt="Logotipo Bakano" 
           class="contact-figure-logo logo"/>
       </figure>

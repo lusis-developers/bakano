@@ -48,9 +48,9 @@ onMounted(() => {
 
 <template>
   <section class="services">
-    <h2 class="services__title">
+    <h1 class="services__title">
       Y entonces, ¿Qué hacemos?
-    </h2>
+    </h1>
     <div class="services__content">
       <BkServicesModel
         v-for="(service, index) in services" 

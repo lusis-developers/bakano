@@ -26,7 +26,8 @@ const props = defineProps({
     target="_blank"
     class="square">
     <img 
-      :src="logo" 
+      :src="logo"
+      loading="lazy" 
       :alt="name"/>
   </a>
 </template>

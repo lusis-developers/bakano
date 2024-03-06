@@ -5,6 +5,15 @@ import { section1, section2, section3 } from '../utils/LandingContent';
 
 useHead({
   title: 'BAKANO | Chatbot para WhatsApp',
+  htmlAttrs: {
+    lang: 'es'
+  },
+  meta: [
+    {
+      name: 'description',
+      content: 'Ofrece soluciones de mensajería instantánea con un chatbot para WhatsApp. Automatiza y centraliza la comunicación con tus clientes.'
+    }
+  ]
 });
 
 onMounted(() => {

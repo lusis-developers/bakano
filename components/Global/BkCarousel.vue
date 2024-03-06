@@ -43,6 +43,7 @@ onUnmounted(() => {
       <img
         v-for="(image, index) in props.images"
         :key="index"
+        alt="imagen del carrusel"
         :src="(image as string)"
         :class="{ active: currentImageIndex === index }"
         class="image" />   
@@ -50,12 +51,14 @@ onUnmounted(() => {
     <button 
       v-if="props.showButtons"
       class="carousel-control left" 
+      aria-label="imagen anterior"
       @click="prevImage">
         <i class="fa-solid fa-caret-left"></i>
     </button>
     <button 
       v-if="props.showButtons"
       class="carousel-control right" 
+      aria-label="siguiente imagen"
       @click="nextImage">
         <i class="fa-solid fa-caret-right"></i>
     </button>

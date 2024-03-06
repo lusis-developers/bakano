@@ -39,10 +39,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
-    <h3 class="container-title" ref="title">
+  <section class="container">
+    <h1 class="container-title" ref="title">
       Más que panas
-    </h3>
+    </h1>
     <div class="container-clients" ref="containerClients">
       <BkClientsBkClient 
         v-for="(client, index) in clients"
@@ -52,7 +52,7 @@ onMounted(() => {
         :backgroundColor="client.backgroundColor"
         :clientUrl="client.clientUrl"/>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

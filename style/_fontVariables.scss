@@ -5,18 +5,21 @@
   src: url('/fonts/Mosk-Light-300.ttf') format('truetype');
   font-weight: 300;
   font-style: light;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Mosk';
   src: url('/fonts/Mosk-Normal-400.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Mosk';
   src: url('/fonts/Mosk-Bold-700.ttf') format('truetype');
   font-weight: 700;
   font-style: bold;
+  font-display: swap;
 }
 
 $primary-font: 'Mosk', sans-serif;
