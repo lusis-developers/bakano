@@ -10,6 +10,12 @@ export default defineNuxtConfig({
       ]
     }
   },
+  // ssr: false,
+  // nitro:{
+  //   prerender: {
+  //     routes: ['/']
+  //   }
+  // },
   runtimeConfig: {
     public: {
       serviceId: process.env.SERVICE_ID,

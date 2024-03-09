@@ -31,7 +31,6 @@ function closeMenu() {
             v-for="(button, index) in menuItems"
             :key="index"
             :to="button.link"
-            :target="button.name === 'Chatbot' ? '_blank' : '_self'"
             class="menu-buttons-button links">
               {{ button.name }}
           </NuxtLink>

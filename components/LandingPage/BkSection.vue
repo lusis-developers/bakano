@@ -61,6 +61,7 @@ const props = defineProps({
               <img 
                 v-if="item.image" 
                 :src="item.image" 
+                loading="lazy"
                 alt="grid-img" 
                 class="img" />
               <h2 

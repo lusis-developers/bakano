@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import webpage from '@/pages/webpage.vue';
+import TheHome from './Home/TheHome.vue';
 </script>
 
 <template>
   <div>
-    <webpage />
+    <TheHome />
   </div>
 </template>

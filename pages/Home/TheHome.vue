@@ -1,161 +1,149 @@
 <script setup lang="ts">
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 useHead({
   title: 'BAKANO | Agencia de Marketing Digital',
+  htmlAttrs: {
+    lang: 'es'
+  },
+  meta: [
+    {
+      name: 'description',
+      content: 'Agencia de Marketing Digital en Guayaquil, Ecuador. Estrategias de Marketing Digital, Diseño Web, Publicidad en Redes Sociales, SEO, SEM'
+    }
+  ]
 })
 
-const showMessageFormSubmited = ref(false);
+const emit = defineEmits(['toggle-menu']);
 
-function closeMessageFormSubmited() {
-  showMessageFormSubmited.value = !showMessageFormSubmited.value;
+gsap.registerPlugin(ScrollTrigger);
+
+const headerTransitionEnded = ref(false);
+const menuOpen = ref(false);
+const isMobile = globalThis.innerWidth <= 768;
+
+function toggleMenu():void {
+  menuOpen.value = !menuOpen.value;
 }
+function onHeaderTransitionEnd():void {
+  headerTransitionEnded.value = true;
+}
+
+onMounted(() => {
+  const services = document.querySelector('.services');
+  const bkClients = document.querySelector('.bk-clients');
+  const BkContact = document.querySelector('.bk-contact');
+
+  gsap.to(services, {
+    scrollTrigger: {
+      trigger: services,
+      start: 'bottom bottom',
+      end: '+=500',
+      scrub: 1,
+      pin: true,
+      anticipatePin: 1,
+    },
+    x: '-100%',
+    ease: 'none',
+  });
+
+  gsap.to(bkClients, {
+    scrollTrigger: {
+      trigger: bkClients,
+      start: 'bottom bottom',
+      scrub: 1,
+      anticipatePin: 1,
+    },
+    x: '-100%',
+  });
+
+  gsap.from(BkContact, {
+    scrollTrigger: {
+      trigger: BkContact,
+      start: 'top bottom',
+      end: 'center center',
+      scrub: 1,
+      id: 'contact',
+    },
+    x: '-100%',
+  }); 
+});
 </script>
 
 <template>
-  <div class="wrapper">
-    <div class="wrapper-main">
-      <LandingPageHeader/>
-      <div class="main">
-        <h1 class="main-tittle">
-          Hagamos que hablen de tu negocio
-        </h1>
-        <h2 class="main-subtittle">
-          Posiciónate en las Redes Sociales
-        </h2>
-      </div>
-    </div> 
-    <div class="register-wrapper">
-      <figure class="figure">
-        <img 
-          src="~/assets/images/landing-image.jpg" 
-          alt="image" 
-          class="figure-img" />
-      </figure>
-      <LandingPageBkForm 
-        :hideLabel="true"
-        @close-message-form-submitted="closeMessageFormSubmited">
-          <template #form-paragraph>
-            ¡Cada negocio es un mundo diferente! Creamos contenido y estrategias
-            BAKANES para redes sociales de acuerdo con TU NEGOCIO
-          </template>
-      </LandingPageBkForm>
+  <div class="container">
+    <div class="container-first-section sections">
+      <BkHeader 
+        :colorLogo="menuOpen" 
+        @toggle-menu="toggleMenu"  
+        @header-transition-end="onHeaderTransitionEnd"/>
+      <BkMenu 
+        :isVisible="menuOpen" 
+        @close-menu="toggleMenu"/>
     </div>
-    <Transition name="slide-in-down" appear>
-      <GlobalBkModalFormSubmited
-        v-if="showMessageFormSubmited" 
-        @close-menu="closeMessageFormSubmited" />
-    </Transition>
+    <div class="container-second-section sections">
+      <Hero v-if="headerTransitionEnded"/>
+    </div>
+    <div class="container-third-section sections">
+      <BkServices class="services" id="servicios"/>
+      <BkClients class="bk-clients" id="clientes"/>
+    </div>
+    <div class="container-fourth-section sections">
+      <BkPhilosophy id="filosofia"/> 
+    </div>
+    <div class="container-fifth-section sections">
+      <BkContact class="bk-contact" id="contacto"/>
+    </div>
+    <BkFooter 
+      class="bk-footer" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.wrapper {
-  height: 100vh;
-  background-image: url('@/assets/LandingPage/wave.svg');
-  background-size: auto 70%;
-  background-repeat: no-repeat;
-  display: grid;
-  @media (min-width: $desktop-lower-breakpoint) {
-    background-size: auto 56%;
-  }
-}
-.main {
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 0 16px;
-  &-tittle {
-    font-family: $primary-font;
-    font-size: $font-size-large;
-    font-weight: $font-weight-bold;
-    color: #fff;
-    text-align: center;
-    @media (min-width: $tablet-upper-breakpoint) {
-      font-size: $font-size-extra-large;
-    }
+  &-first-section {
+    background-color: $black;
+    height: 15vh;
   }
-  &-subtittle {
-    font-family: $secondary-font;
-    font-size: $font-size-small;
-    font-weight: $font-weight-normal;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 12px;
-    @media (min-width: $tablet-upper-breakpoint) {
-      font-size: $font-size-normal;
-    }
-    @media (min-width: $desktop-upper-breakpoint) {
-      font-size: $font-size-large;
-    }
-  }
-}
-.figure {
-  margin: auto;
-  margin-bottom: 16px;
-  max-width: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &-img {
-    border-radius: 20px;
-    min-width: 0;
-    @media (max-width: $mobile-lower-breakpoint) {
-      max-width: 85%;
-    }
-  }
-  @media (min-width: $tablet-upper-breakpoint) {
-    max-height: 100%;
-    max-width: 45%;
-  }
-}
-.register-wrapper {
-  min-width: 0;
-  @media (min-width: $desktop-lower-breakpoint){
+  &-second-section {
+    width: 100%;
+    background-color: $black;
+    height: 85vh;
     display: flex;
-    height: max-content;
-    justify-content: center;
     align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    gap: 10%;
   }
-  @media (min-width: $desktop-upper-breakpoint) {
-    padding: 48px 64px;    
+  &-third-section {
+    background-color: $white;
+    .services {
+      height: 120vh;
+      background-color: $white;
+      @media (max-width: $mobile-upper-breakpoint){
+        height: 140vh;        
+      }
+      @media (min-width: $desktop-lower-breakpoint){        
+        height: 140vh;
+      }
+    }
   }
-}
-:deep(.crush-text-field .input-container .crush-text-field-input) {
-  color: $black;
-  @media (min-width: $tablet-upper-breakpoint) {
-    font-size: $font-size-normal;
+  &-fourth-section {
+    overflow: hidden;
+    background-color: $white;
+    height: 200vh;
+    padding-top: 20px
   }
-}
-:deep(.crush-text-field .input-container) {
-  border-radius: 20px;
-  padding: 12px;
-  border: 1.5px solid #8b888e;
-}
-:deep(.crush-text-field .input-container.active) {
-  border-color: grey;
-}
-:deep(.crush-text-field) {
-  @media (max-width: $mobile-upper-breakpoint) {
-    margin-bottom: 8px;
-  }
-}
-:deep(.crush-button) {
-  border: none;
-  color: $black;
-  background-color: $pink;
-  padding: 8px 16px;
-  margin-top: 16px;
-  transition: background-color 0.5s ease-in;
-  @media (min-width: $tablet-upper-breakpoint) {
-    font-size: $font-size-normal;
+  &-fifth-section {
+    width: 100%;
+    background-color: $white;
+    height: 93vh;
   }
 }
-:deep(.crush-button.disabled) {
-  background-color: rgba(230, 40, 91, 0.4);
-  border: none;
-  color: $black;
+.bk-footer{
+  height: 7vh;
+  @media (max-width: $mobile-upper-breakpoint){
+    height: 100%;
+  }
 }
 </style>

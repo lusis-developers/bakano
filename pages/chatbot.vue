@@ -79,15 +79,18 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .typed-text {
-  min-width: 288px;
+  min-width: 168px;
   display: inline-block;
   text-align: left;
+  @media (min-width: $tablet-upper-breakpoint) {
+    min-width: 288px;
+  }
 }
 :deep(.header){
   background-color: #e6285c;
 }
 .main{
-  min-height: 80dvh;
+  min-height: 90dvh;
   padding: 24px;
   display: flex;
   flex-direction: column;

@@ -49,6 +49,7 @@ function showParagraphs(el: HTMLElement): void {
     duration: 0.5,
     y: 0,
     opacity: 1,
+    display: 'block',
     ease: 'power3.out'
   })   
 }
@@ -57,6 +58,7 @@ function hideParagraphs(el: HTMLElement): void {
     duration: 0.5,
     y: 20,
     opacity: 0,
+    display: 'none',
     ease: 'power3.out'
   })  
 }
@@ -108,26 +110,26 @@ defineExpose({
     font-size: 5vw;
   }
   @media (min-width: $desktop-upper-breakpoint) {
-    font-size: 5.3vw;
+    font-size: 5vw;
     color: $black;
     &:hover {
       color: $pink;
-      transition: transform .5s ease;
     }
   }
 }
 .services__model__paragraph {
   font-family: $secondary-font;
   margin-top: 8px;
-  font-size: $font-size-normal;
+  font-size: $font-size-small;
   color: $black;
+  max-width: 500px;
   @media (min-width: $desktop-upper-breakpoint) {
     margin-top: 0;
-    margin-right: 100px;
-    font-size: 1.25rem;
+//    margin-right: 100px;
+    font-size: 1rem;
     text-align: left;
-    width: 424px;
-    opacity: 0;
+    width: 450px;
+   display: none;
   }
 }
 </style>

@@ -11,15 +11,14 @@ let title = ref(null);
 
 onMounted(() => {
   const isMobile = window.innerWidth <= 768;
-
   gsap.from(containerClients.value.children, {
     scrollTrigger: {
       trigger: containerClients.value,
-      start: () => isMobile ? "top top" : "center bottom", 
-      end: () => "+=" + containerClients.value.clientHeight,
+      start: () => isMobile ? "top 40%" : "center 90%", 
+      end: () => isMobile ? "+=" + containerClients.value.clientHeight : "+=" + (containerClients.value.clientHeight - 80),
       scrub: true,
     },
-    duration: 1,
+    duration: 1.5,
     y: '100vh',
     stagger: 0.5,
     ease: 'power1.out',
@@ -57,7 +56,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
   .container {
-    padding: 32px;
+    padding: 32px 32px 72px;
     background-color: $black;
     width: 100%;
     display: flex;

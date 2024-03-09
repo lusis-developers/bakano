@@ -34,7 +34,7 @@ onMounted(animateLogo);
       </h1>
       <figure class="contact-figure">
         <img 
-          src="@/assets/images/bakano-logotipo-blanco.png" 
+          src="@/assets/images/bakano-logotipo-blanco.webp" 
           loading="lazy"
           alt="Logotipo Bakano" 
           class="contact-figure-logo logo"/>

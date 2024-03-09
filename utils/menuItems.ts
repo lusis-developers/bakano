@@ -6,12 +6,12 @@ export const menuItems: Navigation[] = [
     link: '/chatbot',
   },
   {
-    name: 'Clientes',
-    link: '#clientes',
+    name: 'Marketing',
+    link: '/marketing_services',
   },
   {
-    name: 'Filosofia',
-    link: '#filosofia',
+    name: 'Clientes',
+    link: '#clientes',
   },
   {
     name: 'Contacto',

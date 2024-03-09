@@ -44,6 +44,7 @@ onUnmounted(() => {
         v-for="(image, index) in props.images"
         :key="index"
         alt="imagen del carrusel"
+        loading="lazy"
         :src="(image as string)"
         :class="{ active: currentImageIndex === index }"
         class="image" />   
