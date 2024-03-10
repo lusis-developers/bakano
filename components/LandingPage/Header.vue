@@ -6,7 +6,7 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.webp';
 <template>
   <header class="header">
     <div>
-      <figure class="header-figure">
+      <a class="header-figure" href="/">
         <img 
           :src="BakanoIsotipoNegro" 
           alt="Bakano" 
@@ -15,7 +15,7 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.webp';
           :src="BakanoLogotipoNegro" 
           alt="Bakano"
           class="header-figure-logotipo" />
-      </figure>
+      </a>
     </div>
   </header>
 </template>
