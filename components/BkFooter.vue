@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CrushFooter from '@nabux-crush/crush-footer';
-import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.webp';
 
 const socialIcons = [
   { 
@@ -34,7 +33,7 @@ function getYear(): number {
 
 <template>
   <div>
-    <CrushFooter :logoSrc="BakanoLogotipoNegro">
+    <CrushFooter :logoSrc="null">
       <template #footer-links>
         <div class="bk-footer-copy">
           <i class="fa-regular fa-copyright"></i>

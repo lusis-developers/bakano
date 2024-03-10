@@ -14,13 +14,13 @@ onMounted(() => {
   gsap.from(containerClients.value.children, {
     scrollTrigger: {
       trigger: containerClients.value,
-      start: () => isMobile ? "top 40%" : "center 90%", 
+      start: () => isMobile ? "top 40%" : "55% 90%", 
       end: () => isMobile ? "+=" + containerClients.value.clientHeight : "+=" + (containerClients.value.clientHeight - 80),
       scrub: true,
     },
-    duration: 1.5,
+    duration: 3,
     y: '100vh',
-    stagger: 0.5,
+    stagger: 1,
     ease: 'power1.out',
   });
   gsap.from(title.value, {

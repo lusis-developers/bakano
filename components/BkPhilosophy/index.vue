@@ -84,8 +84,8 @@ onMounted(onMountedAnimationHandler);
             O mejor dicho
           </h2>
           <p class="philosophy__paragraph philosophy__paragraph-2">
-            Usamos la tecnología a tu favor, con contenido y productos digitales increíbles 
-            para que el potencial de tu negocio explote
+            Usamos la tecnología a tu favor, con contenido y productos digitales 
+            increíbles para que el potencial de tu negocio explote
           </p>
       </div>
     </div>
