@@ -15,7 +15,7 @@ const props = defineProps({
   }
 });
 
-const isDesktop:boolean = globalThis.innerWidth >= 1440;
+const isDesktop:boolean = globalThis.innerWidth >= 1024;
 const titleRef = ref<HTMLElement | null>(null);
 const paragraphRef = ref<HTMLElement | null>(null);
 
@@ -95,7 +95,7 @@ defineExpose({
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  @media (min-width: $desktop-upper-breakpoint) {
+  @media (min-width: $desktop-lower-breakpoint) {
     flex-direction: row;
     align-items: center;
   }
@@ -109,7 +109,7 @@ defineExpose({
   @media (min-width: $desktop-lower-breakpoint) and (max-width: $desktop-upper-breakpoint){
     font-size: 5vw;
   }
-  @media (min-width: $desktop-upper-breakpoint) {
+  @media (min-width: $desktop-lower-breakpoint) {
     font-size: 5vw;
     color: $black;
     &:hover {
@@ -123,7 +123,7 @@ defineExpose({
   font-size: $font-size-small;
   color: $black;
   max-width: 500px;
-  @media (min-width: $desktop-upper-breakpoint) {
+  @media (min-width: $desktop-lower-breakpoint) {
     margin-top: 0;
 //    margin-right: 100px;
     font-size: 1rem;

@@ -103,6 +103,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .container {
   display: flex;
+  height: 100%;
   flex-direction: column;
   &-first-section {
     background-color: $black;
@@ -111,7 +112,7 @@ onMounted(() => {
   &-second-section {
     width: 100%;
     background-color: $black;
-    height: 85vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
   }

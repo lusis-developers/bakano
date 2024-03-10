@@ -33,7 +33,7 @@ function getYear(): number {
 
 <template>
   <div>
-    <CrushFooter :logoSrc="null">
+    <CrushFooter :logoSrc="'null'">
       <template #footer-links>
         <div class="bk-footer-copy">
           <i class="fa-regular fa-copyright"></i>

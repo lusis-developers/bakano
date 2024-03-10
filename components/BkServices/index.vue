@@ -13,7 +13,7 @@ const childRef = ref<Array<{
 const circleLargeRef = ref<HTMLElement | null>(null);
 const circleMediumRef = ref<HTMLElement | null>(null);
 const circleSmallRef = ref<HTMLElement | null>(null);
-const isDesktop:boolean = globalThis.innerWidth >= 1440;
+const isDesktop:boolean = globalThis.innerWidth >= 1024;
 
 function animateCircles(): void {
   const timeline = gsap.timeline({
@@ -126,7 +126,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  @media (min-width: $desktop-upper-breakpoint) {
+  @media (min-width: $desktop-lower-breakpoint) {
     height: 50%;
     gap: 48px;
     justify-content: space-evenly;
