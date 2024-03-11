@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CrushFooter from '@nabux-crush/crush-footer';
-import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.webp';
 
 const socialIcons = [
   { 
@@ -24,12 +23,25 @@ const socialIcons = [
     class: 'fa-brands fa-tiktok social-img-tiktok' 
   },
 ]
+
+function getYear(): number {
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  return currentYear;
+}
 </script>
 
 <template>
   <div>
-    <CrushFooter 
-      :logoSrc="BakanoLogotipoNegro">
+    <CrushFooter :logoSrc="'null'">
+      <template #footer-links>
+        <div class="bk-footer-copy">
+          <i class="fa-regular fa-copyright"></i>
+          <p>
+            {{ getYear() }} BAKANO AGENCY
+          </p>
+        </div>
+      </template>
       <template #social-icons>
         <NuxtLink 
           v-for="icon in socialIcons" 
@@ -49,21 +61,39 @@ const socialIcons = [
 </template>
 
 <style lang="scss" scoped>
+.bk-footer-copy{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $primary-font;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
+  color: $white;
+}
 .social-img{
-  font-size: 32px;
-  color: $black;
+  font-size: 24px;
+  color: $white;
+  @media screen and (max-width: 768px){
+    font-size: 16px;
+  }
 }
 :deep(.footer){
   max-width: none;
+  background-color: $black;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0 10px;
+  height: 100%;
+  align-items: center
 }
 :deep(.footer-social){
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 
 }
 :deep(.footer-image){
-  overflow: hidden;
+  display: none;
 }
 </style>

@@ -15,7 +15,7 @@ const props = defineProps({
   }
 });
 
-const isDesktop:boolean = globalThis.innerWidth >= 1440;
+const isDesktop:boolean = globalThis.innerWidth >= 1024;
 const titleRef = ref<HTMLElement | null>(null);
 const paragraphRef = ref<HTMLElement | null>(null);
 
@@ -49,6 +49,7 @@ function showParagraphs(el: HTMLElement): void {
     duration: 0.5,
     y: 0,
     opacity: 1,
+    display: 'block',
     ease: 'power3.out'
   })   
 }
@@ -57,6 +58,7 @@ function hideParagraphs(el: HTMLElement): void {
     duration: 0.5,
     y: 20,
     opacity: 0,
+    display: 'none',
     ease: 'power3.out'
   })  
 }
@@ -69,13 +71,13 @@ defineExpose({
 
 <template>
   <div class="services__model">
-    <h3 
+    <h2 
       ref="titleRef"
       class="services__model__title" 
       @mouseover="titleHoverHandler" 
       @mouseleave="titleMouseLeaveHandler">
         {{ title }}
-    </h3>
+    </h2>
     <div 
       ref="paragraphRef" 
       class="services__model__paragraph">
@@ -93,7 +95,7 @@ defineExpose({
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  @media (min-width: $desktop-upper-breakpoint) {
+  @media (min-width: $desktop-lower-breakpoint) {
     flex-direction: row;
     align-items: center;
   }
@@ -107,27 +109,27 @@ defineExpose({
   @media (min-width: $desktop-lower-breakpoint) and (max-width: $desktop-upper-breakpoint){
     font-size: 5vw;
   }
-  @media (min-width: $desktop-upper-breakpoint) {
-    font-size: 5.3vw;
+  @media (min-width: $desktop-lower-breakpoint) {
+    font-size: 5vw;
     color: $black;
     &:hover {
       color: $pink;
-      transition: transform .5s ease;
     }
   }
 }
 .services__model__paragraph {
   font-family: $secondary-font;
   margin-top: 8px;
-  font-size: $font-size-normal;
+  font-size: $font-size-small;
   color: $black;
-  @media (min-width: $desktop-upper-breakpoint) {
+  max-width: 500px;
+  @media (min-width: $desktop-lower-breakpoint) {
     margin-top: 0;
-    margin-right: 100px;
-    font-size: 1.25rem;
+//    margin-right: 100px;
+    font-size: 1rem;
     text-align: left;
-    width: 424px;
-    opacity: 0;
+    width: 450px;
+   display: none;
   }
 }
 </style>

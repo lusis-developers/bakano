@@ -25,6 +25,7 @@ watch(() => props.startAnimation, (newVal) => {
           strings: ['Agencia digital'],
           typeSpeed: 50,
           startDelay: 0,
+          showCursor: false,
         })
       }
     })
@@ -41,7 +42,7 @@ onMounted(() => {
   <div class="container">
     <figure class="container-figure">
       <img 
-        src="/assets/images/bakano-logotipo-blanco.png" 
+        src="/assets/images/bakano-logotipo-blanco.webp" 
         alt="Bakano" 
         class="container-figure-image">
       <p class="container-figure-phrase" ref="phrase">
@@ -68,7 +69,10 @@ onMounted(() => {
     &-phrase {
       color: $white;
       font-family: $primary-font;
-      font-size: 2rem; 
+      font-size: $font-size-normal; 
+      @media (min-width: $tablet-upper-breakpoint) {
+        font-size: 2rem;
+      }
       transition: color 0.5s;
       cursor: default;
       &:hover {

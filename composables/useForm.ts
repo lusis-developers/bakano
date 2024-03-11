@@ -60,8 +60,6 @@ export function useRegistrationForm() {
     };
     if (formIsValid.value) {
       try {
-        console.log(config.public.serviceId, config.public.templateId, mail, config.public.publicKey)
-        // Assume config and emailjs.send are available globally
         await emailjs.send(config.public.serviceId, config.public.templateId, mail, config.public.publicKey);
         resetInputs();
       } catch (error) {

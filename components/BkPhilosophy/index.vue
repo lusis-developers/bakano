@@ -12,7 +12,7 @@ function onMountedAnimationHandler():void {
     opacity: 0,
     y: '200%',
     x: '-100%',
-    duration: 2,
+    duration: 3,
     onComplete: () => {
       toggleParagraph.value = true; 
     },
@@ -20,13 +20,13 @@ function onMountedAnimationHandler():void {
   .to('.philosophy__container1', {
     scale: 0,
     opacity: 0,
-    duration: 2,
+    duration: 3,
   }, '-=2') 
   .from('.philosophy__image--glasses', {
     opacity: 0,
     scale: 0,
     duration: 2,  
-  }, '>')
+  }, '-=1.5')
   .from('.philosophy__container-secondary', {
     scale: 0,
     duration: 2,  
@@ -54,36 +54,38 @@ onMounted(onMountedAnimationHandler);
       <div  
         v-show="!toggleParagraph"
         class="philosophy__container philosophy__container1">
-          <h2 class="philosophy__title">
+          <h1 class="philosophy__title">
             Nuestra Filosofía
-          </h2>
+          </h1>
           <p class="philosophy__paragraph">
-            Nuestro objetivo es democratizar el dinero y hacerlo accesible a
-            todo el mundo desde unos valores que impregnan todas y cada una
-            de nuestras decisiones y acciones: la inclusión, la igualdad y
-            la diversidad.
+            En BAKANO, no solo creamos experiencias digitales extraordinarias; 
+            construimos relaciones duraderas basadas en la confianza, la transparencia y la colaboración. 
+            Estamos aquí para ayudarte a alcanzar tus objetivos y a hacer realidad tus sueños digitales.
           </p>
       </div>
       <img
         v-show="!toggleParagraph" 
         class="philosophy__image philosophy__image--alfaro" 
-        src="~/assets/images/eloyalfaro-bn.png" 
+        loading="lazy"
+        src="~/assets/images/eloyalfaro-bn.webp" 
         alt="Eloy Alfaro" />
     </div>
     <div class="section section2">
       <img
         v-show="toggleParagraph"
         class="philosophy__image philosophy__image--glasses"
-        src="~/assets/images/eloyalfaro-congafas2.png"
+        loading="lazy"
+        src="~/assets/images/eloyalfaro-congafas2.webp"
         alt="Gafas cool" />
       <div 
         v-show="toggleParagraph"
         class="philosophy__container philosophy__container-secondary">
-          <h3 class="philosophy__title philosophy__title-secondary">
-            Ó hablando mas claro
-          </h3>
+          <h2 class="philosophy__title philosophy__title-secondary">
+            O mejor dicho
+          </h2>
           <p class="philosophy__paragraph philosophy__paragraph-2">
-            Queremos que todos hagamos dinero juntos
+            Usamos la tecnología a tu favor, con contenido y productos digitales 
+            increíbles para que el potencial de tu negocio explote
           </p>
       </div>
     </div>
@@ -119,13 +121,16 @@ onMounted(onMountedAnimationHandler);
   margin-bottom: 2rem;
 }
 .philosophy__paragraph{
-  font-size: $font-size-normal;
+  font-size: $font-size-large;
   font-family: $secondary-font;
   line-height: 1.5;
   background-color: rgb(212, 210, 210);
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  @media (max-width: $tablet-upper-breakpoint) {
+    font-size: $font-size-normal;
+  }
   &-2{
     background-color: #e2a75a;
   }

@@ -1,8 +1,8 @@
 <script setup>
 import { gsap } from 'gsap';
 
-import whiteLogo from '../assets/images/bakan-isotipo-blanco.png'
-import blackLogo from '../assets/images/bakano-isotipo-negro.png'
+import whiteLogo from '../assets/images/bakan-isotipo-blanco.webp'
+import blackLogo from '../assets/images/bakano-isotipo-negro.webp'
 
 const emits = defineEmits(['toggle-menu', 'header-transition-end']);
 
@@ -91,7 +91,6 @@ onMounted(() => {
         v-for="(button, index) in menuItems"
         :key="index" 
         :to="button.link"
-        :target="button.name === 'Chatbot' ? '_blank' : '_self'"
         class="header-details-button">
           {{ button.name }} 
 			</RouterLink>
@@ -104,6 +103,7 @@ onMounted(() => {
   padding: 12px 24px;
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: space-between;
   align-items: center;
   max-width: 2048px;
@@ -121,7 +121,7 @@ onMounted(() => {
     border: none;
     text-decoration: none;
     color: $white;
-    font-size: 1rem;
+    font-size: $font-size-normal;
     opacity: 0;
     @media (min-width: 700px) {
       display: none;

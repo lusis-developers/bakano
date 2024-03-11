@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import BakanoIsotipoNegro from '@/assets/images/bakano-isotipo-negro.png';
-import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
+import BakanoIsotipoNegro from '@/assets/images/bakano-isotipo-negro.webp';
+import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.webp';
 </script>
 
 <template>
   <header class="header">
     <div>
-      <figure class="header-figure">
+      <a class="header-figure" href="/">
         <img 
           :src="BakanoIsotipoNegro" 
           alt="Bakano" 
@@ -15,7 +15,7 @@ import BakanoLogotipoNegro from '@/assets/images/bakano-logotipo-negro.png';
           :src="BakanoLogotipoNegro" 
           alt="Bakano"
           class="header-figure-logotipo" />
-      </figure>
+      </a>
     </div>
   </header>
 </template>

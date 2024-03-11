@@ -11,17 +11,16 @@ let title = ref(null);
 
 onMounted(() => {
   const isMobile = window.innerWidth <= 768;
-
   gsap.from(containerClients.value.children, {
     scrollTrigger: {
       trigger: containerClients.value,
-      start: () => isMobile ? "top top" : "center bottom", 
-      end: () => "+=" + containerClients.value.clientHeight,
+      start: () => isMobile ? "top 40%" : "55% 90%", 
+      end: () => isMobile ? "+=" + containerClients.value.clientHeight : "+=" + (containerClients.value.clientHeight - 80),
       scrub: true,
     },
-    duration: 1,
+    duration: 3,
     y: '100vh',
-    stagger: 0.5,
+    stagger: 1,
     ease: 'power1.out',
   });
   gsap.from(title.value, {
@@ -39,10 +38,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
-    <h3 class="container-title" ref="title">
+  <section class="container">
+    <h1 class="container-title" ref="title">
       Más que panas
-    </h3>
+    </h1>
     <div class="container-clients" ref="containerClients">
       <BkClientsBkClient 
         v-for="(client, index) in clients"
@@ -52,12 +51,12 @@ onMounted(() => {
         :backgroundColor="client.backgroundColor"
         :clientUrl="client.clientUrl"/>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
   .container {
-    padding: 32px;
+    padding: 32px 32px 72px;
     background-color: $black;
     width: 100%;
     display: flex;

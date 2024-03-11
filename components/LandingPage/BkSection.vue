@@ -61,13 +61,14 @@ const props = defineProps({
               <img 
                 v-if="item.image" 
                 :src="item.image" 
+                loading="lazy"
                 alt="grid-img" 
                 class="img" />
-              <h3 
+              <h2 
                 :class="'flex-item-tittle-' + sectionIdentifier" 
                 class="flex-item-tittle">
                   {{ item.title }}
-              </h3>
+              </h2>
               <p 
                 class="flex-item-paragraph">
                   {{ item.paragraph }}

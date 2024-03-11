@@ -11,7 +11,7 @@ onMounted(() => {
 <template>
   <div class="form-submited">
     <img 
-      src="@/assets/images/bakano-isotipo-negro.png" 
+      src="@/assets/images/bakano-isotipo-negro.webp" 
       class="form-submited-logo">
     <div>
       <h1 class="form-submited-tittle">

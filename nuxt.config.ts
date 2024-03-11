@@ -4,6 +4,14 @@ import { fileURLToPath } from 'url';
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
+  app: {
+    head: {
+      "link": [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+      ]
+    }
+  },
+  ssr: false,
   runtimeConfig: {
     public: {
       serviceId: process.env.SERVICE_ID,

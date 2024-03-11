@@ -117,17 +117,23 @@ onMounted(() => {
   margin: 0 auto;
   max-width: 1440px;
   overflow-x: hidden;
-  padding: 96px 24px;
+  padding: 50px 24px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 24px;
+  @media (min-width: $tablet-upper-breakpoint) {
+    padding: 96px 24px;
+  }
   &-word, &-word2 {
     color: $white;
     transform-origin: center;
-    font-size: 2rem;
+    font-size: $font-size-large;
     font-family: $primary-font;
     font-weight: bold;
+    @media (min-width: $tablet-upper-breakpoint) {
+      font-size: 2rem;
+    }
     &:hover {
       color: var(--hover-color);
       transition: color 0.3s ease-in-out;
