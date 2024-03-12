@@ -17,7 +17,7 @@ watch(() => props.startAnimation, (newVal) => {
   if (newVal) {
     logo.value.style.visibility = 'visible'
     gsap.from(logo.value, {
-      duration: 2,
+      duration: 1.5,
       y: '-100vh',
       ease: 'bounce.out',
       onComplete: () => {
