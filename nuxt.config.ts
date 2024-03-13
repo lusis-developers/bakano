@@ -11,7 +11,6 @@ export default defineNuxtConfig({
       ]
     }
   },
-  ssr: false,
   runtimeConfig: {
     public: {
       serviceId: process.env.SERVICE_ID,
@@ -27,6 +26,7 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth',
     }
   },
+  modules: ['@pinia/nuxt'],
   vite: {
     css: {
       preprocessorOptions: {
