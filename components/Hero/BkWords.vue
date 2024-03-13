@@ -136,7 +136,7 @@ onMounted(() => {
     }
     &:hover {
       color: var(--hover-color);
-      transition: color 0.3s ease-in-out;
+      transition: color 0.2s ease-in-out;
     }
     @media (min-width: 800px) {
       &-0 {
