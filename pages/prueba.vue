@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import BkBlogs from '~/components/Blogs/BkBlogs.vue';
+import BkBlogs2 from '~/components/Blogs/BkBlogs2.vue';
 
 // const html = ref(''); // Define html as a reactive variable
 
@@ -9,7 +10,7 @@ import BkBlogs from '~/components/Blogs/BkBlogs.vue';
 //     .then(response => response.json())
 //     .then(data => {
 //       const rawResponse = data;
-//       html.value = rawResponse.posts[0].html; // Update the value of html
+//       html.value = rawResponse.posts[0].html;
 //     })
 //     .catch(error => console.log(error));
 // });
@@ -17,13 +18,14 @@ import BkBlogs from '~/components/Blogs/BkBlogs.vue';
 
 <template>
   <div class="container-blog">
-    <BkBlogs />
+    <BkBlogs2 />
     <!-- <div v-html="html"></div> -->
   </div>
 </template>
 
 <style lang="scss" scoped>
 .container-blog{
-  background-color: #000;
+  // background-color: $black;
+  min-height: 100vh;
 }
 </style>
