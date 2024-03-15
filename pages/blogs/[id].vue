@@ -108,6 +108,9 @@ onBeforeMount(async () => {
   }
 }
 .blog__author {
+  height: 100vh;
+  position: sticky;
+  top: 0;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -116,6 +119,9 @@ onBeforeMount(async () => {
   padding: 70px 40px;
   border-right: 1px solid $black;
   @media screen and (max-width: $desktop-lower-breakpoint) {
+    position: relative;
+    height: auto;
+    top: auto;
     width: 100%;
     border-right: none;
     border-bottom: 1px solid $black;
