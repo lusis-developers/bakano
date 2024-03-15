@@ -1,36 +1,54 @@
 <script setup lang="ts">
+import ReduceDate from '~/utils/ReduceDate'
+
 const props = defineProps({
   title: {
     type: String,
-    // required: true,
+    required: true,
   },
   paragraph: {
     type: String,
-    // required: true,
+    required: true,
   },
   img: {
     type: String,
-    // required: true,
+    required: true,
   },
   authorImg: {
     type: String,
-    // required: true,
+    required: true,
   },
   authorName: {
     type: String,
-    // required: true,
+    required: true,
+  },
+  date: {
+    type: String,
+    required: true,
+  },
+  id: {
+    type: String,
+    required: true,
   },
 });
+
+const router = useRouter();
+
+function getPosts(id:string){
+  router.push(`/blogs/${id}`);
+}
 </script>
 
 <template>
   <article class=article__blog>
-    <figure class="article__figure">
-      <img 
-        :src="img" 
-        loading="lazy"
-        alt="blog-img" 
-        class="figure__img">
+    <figure 
+      class="article__figure"
+      @click="getPosts(id || '')">
+        <img 
+          :src="img" 
+          loading="lazy"
+          alt="blog-img" 
+          class="figure__img">
     </figure>
     <div class="article__content">
       <h2 class="article__content__title">{{ title }}</h2>
@@ -44,7 +62,7 @@ const props = defineProps({
         </a>
         <div class="article__author__content">
           <p class="article__author__content-name">{{ authorName }}</p>
-          <p class="article__author__content-date">Fecha</p>
+            <p class="article__author__content-date">{{ ReduceDate(date ?? '') }}</p>
         </div>
       </div>
     </div>
