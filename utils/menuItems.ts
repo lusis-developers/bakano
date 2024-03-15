@@ -10,6 +10,10 @@ export const menuItems: Navigation[] = [
     link: '/marketing_services',
   },
   {
+    name: 'Blogs',
+    link: '/blogs',
+  },
+  {
     name: 'Clientes',
     link: '#clientes',
   },

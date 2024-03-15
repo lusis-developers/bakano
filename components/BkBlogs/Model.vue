@@ -32,10 +32,8 @@ const props = defineProps({
   },
 });
 
-const router = useRouter();
-
 function getPosts(id:string){
-  router.push(`/blogs/${id}`);
+  useRouter().push(`/blogs/${id}`);
 }
 </script>
 
@@ -46,23 +44,32 @@ function getPosts(id:string){
       @click="getPosts(id || '')">
         <img 
           :src="img" 
-          loading="lazy"
           alt="blog-img" 
           class="figure__img">
     </figure>
     <div class="article__content">
-      <h2 class="article__content__title">{{ title }}</h2>
-      <p class="article__content__paragraph">{{ paragraph }}</p>
+      <h2 class="article__content__title">
+        {{ title }}
+      </h2>
+      <p class="article__content__paragraph">
+        {{ paragraph }}
+      </p>
       <div class="article__author">
-        <a href="#" class="article__author__link">
-          <img 
-            :src="authorImg" 
-            :alt="authorName+' foto'" 
-            class="article__author__img">
+        <a 
+          href="#" 
+          class="article__author__link">
+            <img 
+              :src="authorImg" 
+              :alt="authorName+' foto'" 
+              class="article__author__img">
         </a>
         <div class="article__author__content">
-          <p class="article__author__content-name">{{ authorName }}</p>
-            <p class="article__author__content-date">{{ ReduceDate(date ?? '') }}</p>
+          <p class="article__author__content-name">
+            {{ authorName }}
+          </p>
+          <p class="article__author__content-date">
+            {{ ReduceDate(date ?? '') }}
+          </p>
         </div>
       </div>
     </div>
@@ -79,10 +86,19 @@ function getPosts(id:string){
   flex: 1 0 calc(33.333% - 48px);
   max-width: calc(33.333% - 48px);
   padding: 40px 25px 17px;
-  background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .03);
-  border-radius: 10px;
-  text-decoration: none;
+  @media (max-width: $tablet-upper-breakpoint) {
+    flex: auto;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  @media (max-width: $mobile-upper-breakpoint) {
+    max-width: 100%;
+  }
+  @media (min-width: $tablet-upper-breakpoint) and (max-width: $desktop-upper-breakpoint) {
+    flex: 1 0 calc(50% - 48px);
+    max-width: calc(50% - 48px);
+  }
     .article__figure{
     width: 100%;
     height: 100%;
@@ -97,6 +113,7 @@ function getPosts(id:string){
   .article__content{
     display: flex;
     flex-direction: column;
+    max-width: 100%;
     .article__content__title{
       font-size: 24px;
       font-family: $primary-font;
