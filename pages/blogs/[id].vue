@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BlogService from '~/services/BlogService';
 import ReduceDate from '~/utils/ReduceDate'
 
 const postDetail = ref<null | any>(null);
@@ -14,36 +15,11 @@ useHead({
       content: 'Blog de interés sobre Marketing Digital, Diseño Web, Publicidad en Redes Sociales, SEO, SEM'
     }
   ],
-})
-
-async function getPostByUuid(id: string) {
-  try {
-    const response = await fetch(`https://codigoencasa.com/ghost/api/content/posts/${id}/?key=98e5e527610957edcc5aecf066&include=authors`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    const post = data.posts.map((blog: any) => {
-      return {
-        title: blog.title,
-        feature_image: blog.feature_image,
-        id: blog.id,
-        excerpt: blog.excerpt,
-        published_at: blog.published_at,
-        authorName: blog.authors[0].name,
-        authorImage: blog.authors[0].profile_image,
-        html: blog.html
-      };
-    });
-    postDetail.value = post[0];
-  } catch (error) {
-    console.error('An error occurred while fetching the post:', error);
-  }
-}
+});
 
 onBeforeMount(async () => {
   isLoading.value = true;
-  await getPostByUuid(useRoute().params.id as string);
+  await BlogService.getPostByUuid(useRoute().params.id as string, postDetail);
   isLoading.value = false;
 });
 </script>

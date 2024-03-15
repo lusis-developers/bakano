@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BlogService from '~/services/BlogService';
+
 const authorInfo = ref<any[]>([]);
 const authors = ['yeyodev', 'denisse', 'luis-reyes', 'dayanara'];
 const orderedPosts = computed(() => {
@@ -7,25 +9,7 @@ const orderedPosts = computed(() => {
   });
 });
 
-async function fetchAuthorInfo(authorName: string) {
-  try {
-    const { data } = await useFetch(`https://codigoencasa.com/ghost/api/content/posts/?key=98e5e527610957edcc5aecf066&include=authors&filter=authors.slug:${authorName}`);
-    (data.value as any).posts.filter((blog: any) => {
-      authorInfo.value.push({
-        title: blog.title,
-        feature_image: blog.feature_image,
-        id: blog.id,
-        excerpt: blog.excerpt,
-        published_at: blog.published_at,
-        authorName: blog.authors[0].name,
-        authorImage: blog.authors[0].profile_image
-      });
-    });
-  } catch (error) {
-    console.error(`Failed to fetch data for author ${authorName}:`, error);
-  }
-}
-Promise.all(authors.map(fetchAuthorInfo));
+Promise.all(authors.map((authorName: string) => BlogService.fetchAuthorInfo(authorName, authorInfo)));
 </script>
 
 <template>
