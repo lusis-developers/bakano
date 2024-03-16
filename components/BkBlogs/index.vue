@@ -28,8 +28,8 @@ Promise.all(authors.map((authorName: string) => BlogService.fetchAuthorInfo(auth
         :title="info.title"
         :img="info.feature_image" 
         :paragraph="info.excerpt" 
-        :author-img="info.authorImage"
-        :author-name="info.authorName" 
+        :authorImg="info.authorImage"
+        :authorName="info.authorName" 
         :date="info.published_at" />
     </div>
   </div>
