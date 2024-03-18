@@ -55,14 +55,13 @@ function getPosts(id:string){
         {{ paragraph }}
       </p>
       <div class="article__author">
-        <a 
-          href="#" 
+        <div 
           class="article__author__link">
             <img 
               :src="authorImg" 
               :alt="authorName+' foto'" 
               class="article__author__img">
-        </a>
+        </div>
         <div class="article__author__content">
           <p class="article__author__content-name">
             {{ authorName }}
@@ -102,6 +101,7 @@ function getPosts(id:string){
     .article__figure{
     width: 100%;
     height: 100%;
+    cursor: pointer;
     overflow: hidden;
     .figure__img{
       width: 100%;
