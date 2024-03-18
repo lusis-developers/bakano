@@ -163,6 +163,9 @@ onBeforeMount(async () => {
   line-height: 1.6em;
   background: #2a3644;
   border-radius: 5px;
+  @media (max-width: $tablet-upper-breakpoint) {
+    font-size: $font-size-small;
+  }
 }
 :deep(a) {
   color: $black;
@@ -194,13 +197,8 @@ onBeforeMount(async () => {
   max-width: 100%;
   height: auto;
   margin: 20px auto;
+  aspect-ratio: auto 1386 / 1000;
   display: block;
-}
-:deep(.story-social-cta) {
-  display: none;
-}
-:deep(.kg-embed-card) {
-  display: none;
 }
 :deep(blockquote:not(.pullquote)) {
   border-left: .25rem solid;
@@ -209,5 +207,13 @@ onBeforeMount(async () => {
   margin: 2rem 0 2rem -1.5rem;
   padding-bottom: .125rem;
   padding-left: 1.25rem;
+}
+:deep(video){
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+:deep(.kg-video-overlay), :deep(.kg-video-hide), :deep(.kg-embed-card), :deep(.story-social-cta){
+  display: none;
 }
 </style>
