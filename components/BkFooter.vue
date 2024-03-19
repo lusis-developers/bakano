@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CrushFooter from '@nabux-crush/crush-footer';
+import gafas from '~/assets/images/gafas2.webp';
 
 const socialIcons = [
   { 
@@ -33,7 +34,7 @@ function getYear(): number {
 
 <template>
   <div>
-    <CrushFooter :logoSrc="'null'">
+    <CrushFooter :logoSrc="gafas">
       <template #footer-links>
         <div class="bk-footer-copy">
           <i class="fa-regular fa-copyright"></i>

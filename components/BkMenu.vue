@@ -31,7 +31,8 @@ function closeMenu() {
             v-for="(button, index) in menuItems"
             :key="index"
             :to="button.link"
-            class="menu-buttons-button links">
+            class="menu-buttons-button links"
+            @click="closeMenu">
               {{ button.name }}
           </NuxtLink>
         </div>

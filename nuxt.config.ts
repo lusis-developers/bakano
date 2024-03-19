@@ -11,12 +11,12 @@ export default defineNuxtConfig({
       ]
     }
   },
-  ssr: false,
   runtimeConfig: {
     public: {
       serviceId: process.env.SERVICE_ID,
       templateId: process.env.TEMPLATE_ID,
       publicKey: process.env.PUBLIC_KEY,  
+      urlKey: process.env.URL_KEY,
     }
   },
   alias: {
@@ -27,6 +27,7 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth',
     }
   },
+  modules: ['@pinia/nuxt'],
   vite: {
     css: {
       preprocessorOptions: {

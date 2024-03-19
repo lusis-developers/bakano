@@ -21,7 +21,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const headerTransitionEnded = ref(false);
 const menuOpen = ref(false);
-const isMobile = globalThis.innerWidth <= 768;
 
 function toggleMenu():void {
   menuOpen.value = !menuOpen.value;
