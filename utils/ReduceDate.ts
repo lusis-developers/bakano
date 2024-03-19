@@ -1,4 +1,13 @@
-export default function modifyDate(date: string){
+export default function modifyDate(date: string) {
   const dateObject = new Date(date);
-  return dateObject.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+  
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  };
+  
+  const formattedDate = dateObject.toLocaleDateString('en-US', options);
+  
+  return formattedDate;
 }

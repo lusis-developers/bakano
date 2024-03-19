@@ -17,6 +17,13 @@ useHead({
   ],
 });
 
+const formattedDate = computed(() => {
+  if (postDetail.value) {
+    return ReduceDate(postDetail.value.published_at);
+  }
+  return '';
+});
+
 onBeforeMount(async () => {
   isLoading.value = true;
   await BlogService.getPostByUuid(useRoute().params.id as string, postDetail);
@@ -46,7 +53,7 @@ onBeforeMount(async () => {
                 {{ postDetail?.authorName }}
               </p>
               <p class="blog__author__info__paragraphs-date">
-                {{ ReduceDate(postDetail?.published_at) }}
+                {{ formattedDate }}
               </p>
             </div>
           </div>
