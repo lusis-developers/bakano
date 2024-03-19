@@ -13,7 +13,7 @@ import pidaExpressLogo from '../assets/Clients/PydaXpress-logo.webp';
 import refreezerLogo from '../assets/Clients/refreezer-logo.webp';
 import levelsLogo from '../assets/Clients/Levels-logo.webp';
 import socialHobbiesLogo from '../assets/Clients/Socialhobbies-logo.webp';
-import gogh from '../assets/Clients/gohg.jpeg';
+import gogh from '../assets/Clients/gohg.webp';
 
 export const clients = [
   {
