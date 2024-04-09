@@ -38,7 +38,6 @@ Promise.all(authors.map((authorName: string) => BlogService.fetchAuthorInfo(auth
 <style lang="scss" scoped>
 :deep(.header) {
   background-color: $pink;
-  padding: 24px 0;
 }
 .blog {
   text-align: center;

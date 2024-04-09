@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import Typed from 'typed.js';
 
-import { section1, section2, section3 } from '../utils/LandingContent';
-
 useHead({
   title: 'BAKANO | Chatbot para WhatsApp',
   htmlAttrs: {
@@ -44,8 +42,7 @@ onMounted(() => {
           Convierte conversaciones <br>en <span class="typed-text"></span>
         </h1>
         <p class="main-paragraph">
-          Ofrece soluciones de mensajería instantánea con un chatbot para WhatsApp. Automatiza y
-          centraliza la comunicación con tus clientes. 📱💬
+          Redefine tu estrategia de servicio al cliente con un Chatbot de Whatsapp conectado a Inteligencia Artificial.
         </p>
       <GlobalBkButton />
       </div>
@@ -57,21 +54,10 @@ onMounted(() => {
       </div>
     </div>
     <LandingPageBkCarouselSection />
-    <LandingPageBkSection
-      :title="section1.title"
-      :sectionIdentifier="'1'"
-      :content="section1.content" 
-      :showButton="true" />
-    <LandingPageBkSection
-      :title="section2.title"
-      :paragraph="section2.paragraph"
-      :sectionIdentifier="'2'"
-      :content="section2.content" />
-    <LandingPageBkSection
-      :title="section3.title"
-      :paragraph="section3.paragraph"
-      :sectionIdentifier="'3'"
-      :content="section3.content" />
+    <LandingPageBkSectionNumbers />
+    <LandingPageBkSectionRestaurant />
+    <LandingPageBkSectionBanner />
+    <LandingPageBkSectionCards />
     <LandingPageBkContactForm />
     <LandingPageBkFooter />
   </div>
@@ -87,7 +73,7 @@ onMounted(() => {
   }
 }
 :deep(.header){
-  background-color: #e6285c;
+  background-color: $black;
 }
 .main{
   min-height: 90dvh;

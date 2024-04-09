@@ -10,7 +10,7 @@ function closeMessageFormSubmited() {
   <section class="contact">
     <div class="contact-content">
       <h1 class="contact-content-title">
-        ¡Transforma tu negocio con un poderoso chatbot para WhatsApp!
+        ¡Transforma y escala tu restaurante con un poderoso Chatbot de Whatsapp!
       </h1>
       <p class="contact-content-paragraph">
         Automatiza y optimiza la comunicación con tus clientes las 24 horas del día. 

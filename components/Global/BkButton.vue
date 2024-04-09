@@ -20,7 +20,7 @@ const scrollToForm = (event: MouseEvent) => {
         <a 
           href="#form" 
           class="button-link">
-            Solicita información
+            Lo quiero >>
         </a>
     </CrushButton>
   </div>
@@ -35,12 +35,12 @@ const scrollToForm = (event: MouseEvent) => {
   }
   .button-link {
     text-decoration: none;
-    color: $black;
+    color: #fff;
   }
   :deep(.crush-button) {
   border: none;
   color: $black;
-  background-color: rgba(230, 40, 91, 0.4);
+  background-color: $pink;
   padding: 8px 16px;
   margin-top: 16px;
   transition: background-color 0.5s ease-in;
