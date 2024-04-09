@@ -12,14 +12,13 @@ const images = ref([
   <section class="carousel">
     <div class="carousel-content">
       <h2 class="carousel-content-title">
-        Mucho mas que un software para crear chatbots
+        Mucho más que un Chatbot (de los que ya conoces)
       </h2>
       <p class="carousel-content-paragraph">
-        Un chatbot para WhatsApp es un programa de inteligencia artificial 
-        que simula una conversación con personas a través de la aplicación 
-        de mensajería instantánea. Los chatbots para WhatsApp permiten a las 
-        empresas automatizar y centralizar la comunicación con sus clientes, 
-        ofreciendo respuestas rápidas y precisas a sus consultas.
+        FUDIBOT es un Chatbot de Whatsapp está conectado con Open IA para 
+        generar conversaciones utilizando inteligencia artificial con personas 
+        de manera natural y fluida. Permitirá a tu negocio automatizar procesos 
+        y ofrecer respuestas automáticas y precisas a las consultas de tu cliente. 
       </p>
     </div>
     <GlobalBkCarousel :images="images"/>

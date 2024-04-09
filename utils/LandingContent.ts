@@ -1,4 +1,5 @@
 import chatbotAutomate from '@/assets/LandingPage/chatbot-automate.svg';
+import whatsApp from '@/assets/LandingPage/whatsapp_logo_3d.webp'
 import chatbotBot from '@/assets/LandingPage/chatbot-bot.svg';
 
 export const section1 = {
@@ -20,45 +21,54 @@ export const section1 = {
 }
 
 export const section2 = {
-  title: '¿Por qué necesitas un chatbot para WhatsApp?',
-  paragraph: 'Un chatbot para WhatsApp es una herramienta de comunicación que te permite automatizar y centralizar la atención al cliente, ofreciendo respuestas rápidas y precisas a sus consultas. Con un chatbot para WhatsApp podrás:',
+  title: '¿Por qué confiar en FudiBot?',
   content: [
     { 
-      title: 'Automatiza tu atención al cliente', 
-      paragraph: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 
-      image: chatbotBot 
+      title: 'IA + Supervisión Humana',
+      subtitle: 'Aprendizaje continuo con IA', 
+      paragraph: 'Tras el desarrollo del chatbot, entrenamos la Inteligencia Artificial periódicamente para garantizar el funcionamiento óptimo, asegurar la mejora continua y optimizar los flujos de automatización de forma proactiva.', 
+      image: 'fa-solid fa-user-group',
+      BkColor: 'red' 
     },
     { 
-      title: 'Gestiona tus conversaciones', 
-      paragraph: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 
-      image: chatbotBot 
+      title: 'Implementación',
+      subtitle: 'Desarrollo del chatbot para tu negocio en 4 semanas', 
+      paragraph: 'Integraciones, alimentación de la IA y puesta en producción con tiempos de implementación muy cortos. Tú nos proporcionas información ¡Y nosotros nos encargamos de todo!', 
+      image: 'fa-solid fa-calendar-days',
+      BkColor: 'orange' 
     },
     { 
-      title: 'Crea un chatbot para WhatsApp', 
-      paragraph: 'Con nuestro chatbot podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más', 
-      image: chatbotAutomate 
+      title: 'Experiencia',
+      subtitle: 'Equipo con más de 15 años de experiencia', 
+      paragraph: 'Nuestro equipo tiene más de 15 años de experiencia en el desarrollo de tecnología y en la implementación de soluciones digitales para empresas locales e internacionales. Más de 2 años el diseño de experiencias conversacionales, desarrollo de chatbots y en la aplicación de la IA.', 
+      image: 'fa-solid fa-rocket',
+      BkColor: '#85529c'
     },
     { 
-      title: 'Transferencias rápidas y sencillas a agentes', 
-      paragraph: 'Con nuestro chatbot podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 
-      image: chatbotAutomate 
+      title: 'Solución Probada',
+      subtitle: 'Automatización garantizada', 
+      paragraph: 'Nuestro chatbot ha logrado ratios de automatización de hasta el 80%, con alta efectividad en el cierre de ventas. Nuestro modelo NLP pre-entrenado potencia conversaciones desde el momento de su lanzamiento, aprovechando al máximo la innovación de la IA generativa en pro de tu negocio.', 
+      image: 'fa-regular fa-circle-check',
+      BkColor: '#e6285c' 
     }
   ]
 }
 
 export const section3 = {
-  title: 'Elige la estrategia que más se adapte a ti',
-  paragraph: 'Personaliza la experiencia de tus clientes con nuestros chatbots para WhatsApp. ¿Prefieres un enfoque guiado para un control preciso y acciones simples? ¿Inteligencia Artificial para respuestas más dinámicas? ¿O una combinación de ambas? ¡Tú decides! Adaptamos tu chatbot a las necesidades únicas de tu negocio.',
-  content: [
-    { 
-      title: 'Chatbots guiados', 
-      paragraph: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 
-      image: chatbotBot 
-    },
-    { 
-      title: 'Chatbots con IA para WhatsApp', 
-      paragraph: 'Con un chatbot para WhatsApp podrás responder preguntas frecuentes, guiar a tus clientes en sus compras y mucho más.', 
-      image: chatbotBot 
+  title: 'La mejor estrategia para tus operaciones',
+  paragraph: 'Permite que nuestro Chatbot para Whatsapp libere a tus agentes para que puedan enfocarse en tareas más complejas mientras elevas la experiencia del servicio al cliente.',
+  content: { 
+      title: 'CHATBOT PARA RESTAURANTE', 
+      paragraph:[
+        'Detecta y genera notas de voz',
+        'Respuestas de preguntas frecuentes',
+        'Consulta disponibilidad de producto',
+        'Genera Link de pago',
+        'Escanea imágenes de transferencias',
+        'Conecta con tu base de datos',
+        'Recibe datos para emisión de facturación',
+        'Guía hacia el cierre de venta'
+      ],
+      image: whatsApp 
     }
-  ]
 }
