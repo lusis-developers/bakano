@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import BlogService from '~/services/BlogService';
 
+const emit = defineEmits(['toggle-menu']);
+
+const menuOpen = ref(false);
 const authorInfo = ref<any[]>([]);
 const authors = ['yeyodev', 'denisse', 'luis-reyes', 'dayanara'];
 const orderedPosts = computed(() => {
@@ -9,12 +12,23 @@ const orderedPosts = computed(() => {
   });
 });
 
+function toggleMenu():void {
+  menuOpen.value = !menuOpen.value;
+}
+
 Promise.all(authors.map((authorName: string) => BlogService.fetchAuthorInfo(authorName, authorInfo)));
 </script>
 
 <template>
   <div class="container-blog">
-    <LandingPageHeader />
+    <LandingPageHeader 
+      :colorLogo="menuOpen" 
+      @toggle-menu="toggleMenu"  
+    />
+    <LandingPageMenu 
+      :isVisible="menuOpen" 
+      @close-menu="toggleMenu"
+    />
     <section class="blog">
       <h1 class="blog__title">
         Blogs Bakanos

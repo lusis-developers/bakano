@@ -14,6 +14,14 @@ useHead({
   ]
 });
 
+const emit = defineEmits(['toggle-menu']);
+
+const menuOpen = ref(false);
+
+function toggleMenu():void {
+  menuOpen.value = !menuOpen.value;
+}
+
 onMounted(() => {
   const colors = ['red', 'orange', 'indigo'];
   const words = ['experiencias', 'conocimiento', 'clientes'];
@@ -35,7 +43,14 @@ onMounted(() => {
 
 <template>
   <div class="wrapper-chatbot">
-    <LandingPageHeader />
+    <LandingPageHeader 
+      :colorLogo="menuOpen" 
+      @toggle-menu="toggleMenu"  
+    />
+    <LandingPageMenu 
+      :isVisible="menuOpen" 
+      @close-menu="toggleMenu"
+    />
     <div class="main">
       <div class="main-content">
         <h1 class="main-tittle">
