@@ -30,12 +30,10 @@ function closeMessageFormSubmited():void {
     <div class="wrapper-main">
       <LandingPageHeader
         :colorLogo="menuOpen" 
-        @toggle-menu="toggleMenu"  
-      />
+        @toggle-menu="toggleMenu" />
       <LandingPageMenu 
         :isVisible="menuOpen" 
-        @close-menu="toggleMenu"
-      />
+        @close-menu="toggleMenu" />
       <div class="main">
         <h1 class="main-tittle">
           Hagamos que hablen de tu negocio

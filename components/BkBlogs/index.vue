@@ -23,12 +23,10 @@ Promise.all(authors.map((authorName: string) => BlogService.fetchAuthorInfo(auth
   <div class="container-blog">
     <LandingPageHeader 
       :colorLogo="menuOpen" 
-      @toggle-menu="toggleMenu"  
-    />
+      @toggle-menu="toggleMenu" />
     <LandingPageMenu 
       :isVisible="menuOpen" 
-      @close-menu="toggleMenu"
-    />
+      @close-menu="toggleMenu" />
     <section class="blog">
       <h1 class="blog__title">
         Blogs Bakanos

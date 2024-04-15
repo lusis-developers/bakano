@@ -45,19 +45,18 @@ onMounted(() => {
   <div class="wrapper-chatbot">
     <LandingPageHeader 
       :colorLogo="menuOpen" 
-      @toggle-menu="toggleMenu"  
-    />
+      @toggle-menu="toggleMenu" />
     <LandingPageMenu 
       :isVisible="menuOpen" 
-      @close-menu="toggleMenu"
-    />
+      @close-menu="toggleMenu" />
     <div class="main">
       <div class="main-content">
         <h1 class="main-tittle">
           Convierte conversaciones <br>en <span class="typed-text"></span>
         </h1>
         <p class="main-paragraph">
-          Redefine tu estrategia de servicio al cliente con un Chatbot de Whatsapp conectado a Inteligencia Artificial.
+          Redefine tu estrategia de servicio al cliente 
+          con un Chatbot de Whatsapp conectado a Inteligencia Artificial.
         </p>
       <GlobalBkButton />
       </div>
