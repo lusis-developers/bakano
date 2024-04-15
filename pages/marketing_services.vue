@@ -12,9 +12,15 @@ useHead({
   ]
 })
 
+const emit = defineEmits(['toggle-menu']);
+
+const menuOpen = ref(false);
 const showMessageFormSubmited = ref(false);
 
-function closeMessageFormSubmited() {
+function toggleMenu():void {
+  menuOpen.value = !menuOpen.value;
+}
+function closeMessageFormSubmited():void {
   showMessageFormSubmited.value = !showMessageFormSubmited.value;
 }
 </script>
@@ -22,7 +28,12 @@ function closeMessageFormSubmited() {
 <template>
   <div class="wrapper">
     <div class="wrapper-main">
-      <LandingPageHeader/>
+      <LandingPageHeader
+        :colorLogo="menuOpen" 
+        @toggle-menu="toggleMenu" />
+      <LandingPageMenu 
+        :isVisible="menuOpen" 
+        @close-menu="toggleMenu" />
       <div class="main">
         <h1 class="main-tittle">
           Hagamos que hablen de tu negocio
@@ -35,6 +46,7 @@ function closeMessageFormSubmited() {
     <div class="register-wrapper">
       <figure class="figure">
         <img 
+          decoding="async"
           src="~/assets/images/landing-image.webp" 
           alt="image" 
           class="figure-img" />
@@ -108,6 +120,7 @@ function closeMessageFormSubmited() {
   &-img {
     border-radius: 20px;
     min-width: 0;
+    aspect-ratio: 4/3;
     @media (max-width: $mobile-lower-breakpoint) {
       max-width: 85%;
     }

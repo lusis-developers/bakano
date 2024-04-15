@@ -48,7 +48,7 @@ const scrollToForm = (event: MouseEvent) => {
     font-size: $font-size-normal;
   }
   &:hover {
-    background-color: darken($pink, 1%);
+    background-color: darken($pink, 10%);
   }
 }
 </style>

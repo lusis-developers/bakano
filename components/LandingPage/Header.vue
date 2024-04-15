@@ -1,97 +1,117 @@
 <script setup lang="ts">
-import BakanoIsotipoBlanco from '@/assets/images/bakan-isotipo-blanco.webp'
+import { menuLandingItems } from '~/utils/menuLandingItems';
+import whiteLogo from '../assets/images/bakan-isotipo-blanco.webp'
+import blackLogo from '../assets/images/bakano-isotipo-negro.webp'
+
+const emits = defineEmits(['toggle-menu']);
+
+const props = defineProps({
+  colorLogo: {
+    type: Boolean,
+    required: false,
+    default: false,
+  }  
+});
+
+const menuOpen = ref(false);
+const logo = computed(() => props.colorLogo ? blackLogo : whiteLogo)
+
+function toggleMenu():void {
+  menuOpen.value = !menuOpen.value;
+  emits('toggle-menu');
+}
 </script>
 
 <template>
   <header class="header">
-    <div>
-      <a class="header-figure" href="/">
-        <img 
-          :src="BakanoIsotipoBlanco" 
-          alt="Bakano" 
-          class="header-figure-isotipo" />
-      </a>
-    </div>
-    <div class="links">
-      <NuxtLink 
-        to="/chatbot" 
-        class="link">
-          Chatbot
-      </NuxtLink>
-      <NuxtLink 
-        to="/marketing_services" 
-        class="link">
-          Marketing
-      </NuxtLink>
-      <NuxtLink 
-        to="/blogs" 
-        class="link">
-          Blogs
-      </NuxtLink>
-      <NuxtLink 
-        to="/" 
-        class="link">
-          Inicio
-      </NuxtLink>
-    </div>
+    <NuxtLink 
+      to="/" 
+      class="header-figure">
+        <img
+          :src="logo"
+          width="48"
+          height="48"
+          alt="Bakano logotipo"
+          class="header-figure-logo">
+    </NuxtLink>
+    <button
+			class="header-button"
+      aria-label="Menú"
+      role="menu"
+			@click="toggleMenu">
+			  <i class="fa-solid fa-bars" />
+		</button>
+    <div class="header-details">
+			<NuxtLink
+        v-for="(button, index) in menuLandingItems"
+        :key="index" 
+        :to="button.link"
+        class="header-details-button">
+          {{ button.name }} 
+			</NuxtLink>
+		</div>
   </header>
 </template>
 
 <style lang="scss" scoped>
 .header {
+  padding: 12px 40px ;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 12px 20px 12px 40px;
   max-height: 10vh;
-  @media (min-width: $tablet-upper-breakpoint) {
-    justify-content: space-between;    
-  }
+  margin: 0 auto;
   &-figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 16px;
-    &-isotipo {
-      width: 48px;
-      height: 48px;
+    z-index: 110;
+    &-logo {
+      max-width: 48px;
+      aspect-ratio: 1/1;
     }
-    &-logotipo {
-      width: 130px;
+  }
+  &-button {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: $white;
+    font-size: $font-size-normal;
+    @media (min-width: 700px) {
+      display: none;
+    }
+  }
+  &-details{
+    display: none;
+    @media (min-width: 700px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $black;
+      gap: 16px;
+		}
+    &-button {
+      border: none;
+      font-family: $primary-font;
+      font-weight: 700;
+      color: $white;
+      text-decoration: none;
+      position: relative;
+      @media (min-width: $tablet-upper-breakpoint) {
+        font-size: 1.1rem;
+      }
     }
   }
 }
-.links{
-  display: none;
-  @media (min-width: $tablet-upper-breakpoint){
-    display: block;
-  }
-}
-.link{
-  font-family: $primary-font;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.25rem;
-  text-decoration: none;
-  position: relative;
-  margin: 0 16px;
-  padding-bottom: 5px;
-}
-.link::after {
+.header-details-button::after{
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%; 
-  height: 2px;
+  width: 0%;
+  height: 2.25px;
   background-color: #fff;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.5s ease-in-out;
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.link:hover::after {
+.header-details-button:hover::after{
   width: 100%;
 }
 </style>
-

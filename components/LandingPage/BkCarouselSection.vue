@@ -1,13 +1,3 @@
-<script setup lang="ts">
-import chatbotAutomate from '@/assets/LandingPage/chatbot-automate.svg';
-import chatbotBot from '@/assets/LandingPage/chatbot-bot.svg';
-
-const images = ref([
-  chatbotAutomate,
-  chatbotBot,
-]);
-</script>
-
 <template>
   <section class="carousel">
     <div class="carousel-content">
@@ -21,7 +11,6 @@ const images = ref([
         y ofrecer respuestas automáticas y precisas a las consultas de tu cliente. 
       </p>
     </div>
-    <GlobalBkCarousel :images="images"/>
   </section>
 </template>
 
@@ -50,7 +39,7 @@ const images = ref([
       margin: 48px 0;
       @media (min-width: $tablet-upper-breakpoint){
         max-width: 80%;
-        margin: 40px auto 72px;
+        margin: 40px auto 0;
       }
       @media (min-width: $desktop-upper-breakpoint) {
         max-width: 60%;

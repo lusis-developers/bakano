@@ -55,6 +55,7 @@ const socialIcons = [
 }
 :deep(.footer){
   max-width: none;
+  margin-top: 32px;
 }
 :deep(.footer-social){
   display: flex;
@@ -65,5 +66,8 @@ const socialIcons = [
 }
 :deep(.footer-image){
   overflow: hidden;
+  aspect-ratio: 1001/174;
+  max-width: none;
+  height: 48px;
 }
 </style>

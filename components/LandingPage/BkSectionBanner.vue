@@ -1,10 +1,8 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <section class="section">
     <h2 class="section-title">
-      Forma parte de los que aman <strong class="section-title-strong">FUDIBOT</strong>. Presentes en Latam y en Europa. 
+      Forma parte de los que aman FUDIBOT. 
+      Presentes en Latam y en Europa. 
     </h2>
   </section>
 </template>

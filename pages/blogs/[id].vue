@@ -98,6 +98,7 @@ onBeforeMount(async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 64px;
   padding: 70px 40px;
   border-right: 1px solid $black;
