@@ -11,6 +11,7 @@
         y ofrecer respuestas automáticas y precisas a las consultas de tu cliente. 
       </p>
     </div>
+    <LandingPageBkCardPrices />
   </section>
 </template>
 
