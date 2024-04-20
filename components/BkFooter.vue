@@ -42,6 +42,14 @@ function getYear(): number {
             {{ getYear() }} BAKANO AGENCY
           </p>
         </div>
+        <div class="bk-footer-privacy">
+          <NuxtLink to="/terminos-y-condiciones-de-uso" class="bk-footer-copy-link">
+            Términos y condiciones de uso
+          </NuxtLink>
+          <NuxtLink to="/politica-de-privacidad" class="bk-footer-copy-link">
+            Política de privacidad
+          </NuxtLink>
+        </div>
       </template>
       <template #social-icons>
         <NuxtLink 
@@ -70,6 +78,27 @@ function getYear(): number {
   font-size: $font-size-small;
   font-weight: $font-weight-bold;
   color: $white;
+  &-link{
+    font-family: $primary-font;
+    color: $white;
+    text-decoration: none;
+    font-size: .75rem;
+    font-weight: $font-weight-bold;
+    @media (min-width: $tablet-upper-breakpoint) {
+      font-size: 0.9rem;
+    }
+    &:hover{
+      color: $pink
+    }
+  }
+}
+.bk-footer-privacy{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  @media (min-width: $tablet-upper-breakpoint) {
+    gap: 32px;
+  }
 }
 .social-img{
   font-size: 24px;
@@ -84,8 +113,19 @@ function getYear(): number {
   flex-wrap: nowrap;
   margin: 0;
   padding: 0 10px;
-  height: 100%;
-  align-items: center
+  min-height: 100%;
+  @media (max-width: $mobile-upper-breakpoint) {
+    padding-bottom: 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  align-items: center;
+}
+:deep(.footer-options){
+  justify-content: space-between;
+  @media (min-width: $tablet-upper-breakpoint) {
+    width: 50%;    
+  }
 }
 :deep(.footer-social){
   display: flex;

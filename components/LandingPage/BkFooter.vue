@@ -30,6 +30,16 @@ const socialIcons = [
   <div>
     <CrushFooter 
       :logoSrc="BakanoLogotipoNegro">
+      <template #footer-links>
+        <div class="bk-footer-privacy">
+          <NuxtLink to="/terminos-y-condiciones-de-uso" class="bk-footer-copy-link">
+            Términos y condiciones de uso
+          </NuxtLink>
+          <NuxtLink to="/politica-de-privacidad" class="bk-footer-copy-link">
+            Política de privacidad
+          </NuxtLink>
+        </div>
+      </template>
       <template #social-icons>
         <NuxtLink 
           v-for="icon in socialIcons" 
@@ -53,6 +63,21 @@ const socialIcons = [
   font-size: 32px;
   color: $black;
 }
+.bk-footer-privacy{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.bk-footer-copy-link{
+    font-family: $primary-font;
+    color: $black;
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: $font-weight-bold;
+    &:hover{
+      color: $pink
+    }
+  }
 :deep(.footer){
   max-width: none;
   margin-top: 32px;
