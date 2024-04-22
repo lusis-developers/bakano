@@ -42,6 +42,7 @@ onMounted(() => {
       scrub: 1,
       pin: true,
       anticipatePin: 1,
+      pinReparent: true,
     },
     x: '-100%',
     ease: 'none',
