@@ -27,6 +27,9 @@ const formattedDate = computed(() => {
 onBeforeMount(async () => {
   isLoading.value = true;
   await BlogService.getPostByUuid(useRoute().params.id as string, postDetail);
+  if(postDetail.value == null){
+    return useRouter().push('/404');
+  }
   isLoading.value = false;
 });
 </script>
