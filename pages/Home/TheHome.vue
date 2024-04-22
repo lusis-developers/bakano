@@ -69,6 +69,9 @@ onMounted(() => {
     x: '-100%',
   }); 
 });
+onUnmounted(()=>{
+  ScrollTrigger.killAll();
+})
 </script>
 
 <template>
