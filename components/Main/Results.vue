@@ -137,6 +137,22 @@ onMounted(() => {
       border-radius: 8px;
       text-align: center;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+
+      &:nth-child(1) {
+      animation-name: slideInLeft;
+      }
+
+      &:nth-child(2) {
+        animation-name: slideInUp;
+      }
+
+      &:nth-child(3) {
+        animation-name: slideInRight;
+      }
+
       @media (min-width: 768px) {
         width: 30%;
         display: flex;
@@ -183,4 +199,38 @@ onMounted(() => {
     }
   }
 }
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 </style>
