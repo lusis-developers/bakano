@@ -34,14 +34,19 @@ import heroImage from '@/assets/images/hero-image.png';
   background-size: cover;
 
   &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
 
     .title {
-      margin-bottom: 16px;
       max-width: 320px;
       margin: auto;
+      margin-bottom: 16px;
+      position: relative;
       font-size: $font-size-large;
-    }
+      z-index: 20;
+    } 
 
     .text-1 {
       position: absolute;
@@ -78,10 +83,12 @@ import heroImage from '@/assets/images/hero-image.png';
       width: 100%;
       max-width: 420px;
       margin: auto;
-      height: 300px;
+      display: flex;
+      align-items: flex-end;
 
       &-image {
         width: 100%;
+        height: auto;
       }
     }
 
