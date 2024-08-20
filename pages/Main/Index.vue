@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import Hero from '@/components/Main/Hero.vue';
+import Results from '@/components/Main/Results.vue';
 </script>
 
 <template>
   <div class="main">
     <Hero />
+    <Results />
   </div>
 </template>
 
