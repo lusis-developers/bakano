@@ -6,7 +6,7 @@ import heroImage from '@/assets/images/hero-image.png';
   <div class="hero">
     <div class="hero-content crush-container">
       <h1 class="title">
-        ¡Hola! Bienvenido a Bakano. Ayudamos a tu empresa a adoptar tecnologías en tus procesos.
+        Optimizamos sus operaciones con chatbots y tus datos.
       </h1>
       <span class="text-1">
         Chatbots
@@ -40,11 +40,12 @@ import heroImage from '@/assets/images/hero-image.png';
     position: relative;
 
     .title {
-      max-width: 320px;
+      max-width: $tablet-upper-breakpoint;
       margin: auto;
       margin-bottom: 16px;
       position: relative;
       font-size: $font-size-large;
+      font-family: $primary-font;
       z-index: 20;
     } 
 
@@ -70,7 +71,7 @@ import heroImage from '@/assets/images/hero-image.png';
 
       // Media query para pantallas grandes (desktops, etc.)
       @media(min-width: $desktop-lower-breakpoint) {
-        left: 10%;
+        left: 15%;
         font-size: 7rem; // Tamaño original para pantallas grandes
         -webkit-text-stroke-width: 2px; // Tamaño del borde original
         stroke-width: 2px;
