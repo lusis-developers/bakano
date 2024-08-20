@@ -2,6 +2,7 @@
 interface Stat {
   value: string;
   label: string;
+  sign: string;
 }
 
 interface DetailCard {
@@ -11,11 +12,12 @@ interface DetailCard {
 }
 
 const stats = ref<Stat[]>([
-  { value: '50+', label: 'Clientes atendidos' },
-  { value: '100+', label: 'Proyectos realizados' },
-  { value: '98%', label: 'Satisfacción de usuarios' },
-  { value: '5+', label: 'Años de experiencia en IA' },
+  { value: '50', sign: '+', label: 'Clientes atendidos' },
+  { value: '100', sign: '+', label: 'Proyectos realizados' },
+  { value: '98', sign: '%', label: 'Satisfacción de usuarios' },
+  { value: '5', sign: '+', label: 'Años de experiencia en IA' },
 ]);
+const displayedValues = ref<number[]>([0, 0, 0, 0]);
 
 const detailCards = ref<DetailCard[]>([
   { 
@@ -34,6 +36,28 @@ const detailCards = ref<DetailCard[]>([
     icon: 'fa-regular fa-comments'
   },
 ]);
+
+
+function animateValue (start: number, end: number, duration: number, index: number) {
+  const range = end - start;
+  let current = start;
+  const increment = range > 0 ? 1 : -1;
+  const stepTime = Math.abs(Math.floor(duration / range));
+
+  const timer = setInterval(() => {
+    current += increment;
+    displayedValues.value[index] = current;
+    if( current === end ) {
+      clearInterval(timer);
+    };
+  }, stepTime);
+};
+
+onMounted(() => {
+  stats.value.forEach((stat, index) => {
+    animateValue(0, Number(stat.value), 2000, index);
+  });
+});
 </script>
 
 <template>
@@ -43,7 +67,7 @@ const detailCards = ref<DetailCard[]>([
         v-for="(stat, index) in stats" 
         :key="index" 
         class="stat-item">
-        <h2 class="stat-item-title">{{ stat.value }}</h2>
+        <h2 class="stat-item-title">{{ displayedValues[index] }}{{ stat.sign }}</h2>
         <p class="stat-item-text">{{ stat.label }}</p>
       </div>
     </div>
