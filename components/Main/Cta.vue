@@ -8,7 +8,6 @@
     </h3>
     <GlobalBkButton/>
   </div>
-  <div style="height: 100vh"></div>
 </template>
 
 <style lang="scss">
@@ -33,6 +32,7 @@
     bottom: 0;
     background-color: rgba(217, 197, 197, 0.563); 
     backdrop-filter: blur(5px);
+    filter: grayscale(100%);
   }
   &-title {
     font-family: $primary-font;
