@@ -3,7 +3,7 @@ import { onMounted, onUnmounted } from 'vue';
 
 import heroImage from '@/assets/images/hero-image.png';
 
-const handleScroll = () => {
+function handleScroll(): void {
   const text1 = document.querySelector('.text-1') as HTMLElement;
   const text2 = document.querySelector('.text-2') as HTMLElement;
 
@@ -29,7 +29,7 @@ onUnmounted(() => {
   <div class="hero">
     <div class="hero-content crush-container">
       <h1 class="title">
-        Optimizamos sus operaciones con chatbots y tus datos.
+        Optimizamos tus operaciones con chatbots y tus datos.
       </h1>
       <span class="text-1">
         Chatbots

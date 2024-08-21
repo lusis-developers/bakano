@@ -5,7 +5,6 @@ import Hero from '@/components/Main/Hero.vue';
 <template>
   <div class="main">
     <Hero />
-    <div class="prueba"></div>
   </div>
 </template>
 
@@ -13,8 +12,5 @@ import Hero from '@/components/Main/Hero.vue';
 .main {
   width: 100%;
   min-height: 100vh;
-  .prueba {
-    height: 2000px;
-  }
 }
 </style>
