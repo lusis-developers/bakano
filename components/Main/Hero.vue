@@ -1,5 +1,28 @@
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue';
+
 import heroImage from '@/assets/images/hero-image.png';
+
+const handleScroll = () => {
+  const text1 = document.querySelector('.text-1') as HTMLElement;
+  const text2 = document.querySelector('.text-2') as HTMLElement;
+
+  if (window.scrollY > 100) {
+    text1.classList.add('scrolled-left');
+    text2.classList.add('scrolled-right');
+  } else {
+    text1.classList.remove('scrolled-left');
+    text2.classList.remove('scrolled-right');
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
@@ -39,6 +62,18 @@ import heroImage from '@/assets/images/hero-image.png';
     align-items: center;
     position: relative;
 
+    .text-1, .text-2 {
+      transition: transform 0.5s ease-out;
+    }
+
+    .scrolled-left {
+      transform: translateX(-100px);
+    }
+
+    .scrolled-right {
+      transform: translateX(100px);
+    }
+
     .title {
       max-width: $tablet-upper-breakpoint;
       margin: auto;
@@ -53,7 +88,7 @@ import heroImage from '@/assets/images/hero-image.png';
       position: absolute;
       top: 50%;
       left: 20px;
-      z-index: 10;
+      z-index: 10;  
       font-size: 4rem;
       font-family: $bebas-font;
       color: #33353D00;
@@ -61,19 +96,20 @@ import heroImage from '@/assets/images/hero-image.png';
       stroke-width: 2px;
       -webkit-text-stroke-color: $pink;
       stroke: $pink;
+      animation: slideInLeft 1s ease-out;
+      transition: transform 0.5s ease-out;
 
       @media(min-width: $tablet-lower-breakpoint) {
         left: 20%;
-        font-size: 5rem; // Aumenta el tamaño en pantallas más grandes
-        -webkit-text-stroke-width: 1.5px; // Ajusta el tamaño del borde
+        font-size: 5rem; 
+        -webkit-text-stroke-width: 1.5px; 
         stroke-width: 1.5px;
       }
 
-      // Media query para pantallas grandes (desktops, etc.)
       @media(min-width: $desktop-lower-breakpoint) {
         left: 15%;
-        font-size: 7rem; // Tamaño original para pantallas grandes
-        -webkit-text-stroke-width: 2px; // Tamaño del borde original
+        font-size: 7rem; 
+        -webkit-text-stroke-width: 2px; 
         stroke-width: 2px;
       }
     }
@@ -90,6 +126,7 @@ import heroImage from '@/assets/images/hero-image.png';
       &-image {
         width: 100%;
         height: auto;
+        animation: fadeInUp 1s ease-out forwards;
       }
     }
 
@@ -101,6 +138,8 @@ import heroImage from '@/assets/images/hero-image.png';
       font-size: 4rem;
       font-family: $primary-font;
       color: $pink;
+      animation: slideInRight 1s ease-out;
+      transition: transform 0.5s ease-out; 
 
       @media(min-width: $tablet-lower-breakpoint) {
         right: 20%;
@@ -112,6 +151,39 @@ import heroImage from '@/assets/images/hero-image.png';
         font-size: 7rem;
       }
     }
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
