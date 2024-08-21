@@ -112,7 +112,7 @@ onMounted(() => {
         font-family: $primary-font;
         font-size: $font-size-normal;
         margin: 0.5rem 0 0;
-        color: $pink;
+        color: $white;
       }
     }
   }
