@@ -31,8 +31,7 @@ const services = [
         </p>
         <p class="container-cards-principal-card-subtitle">
           {{service.paragraph}}
-        </p>
-        
+        </p> 
       </div>
     </div>
   </div>
@@ -76,8 +75,10 @@ const services = [
       }
       &-subtitle {
         color: $white;
+        padding: 16px;
         font-size: $font-size-normal;
         font-family: $primary-font;
+        border-radius: 8px;
       }
       .icon {
         font-size: $font-size-large;
