@@ -77,7 +77,7 @@ const services = [
           right: 0;
           height: 8px;
           background-color: $pink;
-          border-radius: 0 0 8px 8px; // Ajusta el borde inferior para que coincida con la tarjeta
+          border-radius: 0 0 8px 8px;
           opacity: 0.8;
         }
       }
