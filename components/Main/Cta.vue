@@ -32,7 +32,7 @@
     bottom: 0;
     background-color: rgba(217, 197, 197, 0.563); 
     backdrop-filter: blur(5px);
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(50%);
   }
   &-title {
     font-family: $primary-font;
@@ -42,7 +42,7 @@
   &-subtitle {
     font-family: $primary-font;
     font-weight: normal;
-    color: $black;
+    color: $white;
     font-weight: bold;
     font-size: $font-size-large;
   }
