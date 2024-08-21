@@ -50,10 +50,15 @@ const services = [
     justify-content: center;
     align-items: center;
     gap: 24px;
+    padding: 24px;
     &-title {
       width: 100%;
       text-align: center;
-      font-size: $font-size-extra-large;
+      font-size: $font-size-large;
+      font-family: $primary-font;
+      @media (min-width: $tablet-upper-breakpoint) {
+        font-size: $font-size-extra-large;
+      }
     }
     &-card {
       background-color: $black;
