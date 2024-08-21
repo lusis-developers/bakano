@@ -196,7 +196,7 @@ onMounted(() => {
         background-color: $white;
         color: $pink;
         &-item {
-          color: $black;
+          color: $pink;
         }
       }
       .detail-card-text {
