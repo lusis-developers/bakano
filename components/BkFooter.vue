@@ -23,6 +23,8 @@ const socialIcons = [
     class: 'fa-brands fa-tiktok social-img-tiktok' 
   },
 ]
+const mail = 'mailto:correo@ejemplo.com?subject=Consulta%20sobre%20sus%20servicios&body=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios.';
+const whatsapp = 'https://wa.me/593995298404?text=Hola,%20quiero%20un%20chatbot%20para%20mi%20negocio.'
 
 function getYear(): number {
   const date = new Date();
@@ -33,6 +35,50 @@ function getYear(): number {
 
 <template>
   <div>
+    <div class="footer-info">
+      <div class="footer-info-container crush-container">
+        <div class="left">
+          <h2>
+            Hablemos.
+          </h2>
+          <h3>
+            Empcemos a crecer tu negocios juntos.
+          </h3>
+        </div>
+        <div class="right">
+          <a
+            :href="whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="item">
+            <i class="fa-brands fa-whatsapp icon" />
+            <div class="contact">
+              <span class="title">
+                Chateemos por WhatsApp
+              </span>
+              <span class="info">
+                +593 99 529 8404
+              </span>
+            </div>
+          </a>
+          <a
+            :href="mail"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="item">
+            <i class="fa-regular fa-envelope-open icon"></i>
+            <div class="contact">
+              <span class="title">
+                Escríbenos
+              </span>
+              <span class="info">
+                dquimi@bakano.ec
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
     <CrushFooter :logoSrc="'null'">
       <template #footer-links>
         <div class="bk-footer-copy">
@@ -61,6 +107,70 @@ function getYear(): number {
 </template>
 
 <style lang="scss" scoped>
+.footer-info  {
+  width: 100%;
+  background-color: $black;
+  padding: 36px 16px;
+  color: white;
+  font-family: $primary-font;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 36px;
+
+    .left {
+      width: 100%;
+      @media(min-width: $desktop-lower-breakpoint) {
+        width: 40%;
+      }
+    }
+    .right {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      @media(min-width: $desktop-lower-breakpoint) {
+        width: 50%;
+        justify-content: flex-start;
+      }
+
+      .item {
+        width: 100%;
+        display: flex;
+        gap: 12px;
+        text-decoration: none;
+        cursor: pointer;
+        @media(min-width: $desktop-lower-breakpoint) {
+          padding: 12px;
+          width: 40%;
+        }
+
+        .icon {
+          color: $pink;
+          font-size: 24px;
+        }
+       
+        .contact  {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .title {
+            color: $white;
+          }
+
+          .info {
+            color: $pink;
+          }
+        }
+      }
+    }
+  }
+}
+
 .bk-footer-copy{
   display: flex;
   align-items: center;
