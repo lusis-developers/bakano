@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import CrushButton from '@nabux-crush/crush-button';
 
+const props = defineProps({
+  buttonText: {
+    type: String,
+    default: 'Solicita información'
+  }
+})
+
 const scrollToForm = (event: MouseEvent) => {
   event.preventDefault();
   const formElement = document.getElementById('form');
@@ -20,7 +27,7 @@ const scrollToForm = (event: MouseEvent) => {
         <a 
           href="#form" 
           class="button-link">
-            Solicita información
+            {{ buttonText }}
         </a>
     </CrushButton>
   </div>
@@ -31,7 +38,6 @@ const scrollToForm = (event: MouseEvent) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 32px 0;
   }
   .button-link {
     text-decoration: none;
