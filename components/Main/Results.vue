@@ -1,15 +1,5 @@
 <script setup lang="ts">
-interface Stat {
-  value: string;
-  label: string;
-  sign: string;
-}
-
-interface DetailCard {
-  title: string;
-  description: string;
-  icon: string;
-}
+import type { DetailCard, Stat } from '~/typings/ResultTypes';
 
 const stats = ref<Stat[]>([
   { value: '50', sign: '+', label: 'Clientes atendidos' },
@@ -77,7 +67,9 @@ onMounted(() => {
         :key="index" 
         class="detail-card">
         <div class="icon">
-          <i class="icon-item" :class="card.icon"></i>
+          <i 
+            class="icon-item" 
+            :class="card.icon" />
         </div>
         <h3 class="detail-card-title">{{ card.title }}</h3>
         <p 
