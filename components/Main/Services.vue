@@ -1,13 +1,30 @@
+<script setup lang="ts">
+const services = [
+  {
+    title: 'Marketing digital',
+    paragraph: 'super descripcion'
+  }, 
+  {
+    title: 'E-commerce',
+    paragraph: 'super descripcion',
+  },
+  {
+    title: 'Analisis de datos',
+    paragraph: 'super descripcion',
+  }
+]
+</script>
+
 <template>
   <div class="container-cards">
     <div class="container-cards-principal">
-      <div class="container-cards-principal-card">
-        <i class="fa-solid fa-chart-simple"></i>
+      <div 
+        class="container-cards-principal-card"
+        v-for="(service, index) in services"
+        :key="index">
+        <i class="icon fa-solid fa-chart-simple"></i>
         <p class="container-cards-principal-card-title">
-          titulo
-        </p>
-        <p class="container-cards-principal-card-subtitle">
-          subtitulo
+          {{service.title}}
         </p>
       </div>
     </div>
@@ -28,18 +45,25 @@
     &-card {
       width: 100%;
       padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       @media (min-width: $tablet-upper-breakpoint) {
         max-width: 40%;
       }
       &-title {
         color: $black;
-        font-size: $font-size-normal;
+        font-size: $font-size-large;
         font-family: $primary-font;
       }
       &-subtitle {
         color: $black;
         font-size: $font-size-normal;
         font-family: $primary-font;
+      }
+      .icon {
+        font-size: $font-size-large;
       }
     }
   }
