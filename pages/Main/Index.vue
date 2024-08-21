@@ -2,6 +2,7 @@
 import Cta from '@/components/Main/Cta.vue';
 import Hero from '@/components/Main/Hero.vue';
 import Results from '@/components/Main/Results.vue';
+import Services from '@/components/Main/Services.vue';
 import Experience from '@/components/Main/Experience.vue';
 import CustomerTarget from '~/components/Main/CustomerTarget.vue';
 </script>
@@ -13,6 +14,7 @@ import CustomerTarget from '~/components/Main/CustomerTarget.vue';
     <CustomerTarget />
     <Experience />
     <Cta />
+    <Services />
   </div>
 </template>
 
