@@ -19,8 +19,9 @@
   gap: 24px;
   background-image: url('@/assets/Cta/agencia.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center; 
   background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
   &::before {
     content: "";
