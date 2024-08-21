@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Hero from '@/components/Main/Hero.vue';
 import Results from '@/components/Main/Results.vue';
+import Services from '@/components/Main/Services.vue';
 import Experience from '@/components/Main/Experience.vue';
 </script>
 
@@ -9,6 +10,7 @@ import Experience from '@/components/Main/Experience.vue';
     <Hero />
     <Results />
     <Experience />
+    <Services />
   </div>
 </template>
 
