@@ -19,7 +19,7 @@ const items: { title: string }[] = [
   },
 ];
 
-function handleScroll() {
+function handleScroll(): void {
   const scrollPosition = window.scrollY + window.innerHeight;
   const element = featuresTitle.value;
   if(element) {
