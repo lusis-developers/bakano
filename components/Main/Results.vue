@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DetailCard, Stat } from '~/typings/ResultTypes';
+import type { DetailCard, Stat } from '~/interfaces/Result.interfaces';
 
 const stats = ref<Stat[]>([
   { value: '50', sign: '+', label: 'Clientes atendidos' },
@@ -232,3 +232,4 @@ onMounted(() => {
 }
 
 </style>
+~/interfaces/ResultTypes~/interfaces/Result.interfaces
