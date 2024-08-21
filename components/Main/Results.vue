@@ -77,7 +77,7 @@ onMounted(() => {
         :key="index" 
         class="detail-card">
         <div class="icon">
-          <i :class="card.icon"></i>
+          <i class="icon-item" :class="card.icon"></i>
         </div>
         <h3 class="detail-card-title">{{ card.title }}</h3>
         <p 
@@ -171,6 +171,9 @@ onMounted(() => {
         margin: 0 auto;
         background: $pink;
         border-radius: 100%;
+        &-item {
+          color: $white;
+        }
       }
 
       &-title {
@@ -192,6 +195,9 @@ onMounted(() => {
       .icon {
         background-color: $white;
         color: $pink;
+        &-item {
+          color: $black;
+        }
       }
       .detail-card-text {
         color: white;
