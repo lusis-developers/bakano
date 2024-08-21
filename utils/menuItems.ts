@@ -1,4 +1,4 @@
-import type { Navigation } from "@/typings/LayoutTypes";
+import type { Navigation } from "~/interfaces/LayoutTypes.interface";
 
 export const menuItems: Navigation[] = [
   {
