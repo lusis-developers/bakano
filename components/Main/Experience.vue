@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const featuresTitle = ref<HTMLElement | null>(null);
+
 const items: { title: string }[] = [
   {
     title: 'Recepción de pagos por tarjeta o transferencias',
@@ -16,13 +18,35 @@ const items: { title: string }[] = [
     title: 'Almacenamiento en Base de datos'
   },
 ];
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+
+  function handleScroll() {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const element = featuresTitle.value;
+    if(element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+      if(scrollPosition > elementPosition) {
+        element.style.transform = 'translateX(0)';
+        element.style.opacity = '1';
+      } else {
+        element.style.transform = 'translateX(100%)';
+        element.style.transform = '0';
+      };
+    };
+  };
+})
 </script>
 
 <template>
   <div class="container">
     <div class="container-principal">
-      <p class="container-principal-title">
-      Features
+      <p
+        ref="featuresTitle" 
+        class="container-principal-title">
+        Features
     </p>
     <div class="container-principal-details">
       <h2 class="container-principal-details-title">
@@ -60,11 +84,14 @@ const items: { title: string }[] = [
     gap: 16px;
     &-title {
       width: 100%;
-      color: rgb(253, 196, 196);
+      color: $pink;
+      font-family: $primary-font;
       font-size: $font-size-extra-large;
       text-align: right;
+      opacity: 0;
+      transition: transform 2s ease-out, opacity 2s ease-out;
       @media(min-width: $tablet-upper-breakpoint) {
-        font-size: 80px;
+        font-size: 200px;
       }
     }
     &-details {
