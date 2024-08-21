@@ -65,6 +65,22 @@ const services = [
       flex-wrap: wrap;
       gap: 16px;
       border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          right: 0;
+          height: 8px;
+          background-color: $pink;
+          border-radius: 0 0 8px 8px; // Ajusta el borde inferior para que coincida con la tarjeta
+          opacity: 0.8;
+        }
+      }
       @media (min-width: $tablet-upper-breakpoint) {
         max-width: 40%;
       }
