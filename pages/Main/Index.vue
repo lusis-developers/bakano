@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Cta from '@/components/Main/Cta.vue';
 import Hero from '@/components/Main/Hero.vue';
 import Results from '@/components/Main/Results.vue';
 import Services from '@/components/Main/Services.vue';
@@ -10,6 +11,7 @@ import Experience from '@/components/Main/Experience.vue';
     <Hero />
     <Results />
     <Experience />
+    <Cta />
     <Services />
   </div>
 </template>
