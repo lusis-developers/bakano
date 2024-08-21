@@ -34,9 +34,12 @@
       &-title {
         color: $black;
         font-size: $font-size-normal;
+        font-family: $primary-font;
       }
       &-subtitle {
         color: $black;
+        font-size: $font-size-normal;
+        font-family: $primary-font;
       }
     }
   }
