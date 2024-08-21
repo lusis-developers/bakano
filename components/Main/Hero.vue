@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue';
-
 import heroImage from '@/assets/images/hero-image.png';
 
 function handleScroll(): void {
@@ -55,12 +53,26 @@ onUnmounted(() => {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    text-align: center;
+
+    .title {
+      max-width: $tablet-upper-breakpoint;
+      margin: auto;
+      margin-bottom: 16px;
+      position: relative;
+      font-size: $font-size-large;
+      font-family: $primary-font;
+      z-index: 20;
+    } 
 
     .text-1, .text-2 {
       transition: transform 0.5s ease-out;
@@ -74,21 +86,38 @@ onUnmounted(() => {
       transform: translateX(100px);
     }
 
-    .title {
-      max-width: $tablet-upper-breakpoint;
-      margin: auto;
-      margin-bottom: 16px;
+    .wrapper {
       position: relative;
-      font-size: $font-size-large;
-      font-family: $primary-font;
       z-index: 20;
-    } 
+      width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: $tablet-lower-breakpoint;
+
+      @media(min-width: $tablet-lower-breakpoint) {
+        width: 80%;;
+      }
+
+      @media(min-width: $desktop-lower-breakpoint) {
+        width: 60%;
+      }
+
+      &-image {
+        width: 100%;
+        height: auto;
+        min-height: 70vh;
+        object-fit: cover;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+    }
 
     .text-1 {
       position: absolute;
-      top: 50%;
+      top: 30%;
       left: 20px;
-      z-index: 10;  
+      z-index: 10;
       font-size: 4rem;
       font-family: $bebas-font;
       color: #33353D00;
@@ -100,33 +129,17 @@ onUnmounted(() => {
       transition: transform 0.5s ease-out;
 
       @media(min-width: $tablet-lower-breakpoint) {
-        left: 20%;
-        font-size: 5rem; 
-        -webkit-text-stroke-width: 1.5px; 
+        left: 10%;
+        font-size: 5rem;
+        -webkit-text-stroke-width: 1.5px;
         stroke-width: 1.5px;
       }
 
       @media(min-width: $desktop-lower-breakpoint) {
-        left: 15%;
-        font-size: 7rem; 
-        -webkit-text-stroke-width: 2px; 
+        left: 18%;
+        font-size: 7rem;
+        -webkit-text-stroke-width: 2px;
         stroke-width: 2px;
-      }
-    }
-
-    .wrapper {
-      position: relative;
-      z-index: 20;
-      width: 100%;
-      max-width: 420px;
-      margin: auto;
-      display: flex;
-      align-items: flex-end;
-
-      &-image {
-        width: 100%;
-        height: auto;
-        animation: fadeInUp 1s ease-out forwards;
       }
     }
 
@@ -139,7 +152,7 @@ onUnmounted(() => {
       font-family: $primary-font;
       color: $pink;
       animation: slideInRight 1s ease-out;
-      transition: transform 0.5s ease-out; 
+      transition: transform 0.5s ease-out;
 
       @media(min-width: $tablet-lower-breakpoint) {
         right: 20%;
@@ -154,6 +167,7 @@ onUnmounted(() => {
   }
 }
 
+// Animaciones
 @keyframes slideInLeft {
   from {
     transform: translateX(-200%);
@@ -187,3 +201,4 @@ onUnmounted(() => {
   }
 }
 </style>
+
