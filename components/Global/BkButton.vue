@@ -46,15 +46,15 @@ const scrollToForm = (event: MouseEvent) => {
   :deep(.crush-button) {
   border: none;
   color: $black;
-  background-color: rgba(230, 40, 91, 0.4);
+  background-color: $pink;
   padding: 8px 16px;
   margin-top: 16px;
-  transition: background-color 0.5s ease-in;
+  transition: background-color 0.2s ease-in;
   @media (min-width: $tablet-upper-breakpoint) {
     font-size: $font-size-normal;
   }
   &:hover {
-    background-color: darken($pink, 1%);
+    background-color: #f30c4966
   }
 }
 </style>
