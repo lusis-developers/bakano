@@ -19,24 +19,24 @@ const items: { title: string }[] = [
   },
 ];
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+function handleScroll() {
+  const scrollPosition = window.scrollY + window.innerHeight;
+  const element = featuresTitle.value;
+  if(element) {
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
 
-  function handleScroll() {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const element = featuresTitle.value;
-    if(element) {
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-
-      if(scrollPosition > elementPosition) {
-        element.style.transform = 'translateX(0)';
-        element.style.opacity = '1';
-      } else {
-        element.style.transform = 'translateX(100%)';
-        element.style.transform = '0';
-      };
+    if(scrollPosition > elementPosition) {
+      element.style.transform = 'translateX(0)';
+      element.style.opacity = '1';
+    } else {
+      element.style.transform = 'translateX(100%)';
+      element.style.transform = '0';
     };
   };
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
 })
 </script>
 
