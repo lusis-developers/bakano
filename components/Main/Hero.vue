@@ -15,6 +15,7 @@ function handleScroll(): void {
 };
 
 onMounted(() => {
+  handleScroll();
   window.addEventListener('scroll', handleScroll);
 });
 
@@ -76,6 +77,8 @@ onUnmounted(() => {
 
     .text-1, .text-2 {
       transition: transform 0.5s ease-out;
+      max-width: calc(100% - 40px); // Asegúrate de que los textos nunca se salgan del viewport.
+      white-space: nowrap; // Evita que las palabras se dividan en múltiples líneas.
     }
 
     .scrolled-left {

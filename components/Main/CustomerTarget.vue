@@ -46,7 +46,7 @@ const customers = ['Bancos', 'Aseguradoras', 'E-commerce', 'Salud', 'Automotriz'
 <style lang="scss" scoped>
 .customer {
   width: 100%;
-  padding: 32px;
+  padding: 24px 16px;
   background-color: $grey;
   @media(min-width: $desktop-lower-breakpoint) {
     padding: 96px 0 48px 0;
@@ -61,22 +61,25 @@ const customers = ['Bancos', 'Aseguradoras', 'E-commerce', 'Salud', 'Automotriz'
 
     &-left {
       width: 100%;
-      padding: 24px;
       display: grid;
       place-items: center;
       gap: 24px;
       font-family: $primary-font;
-
+      
       @media(min-width: $desktop-lower-breakpoint) {
+        padding: 24px;
         width: 50%;
       }
 
       &-icons {
         width: 100%;
         display: flex;
-        justify-content: flex-start;
         gap: 16px;
-
+        justify-content: center;
+        @media(min-width: $desktop-lower-breakpoint) {
+          justify-content: flex-start;
+        } 
+        
         .icon {
           font-size: 56px;
           color: #33353D00;
@@ -90,7 +93,7 @@ const customers = ['Bancos', 'Aseguradoras', 'E-commerce', 'Salud', 'Automotriz'
     
     &-right {
       width: 100%;
-      padding: 24px;
+      padding: 24px 0;
       display: grid;
       place-items: center;
       @media(min-width: $desktop-lower-breakpoint) {
