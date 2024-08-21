@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import agencyImage from '@/assets/Cta/agencia.jpg'
 </script>
 
 <template>
@@ -20,6 +21,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  background-image: url('agencyImage');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   &-title {
     font-family: $primary-font;
     text-align: center;
@@ -27,6 +32,7 @@
   &-subtitle {
     font-family: $primary-font;
     text-align: center;
+    font-weight: normal;
   }
 }
 </style>
