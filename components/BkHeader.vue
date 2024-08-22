@@ -1,82 +1,25 @@
 <script setup>
-import { gsap } from 'gsap';
+import blackLogo from '../assets/images/bakano-logotipo-negro.webp'
 
-import whiteLogo from '../assets/images/bakan-isotipo-blanco.webp'
-import blackLogo from '../assets/images/bakano-isotipo-negro.webp'
+import { menuItems } from '@/utils/menuItems';
 
-const emits = defineEmits(['toggle-menu', 'header-transition-end']);
-
-const props = defineProps({
-  colorLogo: {
-    type: Boolean,
-    required: false,
-    default: false,
-  }  
-});
+const emits = defineEmits(['toggle-menu']);
 
 const menuOpen = ref(false);
-const logo = computed(() => props.colorLogo ? blackLogo : whiteLogo)
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
   emits('toggle-menu');
 }
-
-onMounted(() => {
-  const logo = document.querySelector('.header-figure-logo');
-  const menuButton = document.querySelector('.header-button');
-  const menuButtons = document.querySelectorAll('.header-details-button');
-  const logoPositionX = (window.innerWidth / 2) - (document.querySelector('.header-figure-logo').clientWidth / 2);
-  const logoPositionY = (window.innerHeight / 2) - (document.querySelector('.header-figure-logo').clientHeight / 2)
-
-  const timeline = gsap.timeline({
-    onComplete: () => {
-      emits('header-transition-end');
-    }
-  })
-
-  timeline.fromTo(logo, {
-    scale: 0,
-    duration: 2,
-    ease: 'power3.inOut'
-  }, {
-    scale: 1,
-    duration: 2,
-    ease: 'power3.inOut'
-  });
-  timeline.fromTo(logo, {
-    x: `${logoPositionX}px`,
-    y: `${logoPositionY}px`,
-    duration: 1.5,
-    ease: 'power3.out'
-  }, {
-    x: '0',
-    y: '0',
-    duration: 2,
-    ease: 'power3.out'
-  });
-  timeline.to(menuButton, {
-    duration: 0.5,
-    opacity: 1,
-    ease: 'power2.inOut'
-  });
-  menuButtons.forEach((button, index) => {
-    timeline.to(button, {
-      duration: 0.5,
-      opacity: 1,
-      ease: 'power2.out'
-    });
-  });
-})
 </script>
 
 <template>
   <header class="header">
-    <RouterLink 
-      to="/" 
+    <RouterLink
+      to="/"
       class="header-figure">
         <img
-          :src="logo"
+          :src="blackLogo"
           alt="Bakano logotipo"
           class="header-figure-logo">
     </RouterLink>
@@ -89,10 +32,10 @@ onMounted(() => {
     <div class="header-details">
 			<RouterLink
         v-for="(button, index) in menuItems"
-        :key="index" 
+        :key="index"
         :to="button.link"
         class="header-details-button">
-          {{ button.name }} 
+          {{ button.name }}
 			</RouterLink>
 		</div>
   </header>
@@ -109,20 +52,15 @@ onMounted(() => {
   max-width: 2048px;
   margin: 0 auto;
   &-figure {
-    z-index: 5;
     &-logo {
-      width: 80px;
-      height: 80px;
-      z-index: 5;
+      width: 120px;
     }
   }
   &-button {
     background: none;
     border: none;
     text-decoration: none;
-    color: $white;
     font-size: $font-size-normal;
-    opacity: 0;
     @media (min-width: 700px) {
       display: none;
     }
@@ -138,11 +76,10 @@ onMounted(() => {
 		}
     &-button {
       border: none;
+      color: $black;
       font-family: $primary-font;
       font-weight: 700;
-      color: $white;
       text-decoration: none;
-      opacity: 0;
       &:hover {
         border: none;
         font-weight: 700;
