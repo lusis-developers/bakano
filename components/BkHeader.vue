@@ -1,5 +1,5 @@
 <script setup>
-import blackLogo from '../assets/images/bakano-logotipo-negro.webp'
+import blackLogo from '@/assets/images/bakano-logotipo-negro.webp'
 
 import { menuItems } from '@/utils/menuItems';
 
