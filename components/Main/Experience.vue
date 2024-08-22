@@ -74,6 +74,7 @@ onMounted(() => {
 .container {
   width: 100%;
   background-color: $white;
+  overflow-x: hidden;
   &-principal {
     max-width: $desktop-lower-breakpoint;
     display: flex;
