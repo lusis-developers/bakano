@@ -14,7 +14,7 @@ export const useServiceStore = defineStore('ServiceStore', {
         projectImage: 'https://shine.creativemox.com/workio/wp-content/uploads/sites/14/2024/08/macarons-in-gift-box-mockup-on-a-light-background.jpg',
         projectType: 'CHATBOT',
         projectTitle: 'Crédito Express Argentina',
-        projectDescription: 'Nuestro chatbot inteligente ha sido diseñado para evaluar automáticamente la elegibilidad de los usuarios para créditos en Argentina. Con sofisticados algoritmos de decisión, el bot analiza los datos del usuario y determina si es apto para un crédito, permitiendo ofrecer un monto máximo y plazos personalizados en cuestión de segundos.',
+        projectDescription: 'Este chatbot inteligente fue diseñado para evaluar automáticamente la elegibilidad de los usuarios para créditos en Argentina. Con sofisticados algoritmos de decisión, el bot analiza los datos del usuario y determina si es apto para un crédito, permitiendo ofrecer un monto máximo y plazos personalizados en cuestión de minutos.',
         projectSubTitle: 'Detalles del proyecto:',
         details: [
           {
