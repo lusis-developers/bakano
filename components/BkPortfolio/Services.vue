@@ -11,13 +11,14 @@ const services = useServiceStore();
     :style="{ '--index': index }"
     v-for="(service, index) in services.services" >
     <figure class="container-video">
-        <a
-          :href="service.videoDemo"
-          target="_blank" 
-          class="container-video-message">
-          Ver demo
-          <i class="fa-solid fa-link"/>
-        </a>
+      <a
+        :href="service.videoDemo"
+        target="_blank" 
+        class="container-video-message">
+        Ver demo
+        <i class="fa-solid fa-link"/>
+      </a>
+      <div class="image-color" />
       <img 
         :src="service.projectImage" 
         alt="primer servicio"
@@ -88,11 +89,38 @@ const services = useServiceStore();
       font-family: $primary-font;
       color: $pink;
       font-weight: bold;
-      backdrop-filter: blur(6px);
+      background-color: rgba(238, 230, 230, 0.8);
+      // backdrop-filter: blur(6px);
       border-radius: 8px;
-      z-index: 2;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      z-index: 20;      
+
+      &:hover + .image-color {
+        width: 100%;
+        height: 100%;
+        background-color:#98f4ff; // Color rosado
+        z-index: 15;
+        border-radius: 0; // Eliminamos el borde redondeado al final
+        // transform: translate(-50%, -50%); 
+      }
+
     }
+
+    .image-color {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      background-color:#98f4ff;
+      border-radius: 50%; // Comienza como un círculo
+      z-index: 15;
+      transition: 
+        width 0.4s ease-out, 
+        height 0.4s ease-out, 
+        border-radius 0.4s ease-out,
+        transform 0.4s ease-out;
+    }
+
     &-img {
       width: 100%;
       height: 100%;
