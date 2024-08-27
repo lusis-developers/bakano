@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 
-
 interface Detail {
   title: string;
   detail: string;
-}
+};
+
+interface SocialMedia {
+  icon: string;
+  link: string;
+};
 
 const props = defineProps({
   projectType: {
@@ -28,6 +32,10 @@ const props = defineProps({
   },
   details: {
     type: Array as PropType<Detail[]>,
+    required: true,
+  },
+  socialMedia: {
+    type: Object as PropType<SocialMedia[]>,
     required: true,
   },
 });
@@ -64,6 +72,18 @@ const props = defineProps({
             </span>
           </li>
         </ul>
+        <div 
+          class="card-project-social-media">
+          <a
+            v-for="(item, index) in socialMedia"
+            :key="index"
+            :href="item.link"
+             target="_blank" >
+            <span class="card-project-social-media-icon">
+              <li :class="item.icon"/>
+            </span>
+          </a>
+        </div>
       </template>
     </GlobalBkCard>
   </div>
@@ -109,6 +129,18 @@ const props = defineProps({
         font-weight: bold;
         font-size: $font-size-normal;
       }
+    }
+  }
+  &-social-media {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 16px;
+    &-icon {
+      font-size: $font-size-normal;
+      color: $black;
     }
   }
 }

@@ -1,7 +1,12 @@
 interface Detail {
   title: string;
   detail: string;
-}
+};
+
+interface SocialMedia {
+  icon: string;
+  link: string;
+};
 
 export interface Service {
   projectImage: string,
@@ -10,4 +15,5 @@ export interface Service {
   projectDescription: string;
   projectSubTitle: string;
   details: Detail[];
+  socialMedia: SocialMedia[]
 }

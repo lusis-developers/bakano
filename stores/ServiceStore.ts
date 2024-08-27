@@ -13,7 +13,7 @@ export const useServiceStore = defineStore('ServiceStore', {
       {
         projectImage: 'https://shine.creativemox.com/workio/wp-content/uploads/sites/14/2024/08/macarons-in-gift-box-mockup-on-a-light-background.jpg',
         projectType: 'CHATBOT',
-        projectTitle: 'Crédito Express Argentina',
+        projectTitle: 'Créditos Chubut',
         projectDescription: 'Este chatbot inteligente fue diseñado para evaluar automáticamente la elegibilidad de los usuarios para créditos en Argentina. Con sofisticados algoritmos de decisión, el bot analiza los datos del usuario y determina si es apto para un crédito, permitiendo ofrecer un monto máximo y plazos personalizados en cuestión de minutos.',
         projectSubTitle: 'Detalles del proyecto:',
         details: [
@@ -25,30 +25,42 @@ export const useServiceStore = defineStore('ServiceStore', {
             title: 'Tiempo de entrega',
             detail: 'Dos meses'
           },
+        ],
+        socialMedia: [
           {
-            title: 'Presupuesto',
-            detail: '$3000 USD'
+            icon: 'fa-brands fa-instagram',
+            link: 'https://www.instagram.com/creditoschubutok'
+          },
+          {
+            icon: 'fa-solid fa-globe',
+            link: 'https://creditoschubut.com/'
           }
         ]
       },
       {
         projectImage: 'https://shine.creativemox.com/workio/wp-content/uploads/sites/14/2024/08/macarons-in-gift-box-mockup-on-a-light-background.jpg',
-        projectType: 'E-COMMERCE',
-        projectTitle: 'Tienda Online Global',
-        projectDescription: 'Desarrollamos una tienda en línea con capacidad para manejar miles de productos, integraciones de pago seguras, y opciones de envío global. La tienda está optimizada para dispositivos móviles y ofrece una experiencia de usuario excepcional.',
+        projectType: 'CHATBOT',
+        projectTitle: 'Zami',
+        projectDescription: 'Este chatbot fue desarrollado utilizando la base de datos completa de Zami.es, una tienda líder en la venta de calzado. El chatbot no solo brinda soporte y consultas personalizadas a los usuarios, sino que también ofrece la posibilidad de realizar un seguimiento preciso de cada pedido a través de parámetros',
         projectSubTitle: 'Detalles del proyecto:',
         details: [
           {
             title: 'Ubicación',
-            detail: 'Global'
+            detail: 'España',
           },
           {
             title: 'Tiempo de entrega',
-            detail: 'Tres meses'
+            detail: 'Tres meses',
+          },
+        ],
+        socialMedia: [
+          {
+            icon: 'fa-brands fa-instagram',
+            link: 'https://www.instagram.com/zami_es/'
           },
           {
-            title: 'Presupuesto',
-            detail: '$15000 USD'
+            icon: 'fa-solid fa-globe',
+            link: 'https://www.zapatillas-minimalistas.com/es/'
           }
         ]
       }

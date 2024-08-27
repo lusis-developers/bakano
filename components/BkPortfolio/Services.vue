@@ -18,7 +18,8 @@ const services = useServiceStore();
         :projectTitle="service.projectTitle"
         :projectDescription="service.projectDescription"
         :projectSubTitle="service.projectSubTitle"
-        :details="service.details" />
+        :details="service.details" 
+        :socialMedia="service.socialMedia"/>
     </div>
   </div>
 </template>
