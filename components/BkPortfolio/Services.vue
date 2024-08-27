@@ -5,7 +5,10 @@ const services = useServiceStore();
 </script>
 
 <template>
-  <div class="container crush-container crush-two-column-layout" v-for="(service, index) in services.services" :key="index">
+  <div 
+    class="container crush-container crush-two-column-layout" 
+    :key="index"
+    v-for="(service, index) in services.services" >
     <figure class="container-video">
       <img 
         :src="service.projectImage" 
@@ -26,17 +29,27 @@ const services = useServiceStore();
 
 <style lang="scss" scoped>
 .container {
-  padding: 24px;
+  padding: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 24px;
+  flex-direction: column;
+  @media (min-width: $tablet-lower-breakpoint) {
+    flex-direction: row;
+  }
+  &:nth-child(odd) {
+    // flex-direction: column-reverse;
+    @media (min-width: $tablet-lower-breakpoint) {
+      flex-direction: row-reverse;
+    }
+  }
   &-video {
     width: 100%;
-    height: 600px;
+    height: 350px;
     @media (min-width: $tablet-lower-breakpoint) {
-      max-width: 600px;
-      max-height: 600px;
+      max-width: 100%;
+      max-height: 100%;
     }
     &-img {
       width: 100%;
@@ -44,9 +57,6 @@ const services = useServiceStore();
       border-radius: 8px;
       object-fit: cover;
     }
-  }
-  &-content {
-    max-width: 500px;
   }
 }
 </style>
