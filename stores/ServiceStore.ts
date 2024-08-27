@@ -63,6 +63,33 @@ export const useServiceStore = defineStore('ServiceStore', {
             link: 'https://www.zapatillas-minimalistas.com/es/'
           }
         ]
+      },
+      {
+        projectImage: 'https://www.alzheimerneuroactivo.com/neuroactivo/wp-content/uploads/2022/11/LOGO-NEUROACTIVO-1-01.png',
+        projectType: 'CHATBOT',
+        projectTitle: 'Neuroactivo',
+        projectDescription: 'Con NeuroActivo, desarrollamos un chatbot avanzado que recopila y procesa los datos de cada paciente y su acompañante en tiempo real. Este chatbot ofrece días y horarios disponibles en función de la sede seleccionada y la disponibilidad, todo ello directamente a través de el chat para mayor comodidad y eficiencia.',
+        projectSubTitle: 'Detalles del proyecto:',
+        details: [
+          {
+            title: 'Ubicación',
+            detail: 'Colombia'
+          },
+          {
+            title: 'Tiempo de entrega',
+            detail: '2 semanas'
+          },
+        ],
+        socialMedia: [
+          {
+            icon: 'fa-brands fa-instagram',
+            link: 'https://www.instagram.com/neuroactivo/'
+          },
+          {
+            icon: 'fa-solid fa-globe',
+            link: 'https://www.alzheimerneuroactivo.com/'
+          }
+        ]
       }
     ],
     error: null,
