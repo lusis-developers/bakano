@@ -8,6 +8,7 @@ const services = useServiceStore();
   <div 
     class="container crush-container crush-two-column-layout" 
     :key="index"
+    :style="{ '--index': index }"
     v-for="(service, index) in services.services" >
     <figure class="container-video">
       <img 
@@ -28,6 +29,18 @@ const services = useServiceStore();
 </template>
 
 <style lang="scss" scoped>
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   padding: 48px;
   display: flex;
@@ -35,6 +48,9 @@ const services = useServiceStore();
   align-items: center;
   gap: 24px;
   flex-direction: column;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: calc(0.1s * var(--index));
   @media (min-width: $tablet-lower-breakpoint) {
     flex-direction: row;
   }
