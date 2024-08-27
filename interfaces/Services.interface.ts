@@ -11,6 +11,7 @@ interface SocialMedia {
 export interface Service {
   projectImage: string,
   projectType: string;
+  videoDemo: string;
   projectTitle: string;
   projectDescription: string;
   projectSubTitle: string;

@@ -6,11 +6,18 @@ const services = useServiceStore();
 
 <template>
   <div 
-    class="container crush-container crush-two-column-layout" 
+    class="container" 
     :key="index"
     :style="{ '--index': index }"
     v-for="(service, index) in services.services" >
     <figure class="container-video">
+        <a
+          :href="service.videoDemo"
+          target="_blank" 
+          class="container-video-message">
+          Ver demo
+          <i class="fa-solid fa-link"/>
+        </a>
       <img 
         :src="service.projectImage" 
         alt="primer servicio"
@@ -42,6 +49,9 @@ const services = useServiceStore();
 }
 
 .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 48px;
   display: flex;
   justify-content: center;
@@ -62,16 +72,34 @@ const services = useServiceStore();
   }
   &-video {
     width: 100%;
-    height: 350px;
+    height: 400px;
+    position: relative;
     @media (min-width: $tablet-lower-breakpoint) {
       max-width: 100%;
-      max-height: 100%;
+      height: 400px;
+    }
+    &-message {
+      all: unset;
+      padding: 16px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      font-family: $primary-font;
+      color: $pink;
+      font-weight: bold;
+      backdrop-filter: blur(6px);
+      border-radius: 8px;
+      z-index: 2;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
     &-img {
       width: 100%;
       height: 100%;
       border-radius: 8px;
       object-fit: cover;
+      position: relative;
+      z-index: 1;
     }
   }
 }
