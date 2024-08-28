@@ -49,7 +49,7 @@ function closeMenu() {
   color: white;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   gap: 48px;

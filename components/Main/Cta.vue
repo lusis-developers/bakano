@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
   width: 100%;
   padding: 48px;
