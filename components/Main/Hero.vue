@@ -31,7 +31,7 @@ onUnmounted(() => {
         Optimizamos tus operaciones con chatbots y tus datos.
       </h1>
       <span class="text-1">
-        Chatbots
+        Agencia de
       </span>
       <div class="wrapper">
         <img
@@ -40,7 +40,7 @@ onUnmounted(() => {
         class="wrapper-image">
       </div>
       <span class="text-2">
-        Inteligentes
+        Automatizaciones
       </span>
     </div>
   </div>
@@ -150,22 +150,25 @@ onUnmounted(() => {
     .text-2 {
       position: absolute;
       top: 70%;
-      right: 10px;
+      right: 20px;
       z-index: 30;
-      font-size: 4rem;
+      font-size: 2.25rem;
       font-family: $primary-font;
       color: $pink;
+      border-radius: 12px;
+      padding: 8px;
+      background-color: rgba($color: $white, $alpha: 0.4);
       animation: slideInRight 1s ease-out;
       transition: transform 0.5s ease-out;
 
       @media(min-width: $tablet-lower-breakpoint) {
-        right: 20%;
-        font-size: 5rem;
+        right: 10%;
+        font-size: 4rem;
       }
 
       @media(min-width: $desktop-lower-breakpoint) {
         right: 10%;
-        font-size: 7rem;
+        font-size: 5rem;
       }
     }
   }
