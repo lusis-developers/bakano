@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background-color: white;
+  background-color: transparent;
   @media (min-width: $tablet-lower-breakpoint) {
     gap: 48px;
   }

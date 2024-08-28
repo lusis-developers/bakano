@@ -51,8 +51,8 @@ const services = useServiceStore();
 
 .container {
   width: 100%;
-  background-color: white;
-  max-width: 1200px;
+  background-color: transparent;
+  max-width: $desktop-upper-breakpoint;
   margin: 0 auto;
   display: flex;
   padding: 24px;
