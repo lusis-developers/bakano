@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
-    <h2 class="card-title">
+  <div class="card-principal">
+    <h2 class="card-principal-title">
       Impulsa tu empresa y mejora tus servicios con Chatbots Inteligentes
     </h2>
-    <h3 class="card-subtitle">
+    <h3 class="card-principal-subtitle">
       Creamos conversaciones personalizadas, atractivas e inteligentes, para mejorar la experiencia de tu cliente, potenciando la conversión y preferencia.
     </h3>
     <GlobalBkButton/>
@@ -11,7 +11,7 @@
 </template>
 
 <style lang="scss">
-.card {
+.card-principal {
   width: 100%;
   padding: 48px;
   display: flex;

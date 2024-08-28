@@ -51,6 +51,7 @@ const services = useServiceStore();
 
 .container {
   width: 100%;
+  background-color: white;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
