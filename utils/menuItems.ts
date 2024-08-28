@@ -3,7 +3,7 @@ import type { Navigation } from "~/interfaces/LayoutTypes.interface";
 export const menuItems: Navigation[] = [
   {
     name: 'Chatbots Portafolio',
-    link: '/chatbot',
+    link: '/chatbots',
   },
   // {
   //   name: 'Blogs',
