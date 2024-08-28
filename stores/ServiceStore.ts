@@ -98,13 +98,13 @@ export const useServiceStore = defineStore('ServiceStore', {
         projectImage: 'https://i.pinimg.com/564x/52/91/7c/52917c34da433418fda46f8adb786d74.jpg',
         projectType: 'CHATBOT',
         projectTitle: 'Fudibot',
-        videoDemo: '',
-        projectDescription: 'Con NeuroActivo, desarrollamos un chatbot avanzado que recopila y procesa los datos de cada paciente y su acompañante en tiempo real. Este chatbot ofrece días y horarios disponibles en función de la sede seleccionada y la disponibilidad, todo ello directamente a través de el chat para mayor comodidad y eficiencia.',
+        videoDemo: 'https://www.youtube.com/watch?v=gSbu_v9Sdpg',
+        projectDescription: 'Con Fudibot, los restaurantes pueden expandir sus canales de ventas mediante un chatbot de WhatsApp que gestiona de manera eficiente la toma de pedidos, la automatización de envíos a domicilio, y el proceso de cobro y notificaciones, todo en una única plataforma integrada.',
         projectSubTitle: 'Detalles del proyecto:',
         details: [
           {
             title: 'Ubicación',
-            detail: 'Colombia'
+            detail: 'Ecuador | Colombia | México | Chile'
           },
           {
             title: 'Tiempo de entrega',
@@ -114,11 +114,11 @@ export const useServiceStore = defineStore('ServiceStore', {
         socialMedia: [
           {
             icon: 'fa-brands fa-instagram',
-            link: 'https://www.instagram.com/neuroactivo/'
+            link: 'https://www.instagram.com/fudibot.ec/'
           },
           {
             icon: 'fa-solid fa-globe',
-            link: 'https://www.alzheimerneuroactivo.com/'
+            link: 'https://www.fudibot.com/'
           }
         ]
       },

@@ -8,6 +8,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 24px;
+  @media (min-width: $tablet-lower-breakpoint) {
+    gap: 48px;
+  }
 }
 </style>

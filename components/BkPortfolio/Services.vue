@@ -53,8 +53,8 @@ const services = useServiceStore();
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px;
   display: flex;
+  padding: 24px;
   justify-content: center;
   align-items: center;
   gap: 24px;
@@ -63,10 +63,10 @@ const services = useServiceStore();
   animation: fadeInUp 0.5s ease-out forwards;
   animation-delay: calc(0.1s * var(--index));
   @media (min-width: $tablet-lower-breakpoint) {
+    padding: 48px;
     flex-direction: row;
   }
   &:nth-child(odd) {
-    // flex-direction: column-reverse;
     @media (min-width: $tablet-lower-breakpoint) {
       flex-direction: row-reverse;
     }
@@ -90,17 +90,16 @@ const services = useServiceStore();
       color: $pink;
       font-weight: bold;
       background-color: rgba(238, 230, 230, 0.8);
-      // backdrop-filter: blur(6px);
       border-radius: 8px;
       z-index: 20;      
 
       &:hover + .image-color {
         width: 100%;
         height: 100%;
-        background-color:#98f4ff; // Color rosado
+        background-color: #98f4ff;
+        opacity: 0.4;
         z-index: 15;
-        border-radius: 0; // Eliminamos el borde redondeado al final
-        // transform: translate(-50%, -50%); 
+        border-radius: 0;  
       }
 
     }
@@ -111,9 +110,10 @@ const services = useServiceStore();
       right: 0;
       width: 0;
       height: 0;
-      background-color:#98f4ff;
-      border-radius: 50%; // Comienza como un círculo
+      background-color: #98f4ff;
+      border-radius: 8px; 
       z-index: 15;
+      opacity: 0.4;
       transition: 
         width 0.4s ease-out, 
         height 0.4s ease-out, 
