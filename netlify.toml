@@ -9,5 +9,5 @@
 
 # Variables de entorno
 [build.environment]
-  NODE_VERSION = "18.x"  # Versión de Node.js que Netlify usará para construir el proyecto
+  NODE_VERSION = "20.x"  # Versión de Node.js que Netlify usará para construir el proyecto
   NITRO_PRESET = "netlify"  # Define el preset de Nitro para Netlify
