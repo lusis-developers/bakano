@@ -25,6 +25,7 @@
     "@pinia/nuxt": "^0.5.1",
     "gsap": "^3.12.5",
     "pinia": "^2.1.7",
+    "storyblok-js-client": "^6.9.2",
     "typed.js": "^2.1.0"
   }
 }
