@@ -2,7 +2,7 @@ import type { Navigation } from "~/interfaces/LayoutTypes.interface";
 
 export const menuItems: Navigation[] = [
   {
-    name: 'Chatbots Portafolio',
+    name: 'Portafolio',
     link: '/chatbots',
   },
   // {
