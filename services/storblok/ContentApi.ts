@@ -1,17 +1,7 @@
 import StoryblokClient from 'storyblok-js-client';
 
-// const baseURL = 'https://api.storyblok.com/v2'
-
-// const storyblokClient = new StoryblokClient({
-//   accessToken: 'aRJm3rp5Q37gsQcjV3Y7uAtt',
-//   cache: {
-//     clear: 'auto',
-//     type: 'memory'
-//   },
-// });
-
-
 class Storyblok {
+  private apiBase: string = 'https://api-us.storyblok.com/v2';
   private accesToken: string = 'aRJm3rp5Q37gsQcjV3Y7uAtt';
   private client: StoryblokClient;
 
@@ -22,13 +12,12 @@ class Storyblok {
         clear: 'auto',
         type: 'memory',
       },
-      endpoint: 'https://api-us.storyblok.com/v2'
+      endpoint: this.apiBase
     });
   }
 
   async get(endpoint: string, params: object) {
     const response = await this.client.get(endpoint, params);
-    console.log('response en get de storyblok: ', response);
     return response
   };
 }

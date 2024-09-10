@@ -5,10 +5,10 @@ export const menuItems: Navigation[] = [
     name: 'Portafolio',
     link: '/chatbots',
   },
-  // {
-  //   name: 'Blogs',
-  //   link: '/blogs',
-  // },
+  {
+    name: 'Blogs',
+    link: '/blogs',
+  },
   // {
   //   name: 'Clientes',
   //   link: '#clientes',

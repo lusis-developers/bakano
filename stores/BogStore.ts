@@ -1,9 +1,13 @@
-import Storyblok from "~/services/storblok";
+import Storyblok from "~/services/storblok/ContentApi";
+
+import type { PostContent } from "~/interfaces/post.interface";
 
 const storyblok = new Storyblok();
 
 interface RootState {
-  blogs: any;
+  blogs: PostContent[];
+  page: number;
+  per_page: number;
   error: string | null;
   isLoading: boolean;
 }
@@ -12,31 +16,25 @@ interface RootState {
 
 export const useBlogStore = defineStore('BlogStore', {
   state: (): RootState => ({
-    blogs: [
-      {
-        id: '1', 
-        title: 'titulo', 
-        img: 'https://i.pinimg.com/236x/d4/60/18/d46018b5dcd5105a158cfa9b24e2f329.jpg',
-        paragraph: 'parrafo',
-        authorImg: 'https://i.pinimg.com/236x/bb/eb/a6/bbeba63f548807db592804ece5a4dde8.jpg',
-        authorName: 'diego reyes',
-        date: 'ayer'
-      },
-    ],
+    blogs: [],
+    page: 1,
+    per_page: 10,
     isLoading: false,
     error: null,
   }),
 
   actions: {
-    async getAllBlogs(): Promise<void> {
+    async getStories(): Promise<void> {
       this.isLoading = true;
       try {
         console.log('inicio de obtener blogs')
         const response = await storyblok.get('cdn/stories', {
           version: 'published',
           starts_with: 'blog',
+          page: this.page,
+          per_page: this.per_page
         });
-        this.blogs = response;
+        console.log(response)
       } catch (error) {
         console.error('errorsote: ', error);
       } finally {

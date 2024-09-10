@@ -17,8 +17,7 @@ useHead({
 const blogStore = useBlogStore();
 
 onMounted(async () => {
-  console.log('blogs: ', await blogStore.getAllBlogs());
-  await blogStore.getAllBlogs();
+  await blogStore.getStories();
 })
 </script>
 
