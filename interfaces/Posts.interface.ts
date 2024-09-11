@@ -17,6 +17,8 @@ export interface PostContent {
 
 export interface PostResponse {
   content: PostContent,
+  slug: string,
+  uuid: string
   perPage: number,
   total: number,
 }

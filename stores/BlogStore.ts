@@ -1,11 +1,11 @@
 import Storyblok from "~/services/storblok/ContentApi";
 
-import type { PostContent } from "~/interfaces/Posts.interface";
+import type { PostContent, PostResponse } from "~/interfaces/Posts.interface";
 
 const storyblok = new Storyblok();
 
 interface RootState {
-  blogs: PostContent[];
+  blogs: PostResponse[];
   page: number;
   per_page: number;
   error: string | null;
@@ -33,13 +33,35 @@ export const useBlogStore = defineStore('BlogStore', {
           page: this.page,
           per_page: this.per_page
         });
-        this.blogs = response.data.stories.map((post: PostContent) => post.content);
+
+        this.blogs = response.data.stories.map((post: PostResponse) => {
+          return {
+            content: post.content,
+            uuid: post.uuid,
+            slug: post.slug
+          }
+        });
       } catch (error) {
         console.error('errorsote: ', error);
       } finally {
         this.isLoading = false;
       }
-    }
+    },
+    async getStoryById(slug: string): Promise<void> {
+      this.isLoading = true;
+      try {
+        const response = await storyblok.get('cdn/stories', {
+          version: 'published',
+          starts_with: 'blog',
+          slug: slug
+        });
+        return response.data;
+      } catch (error) {
+        console.error('errorsote: ', error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
   }
 });
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BlogService from '~/services/BlogService';
+import { useBlogStore } from '#imports';
 import ReduceDate from '~/utils/ReduceDate'
 
 const postDetail = ref<null | any>(null);
@@ -17,6 +17,8 @@ useHead({
   ],
 });
 
+const blogStore = useBlogStore();
+
 const formattedDate = computed(() => {
   if (postDetail.value) {
     return ReduceDate(postDetail.value.published_at);
@@ -26,10 +28,10 @@ const formattedDate = computed(() => {
 
 onBeforeMount(async () => {
   isLoading.value = true;
-  await BlogService.getPostByUuid(useRoute().params.id as string, postDetail);
-  if(postDetail.value == null){
-    return useRouter().push('/404');
-  }
+  // await blogStore.getPostByUuid(useRoute().params.id as string, postDetail);
+  // if(postDetail.value == null){
+  //   return useRouter().push('/404');
+  // }
   isLoading.value = false;
 });
 </script>

@@ -32,23 +32,25 @@ onMounted(async () => {
       <div class="container-posts">
         <div class="full-width">
           <BlogsCard
-            :id="posts[0]._uid"
-            :title="posts[0].title"
-            :description="posts[0].description"
-            :authors="posts[0].authors[0]"
-            :img="posts[0].img[0].filename"
-            :date="posts[0].date"
+            :id="posts[0].content._uid"
+            :uuid="posts[0].uuid"
+            :title="posts[0].content.title"
+            :description="posts[0].content.description"
+            :authors="posts[0].content.authors[0]"
+            :img="posts[0].content.img[0].filename"
+            :date="posts[0].content.date"
             :isMain="true" />
         </div>
         <BlogsCard
           v-for="(post, index) in posts"
           :key="index"
-          :id="post._uid"
-          :title="post.title"
-          :description="post.description"
-          :authors="post.authors[0]"
-          :img="post.img[0].filename"
-          :date="post.date" />
+          :id="post.content._uid"
+          :uuid="post.uuid"
+          :title="post.content.title"
+          :description="post.content.description"
+          :authors="post.content.authors[0]"
+          :img="post.content.img[0].filename"
+          :date="post.content.date" />
       </div>
     </template>
   </div>

@@ -30,13 +30,17 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false
+  },
+  uuid: {
+    type: String,
+    required: true
   }
 });
 </script>
 
 <template>
   <nuxt-link
-    to="/"
+    :to="`/blogs/${uuid}`"
     class="wrapper">
     <article
       :class="['article', { 'is-main': props.isMain }]">
