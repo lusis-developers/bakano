@@ -3,6 +3,7 @@ import { useBlogStore } from '#imports';
 import ReduceDate from '~/utils/ReduceDate'
 
 import type { PostContent } from '~/interfaces/Posts.interface';
+import RichTextResolver from 'storyblok-js-client/richTextResolver';
 
 const postDetail = ref<PostContent | null>(null);
 
@@ -26,6 +27,8 @@ const formattedDate = computed(() => {
   }
   return '';
 });
+const richtext = new RichTextResolver();
+const content = computed(() => richtext.render(postDetail.value?.content as any));
 
 onBeforeMount(async () => {
   postDetail.value = await blogStore.getStoryById(useRoute().params.id as string);
@@ -65,12 +68,9 @@ onBeforeMount(async () => {
               </p>
             </div>
             <div class="blog__wrapper__content_body">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat voluptas perferendis vel deserunt nemo unde officiis cumque. Iste maiores voluptate, nesciunt nobis cum ullam consequuntur ipsum! Nesciunt amet animi reprehenderit?
-                Aspernatur ad, quas eos magni amet recusandae accusantium odit nesciunt dolorum tenetur delectus perferendis molestiae reprehenderit enim maiores repudiandae, distinctio deserunt nisi rem ullam ratione? Officiis enim praesentium explicabo nostrum!
-                Maxime voluptate at explicabo iure labore vitae veritatis laboriosam quaerat deserunt, maiores iusto non provident fugiat recusandae distinctio laborum! Necessitatibus quo sint quaerat, non asperiores iusto impedit aliquid excepturi! Explicabo!
-                Amet impedit voluptate, nemo soluta eum et distinctio facere quod fuga. Autem voluptatum facere, nulla magni laboriosam quas eveniet at quia similique. Qui totam sequi nisi voluptas quae quos reiciendis!
-              </p>
+              <div
+                v-html="content"
+                class="rich-text" />
             </div>
           </div>
         </div>
