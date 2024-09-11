@@ -2,7 +2,7 @@ import StoryblokClient from 'storyblok-js-client';
 
 class Storyblok {
   private apiBase: string = 'https://api-us.storyblok.com/v2';
-  private accesToken: string = 'aRJm3rp5Q37gsQcjV3Y7uAtt';
+  private accesToken: string = process.env.STORYBLOK_API_KEY ? process.env.STORYBLOK_API_KEY : '';
   private client: StoryblokClient;
 
   constructor(){
