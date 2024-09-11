@@ -57,11 +57,13 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .container {
   min-height: 100vh;
-  background-image: url('../../assets//images/cool-background.svg');
+  background-image: url('../../assets/images/cool-background.svg');
   background-position: center;
   background-size: cover;
-
+  
   &-posts {
+    max-width: $desktop-lower-breakpoint;
+    margin: auto;
     padding: 12px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -71,7 +73,7 @@ onMounted(async () => {
       grid-column: span 3;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $tablet-upper-breakpoint) {
       grid-template-columns: repeat(2, 1fr);
 
       .full-width {
@@ -79,7 +81,7 @@ onMounted(async () => {
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: $mobile-upper-breakpoint) {
       grid-template-columns: 1fr;
 
       .full-width {
