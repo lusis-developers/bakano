@@ -22,7 +22,7 @@ const blogStore = useBlogStore();
 
 const formattedDate = computed(() => {
   if (postDetail.value) {
-    return ReduceDate(postDetail.value.published_at);
+    return ReduceDate(postDetail.value.date);
   }
   return '';
 });
@@ -47,17 +47,29 @@ onBeforeMount(async () => {
           :src="postDetail.img[0].filename" 
           alt="author-img" 
           class="blog__img">
-        <div class="blog__content">
-          <h1 class="blog__author__title">
-            {{ postDetail?.title }}
-          </h1>
-          <div class="blog__author__info">
-            <div class="blog__author__info__paragraphs">
-              <!-- <p class="blog__author__info__paragraphs-name">
-                {{ postDetail?.authorName }}
-              </p> -->
-              <p class="blog__author__info__paragraphs-date">
+        <div class="blog__wrapper">
+          <div class="blog__wrapper__content">
+            <h1 class="blog__wrapper__content__title">
+              {{ postDetail?.title }}
+            </h1>
+            <div class="blog__wrapper__content__details">
+              <p class="blog__wrapper__content__title-name">
+                <span class="title">Autor: </span>
+                {{ postDetail?.authors[0] }}
+              </p>
+              <p class="blog__wrapper__content__title-date">
+                <span class="title">
+                  Fecha de publicación: 
+                </span>
                 {{ formattedDate }}
+              </p>
+            </div>
+            <div class="blog__wrapper__content_body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat voluptas perferendis vel deserunt nemo unde officiis cumque. Iste maiores voluptate, nesciunt nobis cum ullam consequuntur ipsum! Nesciunt amet animi reprehenderit?
+                Aspernatur ad, quas eos magni amet recusandae accusantium odit nesciunt dolorum tenetur delectus perferendis molestiae reprehenderit enim maiores repudiandae, distinctio deserunt nisi rem ullam ratione? Officiis enim praesentium explicabo nostrum!
+                Maxime voluptate at explicabo iure labore vitae veritatis laboriosam quaerat deserunt, maiores iusto non provident fugiat recusandae distinctio laborum! Necessitatibus quo sint quaerat, non asperiores iusto impedit aliquid excepturi! Explicabo!
+                Amet impedit voluptate, nemo soluta eum et distinctio facere quod fuga. Autem voluptatum facere, nulla magni laboriosam quas eveniet at quia similique. Qui totam sequi nisi voluptas quae quos reiciendis!
               </p>
             </div>
           </div>
@@ -73,7 +85,10 @@ onBeforeMount(async () => {
   object-fit: cover;
   padding: 24px;
   margin: auto;
+  font-family: $primary-font;
+
   .blog {
+    position: relative;
     max-width: $desktop-lower-breakpoint;
     width: 100%;
     margin: 0 auto;
@@ -92,6 +107,39 @@ onBeforeMount(async () => {
       height: 420px;
       border-radius: 8px;
     }
+
+    &__wrapper {
+
+      &__content {
+        width: 100%;
+        padding: 16px;
+        margin-top: -120px;
+        background: rgba( 255, 255, 255, 0.2 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 17.5px );
+        -webkit-backdrop-filter: blur( 17.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
+        &__title {
+          text-align: center;
+          margin-bottom: 24px;
+        }
+
+        &__details {
+          padding: 0 12px;
+          margin-bottom: 56px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title {
+            font-weight: $font-weight-bold;
+          }
+        }
+  
+      }
+    }
+
   }
 }
 </style>
