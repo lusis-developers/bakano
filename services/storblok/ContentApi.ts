@@ -1,8 +1,10 @@
 import StoryblokClient from 'storyblok-js-client';
 
+const config = useRuntimeConfig();
+
 class Storyblok {
   private apiBase: string = 'https://api-us.storyblok.com/v2';
-  private accesToken: string = process.env.STORYBLOK_API_KEY ? process.env.STORYBLOK_API_KEY : '';
+  private accesToken: string = config.public.storyblokKey ? config.public.storyblokKey : '';
   private client: StoryblokClient;
 
   constructor(){

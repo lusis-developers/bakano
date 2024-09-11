@@ -17,6 +17,7 @@ export default defineNuxtConfig({
       templateId: process.env.TEMPLATE_ID,
       publicKey: process.env.PUBLIC_KEY,  
       urlKey: process.env.URL_KEY,
+      storyblokKey: process.env.STORYBLOK_API_KEY,
     }
   },
   alias: {
