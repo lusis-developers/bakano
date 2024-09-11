@@ -6,8 +6,8 @@ export const menuItems: Navigation[] = [
     link: '/chatbots',
   },
   {
-    name: 'Blogs',
-    link: '/blogs',
+    name: 'Blog',
+    link: '/blog',
   },
   // {
   //   name: 'Clientes',

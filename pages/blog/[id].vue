@@ -67,6 +67,9 @@ onBeforeMount(async () => {
                 {{ formattedDate }}
               </p>
             </div>
+            <p class="blog__wrapper__content__description">
+              {{ postDetail.description }}
+            </p>
             <div class="blog__wrapper__content_body">
               <div
                 v-html="content"
@@ -123,15 +126,27 @@ onBeforeMount(async () => {
           margin-bottom: 24px;
         }
 
+        &__description {
+          text-decoration: underline;
+          font-style: italic;
+          margin-bottom: 24px;
+        }
+
         &__details {
           padding: 0 12px;
           margin-bottom: 56px;
           display: flex;
           justify-content: space-between;
           align-items: center;
+
+          
           .title {
             font-weight: $font-weight-bold;
           }
+        }
+        &__title-date,
+        &__title-name {
+          font-size: 1.125rem;
         }
   
       }
