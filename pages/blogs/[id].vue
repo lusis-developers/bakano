@@ -80,9 +80,6 @@ onBeforeMount(async () => {
 
 <style lang="scss" scoped>
 .container {
-  background-image: url('../../assets/images/bg-abstract.png');
-  object-position: center;
-  object-fit: cover;
   padding: 24px;
   margin: auto;
   font-family: $primary-font;
