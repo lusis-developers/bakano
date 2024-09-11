@@ -26,14 +26,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  isMain: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
 });
-
-const displayMain = computed(() => props.isMain ? 'is-main' : '');
 </script>
 
 <template>
@@ -41,8 +34,7 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
     to="/"
     class="wrapper">
     <article
-      class=article
-      :class="displayMain">
+      class=article>
       <figure 
         class="article__figure">
           <img 
@@ -111,9 +103,6 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
       display: grid;
       align-content: center;
     }
-  }
-  .is-main {
-    flex-direction: row;
   }
 }
 
