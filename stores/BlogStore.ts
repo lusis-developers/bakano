@@ -47,16 +47,16 @@ export const useBlogStore = defineStore('BlogStore', {
         this.isLoading = false;
       }
     },
-    async getStoryById(uuid: string): Promise<void> {
+    async getStoryById(uuid: string): Promise<PostContent | null> {
       this.isLoading = true;
       try {
         const response = await storyblok.get(`cdn/stories/blog/${uuid}`, {
           version: 'published',
         });
-        console.log(response.data)
-        // return response.data;
+        return response.data.story.content as PostContent;
       } catch (error) {
         console.error('errorsote: ', error);
+        return null;
       } finally {
         this.isLoading = false;
       }
