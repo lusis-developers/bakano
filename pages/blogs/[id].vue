@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import BlogService from '~/services/BlogService';
+import { richTextResolver } from '@storyblok/richtext'
+
+import { useBlogStore } from '#imports';
 import ReduceDate from '~/utils/ReduceDate'
 
-const postDetail = ref<null | any>(null);
-const isLoading = ref<boolean>(false);
+import type { PostContent } from '~/interfaces/Posts.interface';
 
 useHead({
   htmlAttrs: {
@@ -17,20 +18,23 @@ useHead({
   ],
 });
 
+const blogStore = useBlogStore();
+
+const postDetail = ref<PostContent | null>(null);
 const formattedDate = computed(() => {
   if (postDetail.value) {
-    return ReduceDate(postDetail.value.published_at);
+    return ReduceDate(postDetail.value.date);
   }
   return '';
 });
+const richtext = richTextResolver();
+const content = computed(() => richtext.render(postDetail.value?.content as any));
 
 onBeforeMount(async () => {
-  isLoading.value = true;
-  await BlogService.getPostByUuid(useRoute().params.id as string, postDetail);
-  if(postDetail.value == null){
+  postDetail.value = await blogStore.getStoryById(useRoute().params.id as string);
+  if(postDetail.value === null){
     return useRouter().push('/404');
   }
-  isLoading.value = false;
 });
 </script>
 
@@ -39,192 +43,100 @@ onBeforeMount(async () => {
     <Title>BAKANO | {{ postDetail?.title }}</Title>
   </Head>
   <div 
-    v-if="!isLoading"
+    v-if="postDetail"
     class="container">
       <div class="blog">
-        <div class="blog__author">
-          <h1 class="blog__author__title">
-            {{ postDetail?.title }}
-          </h1>
-          <div class="blog__author__info">
-            <img 
-              :src="postDetail?.authorImage" 
-              alt="author-img" 
-              class="blog__author__info__img">
-            <div class="blog__author__info__paragraphs">
-              <p class="blog__author__info__paragraphs-name">
-                {{ postDetail?.authorName }}
+        <img 
+          :src="postDetail.img[0].filename" 
+          alt="author-img" 
+          class="blog__img">
+        <div class="blog__wrapper">
+          <div class="blog__wrapper__content">
+            <h1 class="blog__wrapper__content__title">
+              {{ postDetail?.title }}
+            </h1>
+            <div class="blog__wrapper__content__details">
+              <p class="blog__wrapper__content__title-name">
+                <span class="title">Autor: </span>
+                {{ postDetail?.authors[0] }}
               </p>
-              <p class="blog__author__info__paragraphs-date">
+              <p class="blog__wrapper__content__title-date">
+                <span class="title">
+                  Fecha de publicación: 
+                </span>
                 {{ formattedDate }}
               </p>
             </div>
+            <div class="blog__wrapper__content_body">
+              <div
+                v-html="content"
+                class="rich-text" />
+            </div>
           </div>
         </div>
-        <div 
-          v-html="postDetail?.html" 
-          class="blog__container" />
       </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  background-color: $white;
-}
-.blog {
-  position: relative;
-  max-width: 80vw;
-  margin: 0 auto;
-  display: flex;
-  gap: 120px;
-  @media (max-width: $desktop-lower-breakpoint) {
-    flex-direction: column;
-    gap: 20px;
-    max-width: 90vw;
-  }
-  &__container {
-    font-family: $secondary-font;
-    width: 60%;
-    margin: 80px auto;
-    @media (max-width: $desktop-lower-breakpoint) {
-      width: 90%;
-      margin: 24px auto;
-    }
-  }
-}
-.blog__author {
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 64px;
-  padding: 70px 40px;
-  border-right: 1px solid $black;
-  @media screen and (max-width: $desktop-lower-breakpoint) {
+  padding: 24px;
+  margin: auto;
+  font-family: $primary-font;
+
+  .blog {
     position: relative;
-    height: auto;
-    top: auto;
+    max-width: $desktop-lower-breakpoint;
     width: 100%;
-    border-right: none;
-    border-bottom: 1px solid $black;
-    padding: 40px 20px;
-  }
-  &__title {
-    font-family: $primary-font;
-    font-size: 2.5rem;
-    color: $black;
-  }
-  &__info {
-    font-family: $secondary-font;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    @media (min-width: $desktop-lower-breakpoint) and (max-width: $desktop-upper-breakpoint) {
-      flex-direction: column;
-      gap: 20px;
-    }
+    margin: 0 auto;
+    padding: 8px;
+    background: rgba( 255, 255, 255, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 19px );
+    -webkit-backdrop-filter: blur( 19px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
     &__img {
-      border-radius: 50%;
-      width: 40%;
-      min-width: 144px;
-      margin: 0;
-      min-height: 144px;
+      width: 100%;
+      object-position: top;
       object-fit: cover;
-      @media (max-width: $desktop-lower-breakpoint) {
-        width: 50%;
-        aspect-ratio: 1/1;
-        max-width: 120px;
-        min-height: auto;
-        min-width: auto;
+      height: 420px;
+      border-radius: 8px;
+    }
+
+    &__wrapper {
+
+      &__content {
+        width: 100%;
+        padding: 16px;
+        margin-top: -120px;
+        background: rgba( 255, 255, 255, 0.2 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 17.5px );
+        -webkit-backdrop-filter: blur( 17.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
+        &__title {
+          text-align: center;
+          margin-bottom: 24px;
+        }
+
+        &__details {
+          padding: 0 12px;
+          margin-bottom: 56px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title {
+            font-weight: $font-weight-bold;
+          }
+        }
+  
       }
     }
+
   }
-}
-.blog__author__info__paragraphs {
-  &-name {
-    font-size: $font-size-normal;
-    margin-bottom: 8px;
-  }
-  &-date {
-    font-size: $font-size-small;
-  }
-}
-:deep(p) {
-  font-size: $font-size-normal;
-  margin-bottom: 20px;
-  @media (max-width: $tablet-upper-breakpoint) {
-    font-size: $font-size-small;
-  }
-}
-:deep(h3) {
-  font-size: $font-size-large;
-  color: $black;
-}
-:deep(pre) {
-  overflow-x: auto;
-  margin: 20px 0;
-  padding: 20px;
-  color: #e5eff5;
-  font-size: .875rem;
-  line-height: 1.6em;
-  background: #2a3644;
-  border-radius: 5px;
-  @media (max-width: $tablet-upper-breakpoint) {
-    font-size: $font-size-small;
-  }
-}
-:deep(a) {
-  color: $black;
-  font-weight: $font-weight-bold;
-}
-:deep(code, pre) {
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  tab-size: 4;
-}
-:deep(figcaption, cite) {
-  color: $black;
-  display: block;
-  font-feature-settings: "liga" on, "lnum" on;
-  font-size: .875rem;
-  font-style: normal;
-  font-weight: $font-weight-bold;
-  letter-spacing: 0;
-  line-height: 1.4;
-  margin-top: .625rem;
-  margin-bottom: 1rem;
-  outline: 0;
-  text-align: center;
-  width: 100%;
-}
-:deep(img) {
-  max-width: 100%;
-  height: auto;
-  margin: 20px auto;
-  aspect-ratio: auto 1386 / 1000;
-  display: block;
-}
-:deep(blockquote:not(.pullquote)) {
-  border-left: .25rem solid;
-  font-size: 1.35rem;
-  line-height: 1.5;
-  margin: 2rem 0 2rem -1.5rem;
-  padding-bottom: .125rem;
-  padding-left: 1.25rem;
-}
-:deep(video){
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-}
-:deep(.kg-video-overlay), :deep(.kg-video-hide), :deep(.kg-embed-card), :deep(.story-social-cta){
-  display: none;
 }
 </style>
