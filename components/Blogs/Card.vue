@@ -26,7 +26,14 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  isMain: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
 });
+
+const displayMain = computed(() => props.isMain ? 'is-main' : '');
 </script>
 
 <template>
@@ -34,7 +41,8 @@ const props = defineProps({
     to="/"
     class="wrapper">
     <article
-      class=article>
+      class=article
+      :class="displayMain">
       <figure 
         class="article__figure">
           <img 
@@ -70,6 +78,7 @@ const props = defineProps({
   text-decoration: none;
   color: $black;
   font-family: $primary-font;
+  width: 100%;
   
   .article {
     width: 100%;
@@ -116,6 +125,41 @@ const props = defineProps({
           display: flex;
           justify-content: space-between;
           align-items: center;
+        }
+      }
+    }
+  }
+  .is-main {
+    width: 100%;
+    max-width: $tablet-upper-breakpoint;
+    flex-direction: row;
+    height: 100%;
+
+    .article {
+      &__figure {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 8px;
+        
+        .figure__img {
+          border-radius: 8px 0 0 8px; 
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+      &__content {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 12px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+
+        &__description {
+          // margin: 48px 0 32px 0; 
         }
       }
     }

@@ -31,14 +31,14 @@ onMounted(async () => {
     <template v-else>
       <div class="container-posts">
         <div class="full-width">
-          <!-- <BlogsCard
-            :id="posts[0]._uuid"
+          <BlogsCard
+            :id="posts[0]._uid"
             :title="posts[0].title"
             :description="posts[0].description"
-            :authors="posts[0].authors"
+            :authors="posts[0].authors[0]"
             :img="posts[0].img[0].filename"
             :date="posts[0].date"
-            :isMain="true" /> -->
+            :isMain="true" />
         </div>
         <BlogsCard
           v-for="(post, index) in posts"
