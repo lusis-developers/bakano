@@ -58,16 +58,9 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
           {{ description }}
         </p>
         <div class="article__author">
-          <div 
-            class="article__author__link">
-              <!-- <img 
-                :src="authorImg" 
-                :alt="authorName+' foto'" 
-                class="article__author__img"> -->
-          </div>
           <div class="article__author__content">
             <p class="article__author__content-name">
-              {{ authors }}
+              Autor: {{ authors }}
             </p>
             <p class="article__author__content-date">
               {{ ReduceDate(date ?? '') }}

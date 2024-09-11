@@ -7,7 +7,7 @@ export default function modifyDate(date: string) {
     year: 'numeric'
   };
   
-  const formattedDate = dateObject.toLocaleDateString('en-US', options);
+  const formattedDate = dateObject.toLocaleDateString('es-ES', options);
   
   return formattedDate;
 }
