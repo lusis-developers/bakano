@@ -1,6 +1,6 @@
 import Storyblok from "~/services/storblok/ContentApi";
 
-import type { PostContent } from "~/interfaces/post.interface";
+import type { PostContent } from "~/interfaces/Posts.interface";
 
 const storyblok = new Storyblok();
 
