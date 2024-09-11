@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ReduceDate from '~/utils/ReduceDate'
+import ReduceDate from '~/utils/ReduceDate';
 
 const props = defineProps({
   title: {
@@ -32,8 +32,6 @@ const props = defineProps({
     default: false
   }
 });
-
-const displayMain = computed(() => props.isMain ? 'is-main' : '');
 </script>
 
 <template>
@@ -41,31 +39,23 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
     to="/"
     class="wrapper">
     <article
-      class=article
-      :class="displayMain">
-      <figure 
-        class="article__figure">
-          <img 
-            :src="img" 
-            alt="blog-img" 
-            class="figure__img">
+      :class="['article', { 'is-main': props.isMain }]">
+      <figure class="article__figure">
+        <img
+          :src="img"
+          alt="blog-img"
+          class="figure__img">
       </figure>
       <div class="article__content">
-        <h2 class="article__content__title">
+        <h2
+          class="article__content__title">
           {{ title }}
         </h2>
-        <p class="article__content__description">
-          {{ description }}
-        </p>
+        <p class="article__content__description">{{ description }}</p>
         <div class="article__content__author">
           <div class="author">
-            <!-- TODO: display image when needed -->
-            <p class="author-name">
-              Autor: {{ authors }}
-            </p>
-            <p class="author-date">
-              {{ ReduceDate(date ?? '') }}
-            </p>
+            <p class="author-name">Autor: {{ authors }}</p>
+            <p class="author-date">{{ ReduceDate(date) }}</p>
           </div>
         </div>
       </div>
@@ -79,7 +69,7 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
   color: $black;
   font-family: $primary-font;
   width: 100%;
-  
+
   .article {
     width: 100%;
     margin: auto;
@@ -90,35 +80,33 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba( 255, 255, 255, 0.1 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 16px );
-    -webkit-backdrop-filter: blur( 16px );
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(16px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    
-  
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
     &__figure {
       width: 100%;
       border-radius: 8px;
-      
+
       .figure__img {
-        border-radius: 8px 8px 0 0; 
+        border-radius: 8px 8px 0 0;
         object-fit: cover;
         width: 100%;
       }
     }
-  
+
     &__content {
       width: 100%;
       margin: 12px auto;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       align-content: center;
 
       &__description {
         margin: 8px 0;
         display: -webkit-box;
-        line-clamp: 3;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -126,7 +114,6 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
       }
 
       &__author {
-
         .author {
           display: flex;
           justify-content: space-between;
@@ -135,41 +122,36 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
       }
     }
   }
+
   .is-main {
-    width: 100%;
     max-width: $tablet-upper-breakpoint;
     flex-direction: row;
     height: 100%;
 
     .article {
+      display: flex;
+      flex: 1;
+
       &__figure {
-        width: 100%;
         max-width: 280px;
         border-radius: 8px;
-        
+
         .figure__img {
-          border-radius: 8px 0 0 8px; 
+          border-radius: 8px 0 0 8px;
           object-fit: cover;
           width: 100%;
         }
       }
+
       &__content {
-        width: 100%;
         height: 100%;
-        margin: 0;
+        flex: 1;
         padding: 12px;
         display: flex;
-        flex: 1;
         flex-direction: column;
         justify-content: space-evenly;
-
-
-        &__description {
-          // margin: 48px 0 32px 0; 
-        }
       }
     }
   }
 }
-
 </style>
