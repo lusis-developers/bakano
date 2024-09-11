@@ -117,6 +117,12 @@ const displayMain = computed(() => props.isMain ? 'is-main' : '');
 
       &__description {
         margin: 8px 0;
+        display: -webkit-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       &__author {
