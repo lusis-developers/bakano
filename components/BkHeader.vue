@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import blackLogo from '@/assets/images/bakano-logotipo-negro.webp'
 
 import { menuItems } from '@/utils/menuItems';
