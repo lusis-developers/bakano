@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import { richTextResolver } from '@storyblok/richtext'
+
 import { useBlogStore } from '#imports';
 import ReduceDate from '~/utils/ReduceDate'
 
 import type { PostContent } from '~/interfaces/Posts.interface';
-import RichTextResolver from 'storyblok-js-client/richTextResolver';
-
-const postDetail = ref<PostContent | null>(null);
 
 useHead({
   htmlAttrs: {
@@ -21,13 +20,14 @@ useHead({
 
 const blogStore = useBlogStore();
 
+const postDetail = ref<PostContent | null>(null);
 const formattedDate = computed(() => {
   if (postDetail.value) {
     return ReduceDate(postDetail.value.date);
   }
   return '';
 });
-const richtext = new RichTextResolver();
+const richtext = richTextResolver();
 const content = computed(() => richtext.render(postDetail.value?.content as any));
 
 onBeforeMount(async () => {
