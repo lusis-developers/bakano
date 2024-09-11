@@ -40,7 +40,7 @@ const props = defineProps({
 
 <template>
   <nuxt-link
-    :to="`/blogs/${slug}`"
+    :to="`/blog/${slug}`"
     class="wrapper">
     <article
       :class="['article', { 'is-main': props.isMain }]">
