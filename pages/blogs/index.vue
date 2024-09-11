@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useBlogStore from '~/stores/BogStore';
+import useBlogStore from '~/stores/BlogStore';
 
 useHead({
   title: 'BAKANO | Blogs',
@@ -16,6 +16,8 @@ useHead({
 
 const blogStore = useBlogStore();
 
+const posts = computed(() => blogStore.blogs);
+
 onMounted(async () => {
   await blogStore.getStories();
 })
@@ -23,21 +25,68 @@ onMounted(async () => {
 
 <template>
   <div class="container">
-    <!-- <BkBlogs /> -->  
-
-    <BkBlogsModel  
-      id="1" 
-      title="titulo"
-      img="https://i.pinimg.com/236x/d4/60/18/d46018b5dcd5105a158cfa9b24e2f329.jpg" 
-      paragraph="parrafo" 
-      authorImg="https://i.pinimg.com/236x/bb/eb/a6/bbeba63f548807db592804ece5a4dde8.jpg"
-      authorName="diego reyes" 
-      date="ayer" />
+    <template v-if="!posts.length">
+      cargando
+    </template>
+    <template v-else>
+      <div class="container-posts">
+        <div class="full-width">
+          <!-- <BlogsCard
+            :id="posts[0]._uuid"
+            :title="posts[0].title"
+            :description="posts[0].description"
+            :authors="posts[0].authors"
+            :img="posts[0].img[0].filename"
+            :date="posts[0].date"
+            :isMain="true" /> -->
+        </div>
+        <BlogsCard
+          v-for="(post, index) in posts"
+          :key="index"
+          :id="post._uuid"
+          :title="post.title"
+          :description="post.description"
+          :authors="post.authors"
+          :img="post.img[0].filename"
+          :date="post.date" />
+      </div>
+    </template>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.container{
+.container {
   min-height: 100vh;
+  background-image: url('../../assets//images/cool-background.svg');
+  background-position: center;
+  background-size: cover;
+
+  &-posts {
+    padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+
+    .full-width {
+      grid-column: span 3;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      .full-width {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+
+      .full-width {
+        grid-column: span 1;
+      }
+    }
+  }
+
 }
 </style>

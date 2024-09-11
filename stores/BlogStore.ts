@@ -27,14 +27,13 @@ export const useBlogStore = defineStore('BlogStore', {
     async getStories(): Promise<void> {
       this.isLoading = true;
       try {
-        console.log('inicio de obtener blogs')
         const response = await storyblok.get('cdn/stories', {
           version: 'published',
           starts_with: 'blog',
           page: this.page,
           per_page: this.per_page
         });
-        console.log(response)
+        this.blogs = response.data.stories.map((post: PostContent) => post.content);
       } catch (error) {
         console.error('errorsote: ', error);
       } finally {

@@ -12,5 +12,11 @@ export interface PostContent {
   img: PostImage[],
   title: string,
   content: string,
-  _uid: string,
+  _uuid: string,
+}
+
+export interface PostResponse {
+  content: PostContent,
+  perPage: number,
+  total: number,
 }

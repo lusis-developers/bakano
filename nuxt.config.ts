@@ -43,5 +43,8 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  // plugins: [
+  //   '@/plugins/richTextRenderer.ts'
+  // ],
 })
