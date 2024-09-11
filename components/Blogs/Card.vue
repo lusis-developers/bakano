@@ -31,7 +31,7 @@ const props = defineProps({
     required: false,
     default: false
   },
-  uuid: {
+  slug: {
     type: String,
     required: true
   }
@@ -40,7 +40,7 @@ const props = defineProps({
 
 <template>
   <nuxt-link
-    :to="`/blogs/${uuid}`"
+    :to="`/blogs/${slug}`"
     class="wrapper">
     <article
       :class="['article', { 'is-main': props.isMain }]">

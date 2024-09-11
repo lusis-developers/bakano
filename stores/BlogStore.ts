@@ -47,15 +47,14 @@ export const useBlogStore = defineStore('BlogStore', {
         this.isLoading = false;
       }
     },
-    async getStoryById(slug: string): Promise<void> {
+    async getStoryById(uuid: string): Promise<void> {
       this.isLoading = true;
       try {
-        const response = await storyblok.get('cdn/stories', {
+        const response = await storyblok.get(`cdn/stories/blog/${uuid}`, {
           version: 'published',
-          starts_with: 'blog',
-          slug: slug
         });
-        return response.data;
+        console.log(response.data)
+        // return response.data;
       } catch (error) {
         console.error('errorsote: ', error);
       } finally {

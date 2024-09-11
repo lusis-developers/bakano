@@ -2,8 +2,9 @@
 import { useBlogStore } from '#imports';
 import ReduceDate from '~/utils/ReduceDate'
 
-const postDetail = ref<null | any>(null);
-const isLoading = ref<boolean>(false);
+import type { PostContent } from '~/interfaces/Posts.interface';
+
+const postDetail = ref<PostContent | null>(null);
 
 useHead({
   htmlAttrs: {
@@ -27,12 +28,10 @@ const formattedDate = computed(() => {
 });
 
 onBeforeMount(async () => {
-  isLoading.value = true;
-  // await blogStore.getPostByUuid(useRoute().params.id as string, postDetail);
+  await blogStore.getStoryById(useRoute().params.id as string);
   // if(postDetail.value == null){
   //   return useRouter().push('/404');
   // }
-  isLoading.value = false;
 });
 </script>
 
@@ -41,7 +40,7 @@ onBeforeMount(async () => {
     <Title>BAKANO | {{ postDetail?.title }}</Title>
   </Head>
   <div 
-    v-if="!isLoading"
+    v-if="!false"
     class="container">
       <div class="blog">
         <div class="blog__author">

@@ -33,7 +33,7 @@ onMounted(async () => {
         <div class="full-width">
           <BlogsCard
             :id="posts[0].content._uid"
-            :uuid="posts[0].uuid"
+            :slug="posts[0].slug"
             :title="posts[0].content.title"
             :description="posts[0].content.description"
             :authors="posts[0].content.authors[0]"
@@ -45,7 +45,7 @@ onMounted(async () => {
           v-for="(post, index) in posts"
           :key="index"
           :id="post.content._uid"
-          :uuid="post.uuid"
+          :slug="post.slug"
           :title="post.content.title"
           :description="post.content.description"
           :authors="post.content.authors[0]"
