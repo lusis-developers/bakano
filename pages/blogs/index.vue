@@ -43,10 +43,10 @@ onMounted(async () => {
         <BlogsCard
           v-for="(post, index) in posts"
           :key="index"
-          :id="post._uuid"
+          :id="post._uid"
           :title="post.title"
           :description="post.description"
-          :authors="post.authors"
+          :authors="post.authors[0]"
           :img="post.img[0].filename"
           :date="post.date" />
       </div>

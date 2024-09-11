@@ -46,15 +46,16 @@ const props = defineProps({
         <h2 class="article__content__title">
           {{ title }}
         </h2>
-        <p class="article__content__paragraph">
+        <p class="article__content__description">
           {{ description }}
         </p>
-        <div class="article__author">
-          <div class="article__author__content">
-            <p class="article__author__content-name">
+        <div class="article__content__author">
+          <div class="author">
+            <!-- TODO: display image when needed -->
+            <p class="author-name">
               Autor: {{ authors }}
             </p>
-            <p class="article__author__content-date">
+            <p class="author-date">
               {{ ReduceDate(date ?? '') }}
             </p>
           </div>
@@ -72,16 +73,18 @@ const props = defineProps({
   
   .article {
     width: 100%;
+    margin: auto;
+    padding: 4px;
     max-width: 320px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba( 255, 255, 255, 0.05 );
+    background: rgba( 255, 255, 255, 0.1 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 18px );
-    -webkit-backdrop-filter: blur( 18px );
+    backdrop-filter: blur( 16px );
+    -webkit-backdrop-filter: blur( 16px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     
@@ -98,10 +101,23 @@ const props = defineProps({
     }
   
     &__content {
-      padding: 12px;
       width: 100%;
+      margin: 12px auto;
       display: grid;
       align-content: center;
+
+      &__description {
+        margin: 8px 0;
+      }
+
+      &__author {
+
+        .author {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
     }
   }
 }

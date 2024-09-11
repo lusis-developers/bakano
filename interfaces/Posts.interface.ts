@@ -12,7 +12,7 @@ export interface PostContent {
   img: PostImage[],
   title: string,
   content: string,
-  _uuid: string,
+  _uid: string,
 }
 
 export interface PostResponse {
