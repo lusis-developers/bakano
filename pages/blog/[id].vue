@@ -27,7 +27,12 @@ const formattedDate = computed(() => {
   }
   return '';
 });
-const richtext = richTextResolver();
+const richtext = richTextResolver({
+  optimizeImages: {
+    width: 320,
+    height: 320
+  }
+});
 const content = computed(() => richtext.render(postDetail.value?.content as any));
 
 onBeforeMount(async () => {
@@ -70,7 +75,7 @@ onBeforeMount(async () => {
             <p class="blog__wrapper__content__description">
               {{ postDetail.description }}
             </p>
-            <div class="blog__wrapper__content_body">
+            <div class="blog__wrapper__content__body">
               <div
                 v-html="content"
                 class="rich-text" />
@@ -130,6 +135,7 @@ onBeforeMount(async () => {
           text-decoration: underline;
           font-style: italic;
           margin-bottom: 24px;
+          line-height: 1.6;
         }
 
         &__details {
@@ -148,7 +154,9 @@ onBeforeMount(async () => {
         &__title-name {
           font-size: 1.125rem;
         }
-  
+        &__body {
+          line-height: 2;
+        }
       }
     }
 
