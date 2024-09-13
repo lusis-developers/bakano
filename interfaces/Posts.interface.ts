@@ -1,3 +1,5 @@
+import type { ISbRichtext } from "storyblok-js-client"
+
 export interface PostImage {
   alt: string,
   name: string,
@@ -11,7 +13,7 @@ export interface PostContent {
   description: string,
   img: PostImage[],
   title: string,
-  content: string,
+  content: ISbRichtext,
   _uid: string,
 }
 
