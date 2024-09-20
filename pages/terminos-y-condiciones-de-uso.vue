@@ -10,9 +10,6 @@ function toggleMenu():void {
 
 <template>
   <div>
-    <LandingPageHeader 
-      :colorLogo="menuOpen" 
-      @toggle-menu="toggleMenu" />
     <LandingPageMenu 
       :isVisible="menuOpen" 
       @close-menu="toggleMenu" />
@@ -22,7 +19,6 @@ function toggleMenu():void {
       </h1>
       <BkTerms />
     </div>
-    <LandingPageBkFooter />
   </div>
 </template>
 
