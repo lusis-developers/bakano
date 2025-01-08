@@ -12,11 +12,11 @@ function openCloseMenu(): void {
 
 <template>
   <div>
-    <BkHeader @toggle-menu="openCloseMenu" />
+    <!-- <BkHeader @toggle-menu="openCloseMenu" /> -->
     <slot />
-    <BkFooter />
-    <BkMenu
+    <!-- <BkFooter /> -->
+    <!-- <BkMenu
       :isVisible="isMenuOpen"
-      @closeMenu="openCloseMenu" />
+      @closeMenu="openCloseMenu" /> -->
   </div>
 </template>
