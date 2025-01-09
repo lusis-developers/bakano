@@ -5,16 +5,18 @@ import Results from '@/components/Main/Results.vue';
 import Services from '@/components/Main/Services.vue';
 import Experience from '@/components/Main/Experience.vue';
 import CustomerTarget from '~/components/Main/CustomerTarget.vue';
+import BuildInProgress from '~/components/UnderConstruction/index.vue'
 </script>
 
 <template>
   <div class="main">
-    <Hero />
+    <!-- <Hero />
     <Results />
     <CustomerTarget />
     <Experience />
     <Cta />
-    <Services />
+    <Services /> -->
+    <BuildInProgress/>
   </div>
 </template>
 
